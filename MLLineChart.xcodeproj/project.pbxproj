@@ -31,10 +31,14 @@
 		D07EC90E210F378C00822929 /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC905210F378C00822929 /* MLLinearScale.swift */; };
 		D07EC911210F378C00822929 /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC905210F378C00822929 /* MLLinearScale.swift */; };
 		D07EC912210F378C00822929 /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC905210F378C00822929 /* MLLinearScale.swift */; };
-		D07EC915210F3CF200822929 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC914210F3CF200822929 /* UIKit.framework */; };
-		D07EC917210F3CFD00822929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC916210F3CFD00822929 /* QuartzCore.framework */; };
 		D07EC91B210F3D6900822929 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91A210F3D6900822929 /* UIKit.framework */; };
 		D07EC91D210F3D7100822929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91C210F3D7100822929 /* QuartzCore.framework */; };
+		D07EC91E210F40CE00822929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91C210F3D7100822929 /* QuartzCore.framework */; };
+		D07EC91F210F40CF00822929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91C210F3D7100822929 /* QuartzCore.framework */; };
+		D07EC920210F40D100822929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91C210F3D7100822929 /* QuartzCore.framework */; };
+		D07EC921210F40D800822929 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91A210F3D6900822929 /* UIKit.framework */; };
+		D07EC922210F40D900822929 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91A210F3D6900822929 /* UIKit.framework */; };
+		D07EC923210F40D900822929 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91A210F3D6900822929 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,9 +105,6 @@
 		35B742351F82A61E00829B21 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		D07EC904210F378B00822929 /* MLLineChart+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLLineChart+Helpers.swift"; sourceTree = "<group>"; };
 		D07EC905210F378C00822929 /* MLLinearScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLLinearScale.swift; sourceTree = "<group>"; };
-		D07EC914210F3CF200822929 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		D07EC916210F3CFD00822929 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		D07EC918210F3D2400822929 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		D07EC91A210F3D6900822929 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.4.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D07EC91C210F3D7100822929 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -113,8 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D07EC917210F3CFD00822929 /* QuartzCore.framework in Frameworks */,
-				D07EC915210F3CF200822929 /* UIKit.framework in Frameworks */,
+				D07EC921210F40D800822929 /* UIKit.framework in Frameworks */,
+				D07EC91E210F40CE00822929 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,9 +132,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07EC91F210F40CF00822929 /* QuartzCore.framework in Frameworks */,
 				35B742311F82A5EC00829B21 /* Nimble.framework in Frameworks */,
 				35B742321F82A5EC00829B21 /* Quick.framework in Frameworks */,
 				3549BB661DA38ADB00C63030 /* MLLineChart.framework in Frameworks */,
+				D07EC922210F40D900822929 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +144,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07EC920210F40D100822929 /* QuartzCore.framework in Frameworks */,
 				354AD5861F8A659800B18FAE /* Quick.framework in Frameworks */,
 				354AD5871F8A659800B18FAE /* Nimble.framework in Frameworks */,
 				3549BB751DA38AEF00C63030 /* MLLineChart.framework in Frameworks */,
+				D07EC923210F40D900822929 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,9 +218,6 @@
 			children = (
 				D07EC91C210F3D7100822929 /* QuartzCore.framework */,
 				D07EC91A210F3D6900822929 /* UIKit.framework */,
-				D07EC916210F3CFD00822929 /* QuartzCore.framework */,
-				D07EC918210F3D2400822929 /* QuartzCore.framework */,
-				D07EC914210F3CF200822929 /* UIKit.framework */,
 				35B742341F82A61D00829B21 /* Nimble.framework */,
 				35B742351F82A61E00829B21 /* Quick.framework */,
 				35B7422D1F82A5DF00829B21 /* Nimble.framework */,
