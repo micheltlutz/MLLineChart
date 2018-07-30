@@ -73,6 +73,14 @@ open class MLLineChart: UIView {
         public var font: UIFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
         public var textColor: UIColor = .black
         public var textAlignment: NSTextAlignment = .center
+        
+        public init(visible: Bool = true, values: [String] = [], font: UIFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2), textColor: UIColor = .black, textAlignment: NSTextAlignment = .center) {
+            self.visible = visible
+            self.values = values
+            self.font = font
+            self.textColor = textColor
+            self.textAlignment = textAlignment
+        }
     }
     
     public struct Grid {
@@ -80,6 +88,12 @@ open class MLLineChart: UIView {
         public var count: CGFloat = 10
         // #eeeeee
         public var color: UIColor = UIColor(red: 238/255.0, green: 238/255.0, blue: 238/255.0, alpha: 1)
+        
+        public init(visible: Bool = true, count: CGFloat = 10, color: UIColor = UIColor(red: 238/255.0, green: 238/255.0, blue: 238/255.0, alpha: 1)){
+            self.visible = visible
+            self.count = count
+            self.color = color
+        }
     }
     
     public struct Axis {
@@ -87,6 +101,12 @@ open class MLLineChart: UIView {
         // #607d8b
         public var color: UIColor = UIColor(red: 96/255.0, green: 125/255.0, blue: 139/255.0, alpha: 1)
         public var inset: CGFloat = 15
+        
+        public init(visible: Bool = true, color: UIColor = UIColor(red: 96/255.0, green: 125/255.0, blue: 139/255.0, alpha: 1), inset: CGFloat = 15) {
+            self.visible = visible
+            self.color = color
+            self.inset = inset
+        }
     }
     
     public struct Coordinate {
