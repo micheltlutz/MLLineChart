@@ -33,19 +33,33 @@ public struct MLConfigAxis {
     var by: Int? = 1
     var visible: Bool? = true
     
+    public init(from: Int, to: Int, by: Int? = 1, visible: Bool? = true){
+        self.from = from
+        self.to = to
+        self.by = by
+        self.visible = visible
+    }
     func range() -> [Int] {
-        
         return Array(from...to)
     }
 }
 public struct MLConfigAxisXY {
     var xAxisConfig: MLConfigAxis
     var yAxisConfig: MLConfigAxis
+    
+    public init(xAxisConfig: MLConfigAxis, yAxisConfig: MLConfigAxis) {
+        self.xAxisConfig = xAxisConfig
+        self.yAxisConfig = yAxisConfig
+    }
 }
 //
 public struct MLConfigLabelsXY {
     var xLabels: MLLineChart.Labels
     var yLabels: MLLineChart.Labels
+    public init(xLabels: MLLineChart.Labels, yLabels: MLLineChart.Labels) {
+        self.xLabels = xLabels
+        self.yLabels = yLabels
+    }
 }
 
 /**
