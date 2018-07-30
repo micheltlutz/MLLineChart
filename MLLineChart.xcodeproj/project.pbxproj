@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F6BABCC6220001B74B2ADDB /* Pods_MLLineChart_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88994AB34BE91007218B450 /* Pods_MLLineChart_iOS.framework */; };
-		135DB8C9FA218CD1F810E26F /* Pods_MLLineChart_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9751CB99A34E75BA22BF9 /* Pods_MLLineChart_tvOS.framework */; };
 		3549BB501DA38A2000C63030 /* MLLineChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* MLLineChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB511DA38A2000C63030 /* MLLineChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* MLLineChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB661DA38ADB00C63030 /* MLLineChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB211DA389CD00C63030 /* MLLineChart.framework */; };
@@ -124,7 +122,6 @@
 			files = (
 				D07EC921210F40D800822929 /* UIKit.framework in Frameworks */,
 				D07EC91E210F40CE00822929 /* QuartzCore.framework in Frameworks */,
-				0F6BABCC6220001B74B2ADDB /* Pods_MLLineChart_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +131,6 @@
 			files = (
 				D07EC91D210F3D7100822929 /* QuartzCore.framework in Frameworks */,
 				D07EC91B210F3D6900822929 /* UIKit.framework in Frameworks */,
-				135DB8C9FA218CD1F810E26F /* Pods_MLLineChart_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
