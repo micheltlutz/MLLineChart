@@ -1,5 +1,10 @@
 # MLLineChart
 
+<p align="center">
+ <img width="300" height="300"src="http://micheltlutz.me/imagens/projetos/MLLineChart/logoML_BETA.png">
+</p>
+
+
 [![Platforms](https://img.shields.io/cocoapods/p/MLLineChart.svg)](https://cocoapods.org/pods/MLLineChart)
 [![License](https://img.shields.io/cocoapods/l/MLLineChart.svg)](https://raw.githubusercontent.com/micheltlutz/MLLineChart/master/LICENSE)
 
