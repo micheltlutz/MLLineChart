@@ -250,8 +250,6 @@ open class MLLineChart: UIView {
         }
     }
     
-    
-    
     /**
      * Get y value for given x value. Or return zero or maximum value.
      */
