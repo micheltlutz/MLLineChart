@@ -5,14 +5,14 @@
 </p>
 
 
-[![Platforms](https://img.shields.io/cocoapods/p/MLLineChart.svg)](https://cocoapods.org/pods/MLLineChart)
-[![License](https://img.shields.io/cocoapods/l/MLLineChart.svg)](https://raw.githubusercontent.com/micheltlutz/MLLineChart/master/LICENSE)
+[![Swift 4.1](https://img.shields.io/badge/swift-4.1-brightgreen.svg)](https://swift.org)
+
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/micheltlutz/MLLineChart/master/LICENSE)
 
 [![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/MLLineChart.svg)](https://cocoapods.org/pods/MLLineChart)
 
-[![Travis](https://img.shields.io/travis/micheltlutz/MLLineChart/master.svg)](https://travis-ci.org/micheltlutz/MLLineChart/branches)
 [![SwiftFrameworkTemplate](https://img.shields.io/badge/SwiftFramework-Template-red.svg)](http://github.com/RahulKatariya/SwiftFrameworkTemplate)
 
 A Simple Line Chart Lib
@@ -24,10 +24,19 @@ A Simple Line Chart Lib
 
 ## Requirements
 
-- iOS 8.0+ / Mac OS X 10.10+ / tvOS 9.0+ / watchOS 2.0+
+- iOS 8.0+ / tvOS 9.0+ 
 - Xcode 9.0+
 
 ## Installation
+
+### CocoaPods
+
+Add the following line to your Podfile:
+
+    pod "MLLineChart"
+
+
+``` $ pod install ```
 
 ### Dependency Managers
 <details>
@@ -153,6 +162,86 @@ $ git submodule update --init --recursive
 
 ## Usage
 
+```swift
+import MLLineChart
+
+class ViewController: UIViewController {
+    private var lineChart: MLLineChart!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupChart()
+        
+        view.addSubview(lineChart)
+        lineChart.translatesAutoresizingMaskIntoConstraints = false
+        lineChart.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        lineChart.heightAnchor.constraint(equalToConstant: 260).isActive = true
+        lineChart.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        lineChart.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    private func setupChart() {
+        lineChart = MLLineChart()
+        lineChart.animation.enabled = true
+        lineChart.area = false
+        lineChart.dots.visible = false
+        lineChart.x.grid.count = 31
+        lineChart.y.grid.count = 7
+        
+        let configAxis = MLConfigAxisXY(
+            xAxisConfig: MLConfigAxis(from: 1, to: 31, by: 5, visible: false),
+            yAxisConfig: MLConfigAxis(from: 7, to: 1, by: 1, visible: false)
+        )
+
+        var xlabels = MLLineChart.Labels()
+        xlabels.values = ["1", "5", "10", "15", "20", "25", "30"]
+        xlabels.visible = true
+        xlabels.textAlignment = .right
+        
+        var ylabels = MLLineChart.Labels()
+        ylabels.values = ["1", "2", "3", "4", "5", "6", "7"]
+        ylabels.visible = true
+        ylabels.textAlignment = .center
+        
+        let labelsConfig = MLConfigLabelsXY(xLabels: xlabels, yLabels: ylabels)
+        
+        lineChart.configAxis = configAxis
+        lineChart.configLabels = labelsConfig
+        lineChart.y.grid.visible = false
+        lineChart.x.grid.visible = false
+//        let colorsLines: [UIColor] = [.blue, .blue, .green, .green, .green, .brown, .green, .green, UIColor.cyan]
+//        lineChart.lineColors = colorsLines
+        let dataItens: [CGFloat] = convertValToChart([1, 1, 2, 2, 2, 6, 2, 2, 3])
+        lineChart.addLine(dataItens)
+    }
+    
+    func convertValToChart(_ data: [Int]) -> [CGFloat]{
+        var dataChart: [CGFloat] = []
+        for item in data {
+            switch item {
+            case 7:
+                dataChart.append(0)
+            case 6:
+                dataChart.append(1)
+            case 5:
+                dataChart.append(2)
+            case 4:
+                dataChart.append(3)
+            case 3:
+                dataChart.append(4)
+            case 2:
+                dataChart.append(5)
+            case 1:
+                dataChart.append(6)
+            default:
+                dataChart.append(6)
+            }
+        }
+        return dataChart
+    }
+}
+
+```
+
 ## Contributing
 
 Issues and pull requests are welcome!
@@ -160,6 +249,8 @@ Issues and pull requests are welcome!
 ## Author
 
 Michel Anderson Lutz Teixeira [@michel_lutz](https://twitter.com/michel_lutz)
+
+[My Site](http://micheltlutz.me)
 
 ## License
 
