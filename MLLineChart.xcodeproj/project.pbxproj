@@ -7,46 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F6BABCC6220001B74B2ADDB /* Pods_MLLineChart_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88994AB34BE91007218B450 /* Pods_MLLineChart_iOS.framework */; };
+		135DB8C9FA218CD1F810E26F /* Pods_MLLineChart_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9751CB99A34E75BA22BF9 /* Pods_MLLineChart_tvOS.framework */; };
 		3549BB501DA38A2000C63030 /* MLLineChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* MLLineChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB511DA38A2000C63030 /* MLLineChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* MLLineChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3549BB521DA38A2100C63030 /* MLLineChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* MLLineChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3549BB531DA38A2200C63030 /* MLLineChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* MLLineChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB661DA38ADB00C63030 /* MLLineChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB211DA389CD00C63030 /* MLLineChart.framework */; };
 		3549BB751DA38AEF00C63030 /* MLLineChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB481DA389F300C63030 /* MLLineChart.framework */; };
-		3549BB841DA38B0000C63030 /* MLLineChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB3B1DA389E800C63030 /* MLLineChart.framework */; };
 		3549BB8B1DA38C0A00C63030 /* MLLineChartSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BB8A1DA38C0A00C63030 /* MLLineChartSpec.swift */; };
-		3549BB8C1DA38C0A00C63030 /* MLLineChartSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BB8A1DA38C0A00C63030 /* MLLineChartSpec.swift */; };
 		3549BB8D1DA38C0A00C63030 /* MLLineChartSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BB8A1DA38C0A00C63030 /* MLLineChartSpec.swift */; };
 		354AD5861F8A659800B18FAE /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354AD5841F8A659800B18FAE /* Quick.framework */; };
 		354AD5871F8A659800B18FAE /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354AD5851F8A659800B18FAE /* Nimble.framework */; };
 		354AD5881F8A65B500B18FAE /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 354AD5851F8A659800B18FAE /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		354AD5891F8A65B500B18FAE /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 354AD5841F8A659800B18FAE /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		359649031FB18CC000FC7ADC /* MLLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359649021FB18CBF00FC7ADC /* MLLineChart.swift */; };
-		359649041FB18CC000FC7ADC /* MLLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359649021FB18CBF00FC7ADC /* MLLineChart.swift */; };
 		359649051FB18CC000FC7ADC /* MLLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359649021FB18CBF00FC7ADC /* MLLineChart.swift */; };
-		359649061FB18CC000FC7ADC /* MLLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359649021FB18CBF00FC7ADC /* MLLineChart.swift */; };
 		35B7422F1F82A5E000829B21 /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7422D1F82A5DF00829B21 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35B742301F82A5E000829B21 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7422E1F82A5E000829B21 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35B742311F82A5EC00829B21 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7422D1F82A5DF00829B21 /* Nimble.framework */; };
 		35B742321F82A5EC00829B21 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7422E1F82A5E000829B21 /* Quick.framework */; };
-		35B742361F82A61E00829B21 /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 35B742341F82A61D00829B21 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		35B742371F82A61E00829B21 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 35B742351F82A61E00829B21 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		35B742381F82A62900829B21 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B742341F82A61D00829B21 /* Nimble.framework */; };
-		35B742391F82A62900829B21 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B742351F82A61E00829B21 /* Quick.framework */; };
 		D07EC906210F378C00822929 /* MLLineChart+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC904210F378B00822929 /* MLLineChart+Helpers.swift */; };
 		D07EC907210F378C00822929 /* MLLineChart+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC904210F378B00822929 /* MLLineChart+Helpers.swift */; };
-		D07EC908210F378C00822929 /* MLLineChart+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC904210F378B00822929 /* MLLineChart+Helpers.swift */; };
-		D07EC909210F378C00822929 /* MLLineChart+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC904210F378B00822929 /* MLLineChart+Helpers.swift */; };
 		D07EC90A210F378C00822929 /* MLLineChart+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC904210F378B00822929 /* MLLineChart+Helpers.swift */; };
 		D07EC90B210F378C00822929 /* MLLineChart+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC904210F378B00822929 /* MLLineChart+Helpers.swift */; };
-		D07EC90C210F378C00822929 /* MLLineChart+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC904210F378B00822929 /* MLLineChart+Helpers.swift */; };
 		D07EC90D210F378C00822929 /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC905210F378C00822929 /* MLLinearScale.swift */; };
 		D07EC90E210F378C00822929 /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC905210F378C00822929 /* MLLinearScale.swift */; };
-		D07EC90F210F378C00822929 /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC905210F378C00822929 /* MLLinearScale.swift */; };
-		D07EC910210F378C00822929 /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC905210F378C00822929 /* MLLinearScale.swift */; };
 		D07EC911210F378C00822929 /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC905210F378C00822929 /* MLLinearScale.swift */; };
 		D07EC912210F378C00822929 /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC905210F378C00822929 /* MLLinearScale.swift */; };
-		D07EC913210F378C00822929 /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07EC905210F378C00822929 /* MLLinearScale.swift */; };
+		D07EC91B210F3D6900822929 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91A210F3D6900822929 /* UIKit.framework */; };
+		D07EC91D210F3D7100822929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91C210F3D7100822929 /* QuartzCore.framework */; };
+		D07EC91E210F40CE00822929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91C210F3D7100822929 /* QuartzCore.framework */; };
+		D07EC91F210F40CF00822929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91C210F3D7100822929 /* QuartzCore.framework */; };
+		D07EC920210F40D100822929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91C210F3D7100822929 /* QuartzCore.framework */; };
+		D07EC921210F40D800822929 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91A210F3D6900822929 /* UIKit.framework */; };
+		D07EC922210F40D900822929 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91A210F3D6900822929 /* UIKit.framework */; };
+		D07EC923210F40D900822929 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC91A210F3D6900822929 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,13 +58,6 @@
 			remoteGlobalIDString = 3549BB471DA389F300C63030;
 			remoteInfo = "MLLineChart-tvOS";
 		};
-		3549BB851DA38B0000C63030 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3549BB3A1DA389E800C63030;
-			remoteInfo = "MLLineChart-macOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,18 +69,6 @@
 			files = (
 				35B7422F1F82A5E000829B21 /* Nimble.framework in Embed Frameworks */,
 				35B742301F82A5E000829B21 /* Quick.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		35B742331F82A60600829B21 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				35B742361F82A61E00829B21 /* Nimble.framework in Embed Frameworks */,
-				35B742371F82A61E00829B21 /* Quick.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,15 +91,12 @@
 		3549BB171DA3890B00C63030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3549BB181DA3890B00C63030 /* MLLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLineChart.h; sourceTree = "<group>"; };
 		3549BB211DA389CD00C63030 /* MLLineChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLLineChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3549BB2E1DA389DB00C63030 /* MLLineChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLLineChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3549BB3B1DA389E800C63030 /* MLLineChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLLineChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549BB481DA389F300C63030 /* MLLineChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLLineChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549BB551DA38A5E00C63030 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		3549BB571DA38A8800C63030 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		3549BB581DA38A8800C63030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3549BB611DA38ADB00C63030 /* MLLineChartTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MLLineChartTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549BB701DA38AEF00C63030 /* MLLineChartTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MLLineChartTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3549BB7F1DA38B0000C63030 /* MLLineChartTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MLLineChartTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549BB8A1DA38C0A00C63030 /* MLLineChartSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLLineChartSpec.swift; sourceTree = "<group>"; };
 		354AD5841F8A659800B18FAE /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = "<group>"; };
 		354AD5851F8A659800B18FAE /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = "<group>"; };
@@ -133,8 +105,16 @@
 		35B7422E1F82A5E000829B21 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		35B742341F82A61D00829B21 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		35B742351F82A61E00829B21 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		3FB4DA45D6756E83A088011E /* Pods-MLLineChart-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLLineChart-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MLLineChart-iOS/Pods-MLLineChart-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7E4F1C9C32DF00A40101B3C4 /* Pods-MLLineChart-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLLineChart-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MLLineChart-tvOS/Pods-MLLineChart-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D07EC904210F378B00822929 /* MLLineChart+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLLineChart+Helpers.swift"; sourceTree = "<group>"; };
 		D07EC905210F378C00822929 /* MLLinearScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLLinearScale.swift; sourceTree = "<group>"; };
+		D07EC91A210F3D6900822929 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.4.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D07EC91C210F3D7100822929 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		DE39F790B968F4608EFA89D0 /* Pods-MLLineChart-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLLineChart-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLLineChart-tvOS/Pods-MLLineChart-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		F6FAF58ACA63204F1E2CA12A /* Pods-MLLineChart-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLLineChart-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLLineChart-iOS/Pods-MLLineChart-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		F88994AB34BE91007218B450 /* Pods_MLLineChart_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLLineChart_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEB9751CB99A34E75BA22BF9 /* Pods_MLLineChart_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLLineChart_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,20 +122,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB2A1DA389DB00C63030 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB371DA389E800C63030 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				D07EC921210F40D800822929 /* UIKit.framework in Frameworks */,
+				D07EC91E210F40CE00822929 /* QuartzCore.framework in Frameworks */,
+				0F6BABCC6220001B74B2ADDB /* Pods_MLLineChart_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +132,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07EC91D210F3D7100822929 /* QuartzCore.framework in Frameworks */,
+				D07EC91B210F3D6900822929 /* UIKit.framework in Frameworks */,
+				135DB8C9FA218CD1F810E26F /* Pods_MLLineChart_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,9 +142,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07EC91F210F40CF00822929 /* QuartzCore.framework in Frameworks */,
 				35B742311F82A5EC00829B21 /* Nimble.framework in Frameworks */,
 				35B742321F82A5EC00829B21 /* Quick.framework in Frameworks */,
 				3549BB661DA38ADB00C63030 /* MLLineChart.framework in Frameworks */,
+				D07EC922210F40D900822929 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,19 +154,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07EC920210F40D100822929 /* QuartzCore.framework in Frameworks */,
 				354AD5861F8A659800B18FAE /* Quick.framework in Frameworks */,
 				354AD5871F8A659800B18FAE /* Nimble.framework in Frameworks */,
 				3549BB751DA38AEF00C63030 /* MLLineChart.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB7C1DA38B0000C63030 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				35B742381F82A62900829B21 /* Nimble.framework in Frameworks */,
-				35B742391F82A62900829B21 /* Quick.framework in Frameworks */,
-				3549BB841DA38B0000C63030 /* MLLineChart.framework in Frameworks */,
+				D07EC923210F40D900822929 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +172,7 @@
 				3549BB191DA3890B00C63030 /* Tests */,
 				3549BB061DA387DB00C63030 /* Products */,
 				357D954B1DA3F2B400AEC55F /* Frameworks */,
+				FE6DA0E4FE630AC895EBC7A7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,12 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				3549BB211DA389CD00C63030 /* MLLineChart.framework */,
-				3549BB2E1DA389DB00C63030 /* MLLineChart.framework */,
-				3549BB3B1DA389E800C63030 /* MLLineChart.framework */,
 				3549BB481DA389F300C63030 /* MLLineChart.framework */,
 				3549BB611DA38ADB00C63030 /* MLLineChartTests-iOS.xctest */,
 				3549BB701DA38AEF00C63030 /* MLLineChartTests-tvOS.xctest */,
-				3549BB7F1DA38B0000C63030 /* MLLineChartTests-macOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -263,12 +227,16 @@
 		357D954B1DA3F2B400AEC55F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D07EC91C210F3D7100822929 /* QuartzCore.framework */,
+				D07EC91A210F3D6900822929 /* UIKit.framework */,
 				35B742341F82A61D00829B21 /* Nimble.framework */,
 				35B742351F82A61E00829B21 /* Quick.framework */,
 				35B7422D1F82A5DF00829B21 /* Nimble.framework */,
 				35B7422E1F82A5E000829B21 /* Quick.framework */,
 				354AD5851F8A659800B18FAE /* Nimble.framework */,
 				354AD5841F8A659800B18FAE /* Quick.framework */,
+				F88994AB34BE91007218B450 /* Pods_MLLineChart_iOS.framework */,
+				FEB9751CB99A34E75BA22BF9 /* Pods_MLLineChart_tvOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -283,6 +251,17 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		FE6DA0E4FE630AC895EBC7A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FB4DA45D6756E83A088011E /* Pods-MLLineChart-iOS.debug.xcconfig */,
+				F6FAF58ACA63204F1E2CA12A /* Pods-MLLineChart-iOS.release.xcconfig */,
+				7E4F1C9C32DF00A40101B3C4 /* Pods-MLLineChart-tvOS.debug.xcconfig */,
+				DE39F790B968F4608EFA89D0 /* Pods-MLLineChart-tvOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -291,22 +270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3549BB501DA38A2000C63030 /* MLLineChart.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB2B1DA389DB00C63030 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3549BB521DA38A2100C63030 /* MLLineChart.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB381DA389E800C63030 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3549BB531DA38A2200C63030 /* MLLineChart.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3549BB261DA389CD00C63030 /* Build configuration list for PBXNativeTarget "MLLineChart-iOS" */;
 			buildPhases = (
+				D142E5D3B11676EF3E7EEB32 /* [CP] Check Pods Manifest.lock */,
 				3549BB1C1DA389CD00C63030 /* Sources */,
 				3549BB1D1DA389CD00C63030 /* Frameworks */,
 				3549BB1E1DA389CD00C63030 /* Headers */,
@@ -339,46 +303,11 @@
 			productReference = 3549BB211DA389CD00C63030 /* MLLineChart.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3549BB2D1DA389DB00C63030 /* MLLineChart-watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3549BB331DA389DB00C63030 /* Build configuration list for PBXNativeTarget "MLLineChart-watchOS" */;
-			buildPhases = (
-				3549BB291DA389DB00C63030 /* Sources */,
-				3549BB2A1DA389DB00C63030 /* Frameworks */,
-				3549BB2B1DA389DB00C63030 /* Headers */,
-				3549BB2C1DA389DB00C63030 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "MLLineChart-watchOS";
-			productName = "MLLineChart-watchOS";
-			productReference = 3549BB2E1DA389DB00C63030 /* MLLineChart.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3549BB3A1DA389E800C63030 /* MLLineChart-macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3549BB401DA389E800C63030 /* Build configuration list for PBXNativeTarget "MLLineChart-macOS" */;
-			buildPhases = (
-				3549BB361DA389E800C63030 /* Sources */,
-				3549BB371DA389E800C63030 /* Frameworks */,
-				3549BB381DA389E800C63030 /* Headers */,
-				3549BB391DA389E800C63030 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "MLLineChart-macOS";
-			productName = "MLLineChart-macOS";
-			productReference = 3549BB3B1DA389E800C63030 /* MLLineChart.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		3549BB471DA389F300C63030 /* MLLineChart-tvOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3549BB4D1DA389F300C63030 /* Build configuration list for PBXNativeTarget "MLLineChart-tvOS" */;
 			buildPhases = (
+				78340DF86B7575B6DE2B64C3 /* [CP] Check Pods Manifest.lock */,
 				3549BB431DA389F300C63030 /* Sources */,
 				3549BB441DA389F300C63030 /* Frameworks */,
 				3549BB451DA389F300C63030 /* Headers */,
@@ -431,25 +360,6 @@
 			productReference = 3549BB701DA38AEF00C63030 /* MLLineChartTests-tvOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3549BB7E1DA38B0000C63030 /* MLLineChartTests-macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3549BB871DA38B0000C63030 /* Build configuration list for PBXNativeTarget "MLLineChartTests-macOS" */;
-			buildPhases = (
-				3549BB7B1DA38B0000C63030 /* Sources */,
-				3549BB7C1DA38B0000C63030 /* Frameworks */,
-				3549BB7D1DA38B0000C63030 /* Resources */,
-				35B742331F82A60600829B21 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3549BB861DA38B0000C63030 /* PBXTargetDependency */,
-			);
-			name = "MLLineChartTests-macOS";
-			productName = "MLLineChartTests-macOS";
-			productReference = 3549BB7F1DA38B0000C63030 /* MLLineChartTests-macOS.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -465,16 +375,6 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
-					3549BB2D1DA389DB00C63030 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = "";
-						ProvisioningStyle = Automatic;
-					};
-					3549BB3A1DA389E800C63030 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
 					3549BB471DA389F300C63030 = {
 						CreatedOnToolsVersion = 8.0;
 						LastSwiftMigration = 0900;
@@ -486,11 +386,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					3549BB6F1DA38AEF00C63030 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-					3549BB7E1DA38B0000C63030 = {
 						CreatedOnToolsVersion = 8.0;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
@@ -511,31 +406,14 @@
 			targets = (
 				3549BB201DA389CD00C63030 /* MLLineChart-iOS */,
 				3549BB601DA38ADB00C63030 /* MLLineChartTests-iOS */,
-				3549BB3A1DA389E800C63030 /* MLLineChart-macOS */,
-				3549BB7E1DA38B0000C63030 /* MLLineChartTests-macOS */,
 				3549BB471DA389F300C63030 /* MLLineChart-tvOS */,
 				3549BB6F1DA38AEF00C63030 /* MLLineChartTests-tvOS */,
-				3549BB2D1DA389DB00C63030 /* MLLineChart-watchOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3549BB1F1DA389CD00C63030 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB2C1DA389DB00C63030 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB391DA389E800C63030 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -563,14 +441,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB7D1DA38B0000C63030 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78340DF86B7575B6DE2B64C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MLLineChart-tvOS-checkManifestLockResult.txt",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		D142E5D3B11676EF3E7EEB32 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MLLineChart-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3549BB1C1DA389CD00C63030 /* Sources */ = {
@@ -580,26 +490,6 @@
 				359649031FB18CC000FC7ADC /* MLLineChart.swift in Sources */,
 				D07EC90D210F378C00822929 /* MLLinearScale.swift in Sources */,
 				D07EC906210F378C00822929 /* MLLineChart+Helpers.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB291DA389DB00C63030 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				359649061FB18CC000FC7ADC /* MLLineChart.swift in Sources */,
-				D07EC913210F378C00822929 /* MLLinearScale.swift in Sources */,
-				D07EC90C210F378C00822929 /* MLLineChart+Helpers.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB361DA389E800C63030 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				359649041FB18CC000FC7ADC /* MLLineChart.swift in Sources */,
-				D07EC90F210F378C00822929 /* MLLinearScale.swift in Sources */,
-				D07EC908210F378C00822929 /* MLLineChart+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,16 +523,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB7B1DA38B0000C63030 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3549BB8C1DA38C0A00C63030 /* MLLineChartSpec.swift in Sources */,
-				D07EC910210F378C00822929 /* MLLinearScale.swift in Sources */,
-				D07EC909210F378C00822929 /* MLLineChart+Helpers.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -655,11 +535,6 @@
 			isa = PBXTargetDependency;
 			target = 3549BB471DA389F300C63030 /* MLLineChart-tvOS */;
 			targetProxy = 3549BB761DA38AEF00C63030 /* PBXContainerItemProxy */;
-		};
-		3549BB861DA38B0000C63030 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3549BB3A1DA389E800C63030 /* MLLineChart-macOS */;
-			targetProxy = 3549BB851DA38B0000C63030 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -787,6 +662,7 @@
 		};
 		3549BB271DA389CD00C63030 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FB4DA45D6756E83A088011E /* Pods-MLLineChart-iOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -806,6 +682,7 @@
 		};
 		3549BB281DA389CD00C63030 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6FAF58ACA63204F1E2CA12A /* Pods-MLLineChart-iOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -822,96 +699,9 @@
 			};
 			name = Release;
 		};
-		3549BB341DA389DB00C63030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.micheltlutz.libs.MLLineChart;
-				PRODUCT_NAME = MLLineChart;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		3549BB351DA389DB00C63030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.micheltlutz.libs.MLLineChart;
-				PRODUCT_NAME = MLLineChart;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
-		3549BB411DA389E800C63030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = me.micheltlutz.libs.MLLineChart;
-				PRODUCT_NAME = MLLineChart;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		3549BB421DA389E800C63030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = me.micheltlutz.libs.MLLineChart;
-				PRODUCT_NAME = MLLineChart;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		3549BB4E1DA389F300C63030 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E4F1C9C32DF00A40101B3C4 /* Pods-MLLineChart-tvOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -934,6 +724,7 @@
 		};
 		3549BB4F1DA389F300C63030 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE39F790B968F4608EFA89D0 /* Pods-MLLineChart-tvOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1023,45 +814,6 @@
 			};
 			name = Release;
 		};
-		3549BB881DA38B0000C63030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = me.micheltlutz.MLLineChart.MLLineChartTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		3549BB891DA38B0000C63030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = me.micheltlutz.MLLineChart.MLLineChartTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1079,24 +831,6 @@
 			buildConfigurations = (
 				3549BB271DA389CD00C63030 /* Debug */,
 				3549BB281DA389CD00C63030 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3549BB331DA389DB00C63030 /* Build configuration list for PBXNativeTarget "MLLineChart-watchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3549BB341DA389DB00C63030 /* Debug */,
-				3549BB351DA389DB00C63030 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3549BB401DA389E800C63030 /* Build configuration list for PBXNativeTarget "MLLineChart-macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3549BB411DA389E800C63030 /* Debug */,
-				3549BB421DA389E800C63030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1124,15 +858,6 @@
 			buildConfigurations = (
 				3549BB791DA38AEF00C63030 /* Debug */,
 				3549BB7A1DA38AEF00C63030 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3549BB871DA38B0000C63030 /* Build configuration list for PBXNativeTarget "MLLineChartTests-macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3549BB881DA38B0000C63030 /* Debug */,
-				3549BB891DA38B0000C63030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
