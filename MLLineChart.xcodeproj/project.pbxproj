@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F6BABCC6220001B74B2ADDB /* Pods_MLLineChart_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88994AB34BE91007218B450 /* Pods_MLLineChart_iOS.framework */; };
+		135DB8C9FA218CD1F810E26F /* Pods_MLLineChart_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9751CB99A34E75BA22BF9 /* Pods_MLLineChart_tvOS.framework */; };
 		3549BB501DA38A2000C63030 /* MLLineChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* MLLineChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB511DA38A2000C63030 /* MLLineChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* MLLineChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB661DA38ADB00C63030 /* MLLineChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB211DA389CD00C63030 /* MLLineChart.framework */; };
@@ -103,10 +105,16 @@
 		35B7422E1F82A5E000829B21 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		35B742341F82A61D00829B21 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		35B742351F82A61E00829B21 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		3FB4DA45D6756E83A088011E /* Pods-MLLineChart-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLLineChart-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MLLineChart-iOS/Pods-MLLineChart-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7E4F1C9C32DF00A40101B3C4 /* Pods-MLLineChart-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLLineChart-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MLLineChart-tvOS/Pods-MLLineChart-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D07EC904210F378B00822929 /* MLLineChart+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLLineChart+Helpers.swift"; sourceTree = "<group>"; };
 		D07EC905210F378C00822929 /* MLLinearScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLLinearScale.swift; sourceTree = "<group>"; };
 		D07EC91A210F3D6900822929 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.4.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D07EC91C210F3D7100822929 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		DE39F790B968F4608EFA89D0 /* Pods-MLLineChart-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLLineChart-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLLineChart-tvOS/Pods-MLLineChart-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		F6FAF58ACA63204F1E2CA12A /* Pods-MLLineChart-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLLineChart-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLLineChart-iOS/Pods-MLLineChart-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		F88994AB34BE91007218B450 /* Pods_MLLineChart_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLLineChart_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEB9751CB99A34E75BA22BF9 /* Pods_MLLineChart_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLLineChart_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,7 @@
 			files = (
 				D07EC921210F40D800822929 /* UIKit.framework in Frameworks */,
 				D07EC91E210F40CE00822929 /* QuartzCore.framework in Frameworks */,
+				0F6BABCC6220001B74B2ADDB /* Pods_MLLineChart_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +134,7 @@
 			files = (
 				D07EC91D210F3D7100822929 /* QuartzCore.framework in Frameworks */,
 				D07EC91B210F3D6900822929 /* UIKit.framework in Frameworks */,
+				135DB8C9FA218CD1F810E26F /* Pods_MLLineChart_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +172,7 @@
 				3549BB191DA3890B00C63030 /* Tests */,
 				3549BB061DA387DB00C63030 /* Products */,
 				357D954B1DA3F2B400AEC55F /* Frameworks */,
+				FE6DA0E4FE630AC895EBC7A7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,6 +235,8 @@
 				35B7422E1F82A5E000829B21 /* Quick.framework */,
 				354AD5851F8A659800B18FAE /* Nimble.framework */,
 				354AD5841F8A659800B18FAE /* Quick.framework */,
+				F88994AB34BE91007218B450 /* Pods_MLLineChart_iOS.framework */,
+				FEB9751CB99A34E75BA22BF9 /* Pods_MLLineChart_tvOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,6 +249,17 @@
 				359649021FB18CBF00FC7ADC /* MLLineChart.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		FE6DA0E4FE630AC895EBC7A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FB4DA45D6756E83A088011E /* Pods-MLLineChart-iOS.debug.xcconfig */,
+				F6FAF58ACA63204F1E2CA12A /* Pods-MLLineChart-iOS.release.xcconfig */,
+				7E4F1C9C32DF00A40101B3C4 /* Pods-MLLineChart-tvOS.debug.xcconfig */,
+				DE39F790B968F4608EFA89D0 /* Pods-MLLineChart-tvOS.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3549BB261DA389CD00C63030 /* Build configuration list for PBXNativeTarget "MLLineChart-iOS" */;
 			buildPhases = (
+				D142E5D3B11676EF3E7EEB32 /* [CP] Check Pods Manifest.lock */,
 				3549BB1C1DA389CD00C63030 /* Sources */,
 				3549BB1D1DA389CD00C63030 /* Frameworks */,
 				3549BB1E1DA389CD00C63030 /* Headers */,
@@ -282,6 +307,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3549BB4D1DA389F300C63030 /* Build configuration list for PBXNativeTarget "MLLineChart-tvOS" */;
 			buildPhases = (
+				78340DF86B7575B6DE2B64C3 /* [CP] Check Pods Manifest.lock */,
 				3549BB431DA389F300C63030 /* Sources */,
 				3549BB441DA389F300C63030 /* Frameworks */,
 				3549BB451DA389F300C63030 /* Headers */,
@@ -416,6 +442,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78340DF86B7575B6DE2B64C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MLLineChart-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D142E5D3B11676EF3E7EEB32 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MLLineChart-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3549BB1C1DA389CD00C63030 /* Sources */ = {
@@ -597,6 +662,7 @@
 		};
 		3549BB271DA389CD00C63030 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FB4DA45D6756E83A088011E /* Pods-MLLineChart-iOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -616,6 +682,7 @@
 		};
 		3549BB281DA389CD00C63030 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6FAF58ACA63204F1E2CA12A /* Pods-MLLineChart-iOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -634,6 +701,7 @@
 		};
 		3549BB4E1DA389F300C63030 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E4F1C9C32DF00A40101B3C4 /* Pods-MLLineChart-tvOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -656,6 +724,7 @@
 		};
 		3549BB4F1DA389F300C63030 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE39F790B968F4608EFA89D0 /* Pods-MLLineChart-tvOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
