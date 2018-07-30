@@ -10,8 +10,12 @@
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/micheltlutz/MLLineChart/master/LICENSE)
 
 [![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
+
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/MLLineChart.svg)](https://cocoapods.org/pods/MLLineChart)
+![CocoaPods](https://img.shields.io/cocoapods/v/MLLineChart.svg)
+
 
 [![SwiftFrameworkTemplate](https://img.shields.io/badge/SwiftFramework-Template-red.svg)](http://github.com/RahulKatariya/SwiftFrameworkTemplate)
 
@@ -241,6 +245,12 @@ class ViewController: UIViewController {
 }
 
 ```
+
+<p align="center">
+ <img width="300" height="600"src="http://micheltlutz.me/imagens/projetos/MLLineChart/IMG_4293.PNG">
+ <img width="300" height="600"src="http://micheltlutz.me/imagens/projetos/MLLineChart/IMG_4294.PNG">
+</p>
+
 
 ## Contributing
 
