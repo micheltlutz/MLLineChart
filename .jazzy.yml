@@ -1,0 +1,8 @@
+author: Michel Anderson Lutz Teixeira
+author_url: https://twitter.com/michel_lutz
+github_url: https://github.com/micheltlutz/MLLineChart
+root_url: https://micheltlutz.github.io/MLLineChart/
+module: MLLineChart
+output: docs
+theme: fullwidth
+xcodebuild_arguments: [-workspace, 'MLLineChart.xcworkspace', -scheme, 'MLLineChart-iOS']
