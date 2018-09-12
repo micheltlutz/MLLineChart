@@ -22,15 +22,26 @@
 
 import UIKit
 
+/**
+ Struct Configure a Text for buble infos
+ */
 public struct MLTextConfig {
-    public var font: UIFont = UIFont.systemFont(ofSize: 14)
-    public var color: UIColor = .white
-    public init(font: UIFont, color: UIColor) {
-        self.font = font
+    
+    public let value: String
+    public var color: UIColor?
+    public var font: UIFont?
+    public init(value: String, color: UIColor? = .gray, font: UIFont? = UIFont.systemFont(ofSize: 14)) {
+        self.value = value
         self.color = color
+        self.font = font
     }
 
-    func createFont() -> (ctfont: CFTypeRef, size: CGFloat){
-        return (ctfont: CTFontCreateWithName(font.fontName as CFString, 0, nil), size: font.pointSize)
+    mutating func createFont() -> (ctfont: CFTypeRef, size: CGFloat){
+        if let unwrappedFont = font {
+            return (ctfont: CTFontCreateWithName(unwrappedFont.fontName as CFString, 0, nil), size: unwrappedFont.pointSize)
+        } else {
+            self.font = UIFont.systemFont(ofSize: 14)
+            return (ctfont: CTFontCreateWithName(self.font!.fontName as CFString, 0, nil), size: self.font!.pointSize)
+        }
     }
 }

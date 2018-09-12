@@ -126,6 +126,9 @@ open class MLLineChart: UIView {
     /// Contains an array of MLDotCALayer
     private var dotLayers: [MLDotCALayer] = []
 
+    /// Contains an array of Indexes datapoits
+    private var bubblesVisible: [Int] = []
+
     /// An array of CGPoint on dataLayer coordinate system that the main line will go through. These points will be calculated from dataEntries array
     private var dataPoints: [CGPoint]?
 
@@ -455,11 +458,24 @@ extension MLLineChart {
         }
     }
 }
-// MARK: Buble
+// MARK: Bubble
 extension MLLineChart {
+    fileprivate func checkBubbleIndex(index: Int) {
+        if !bubblesVisible.contains(index) {
+            bubblesVisible.append(index)
+            drawTopBuble(index: index)
+        }
+    }
+
     fileprivate func drawTopBuble(index: Int) {
-        if let dataPoints = dataPoints, let bubbleConfig = bubbleConfig {
+        var bubbleConfig: MLBubleConfig!
+        if let globalBubbleConfig = bubbleConfig { bubbleConfig = globalBubbleConfig }
+        if let dataPoints = dataPoints {
             //for (index, dataPoint) in dataPoints.enumerated() {
+            let dataEntry = dataEntries![index]
+            if let entryBubleConfig = dataEntry.bubleConfig {
+                bubbleConfig = entryBubleConfig
+            }
 
             /// This magicValue helps to create 2 control points that can be used to draw a quater of a
             ///  circle using Bezier curve function
@@ -479,7 +495,8 @@ extension MLLineChart {
             //view.layer.backgroundColor = Helpers.randomizedColor().cgColor
 
             view.addTapGestureRecognizer { (action) in
-                print("addTapGestureRecognizer")
+                let bubbleIndex = self.bubblesVisible.index(of: index)
+                self.bubblesVisible.remove(at: bubbleIndex!)
                 view.removeFromSuperview()
             }
 
@@ -498,10 +515,8 @@ extension MLLineChart {
             segment1Layer.fillColor = color.cgColor
             segment1Layer.strokeColor = color.cgColor
             segment1Layer.lineWidth = 0.0
-            //applyShadow(layer: segment1Layer)
-
             view.layer.addSublayer(segment1Layer)
-            //
+
             let segment2Path = UIBezierPath()
             segment2Path.move(to: CGPoint(x: xPosP+bubbleConfig.radius, y: yPosP-bubbleConfig.radius))
             segment2Path.addCurve(to: CGPoint(x: xPosP+bubbleConfig.radius*2, y: yPosP),
@@ -514,7 +529,6 @@ extension MLLineChart {
             segment2Layer.fillColor = color.cgColor
             segment2Layer.strokeColor = color.cgColor
             segment2Layer.lineWidth = 0.0
-            //applyShadow(layer: segment2Layer)
             view.layer.addSublayer(segment2Layer)
 
             let segment3Path = UIBezierPath()
@@ -529,7 +543,6 @@ extension MLLineChart {
             segment3Layer.fillColor = color.cgColor
             segment3Layer.strokeColor = color.cgColor
             segment3Layer.lineWidth = 0.0
-            //applyShadow(layer: segment3Layer)
             view.layer.addSublayer(segment3Layer)
 
             let segment4Path = UIBezierPath()
@@ -551,11 +564,9 @@ extension MLLineChart {
                 applyShadow(layer: view.layer)
             }
 
-            drawTextBubleValue(view: view,xPos: xPosP, yPos: yPosP, textValue: String(dataEntries![index].value))
-            drawTextBubleLabel(view: view, xPos: xPosP, yPos: yPosP, textValue: dataEntries![index].label)
+            drawTextBubleValue(view: view,xPos: xPosP, yPos: yPosP, bubbleConfig: bubbleConfig)
+            drawTextBubleLabel(view: view, xPos: xPosP, yPos: yPosP, bubbleConfig: bubbleConfig)
             scrollView.addSubview(view)
-
-            view.layer.zPosition = 10
         }
     }
 
@@ -573,38 +584,38 @@ extension MLLineChart {
         layer.shadowOpacity = 1
     }
 
-    fileprivate func drawTextBubleValue(view: UIView, xPos: CGFloat, yPos: CGFloat, textValue: String) {
+    fileprivate func drawTextBubleValue(view: UIView, xPos: CGFloat, yPos: CGFloat, bubbleConfig: MLBubleConfig) {
         let textLayer = CATextLayer()
-
-        if let bubbleConfig = bubbleConfig {
-            textLayer.frame = CGRect(x: xPos, y: yPos-(bubbleConfig.radius)+4, width: bubbleConfig.radius*2, height: bubbleConfig.radius*2)
-            textLayer.foregroundColor = bubbleConfig.value.color.cgColor
-            textLayer.backgroundColor = UIColor.clear.cgColor
-            textLayer.alignmentMode = kCAAlignmentCenter
-            textLayer.contentsScale = UIScreen.main.scale
-            let font = bubbleConfig.value.createFont()
-            textLayer.font = font.ctfont
-            textLayer.fontSize = font.size
-            textLayer.string = textValue
-            view.layer.addSublayer(textLayer)
-        }
+        textLayer.frame = CGRect(x: xPos, y: yPos-(bubbleConfig.radius)+4,
+                                 width: bubbleConfig.radius*2,
+                                 height: bubbleConfig.radius*2)
+        textLayer.foregroundColor = bubbleConfig.value.color!.cgColor
+        textLayer.backgroundColor = UIColor.clear.cgColor
+        textLayer.alignmentMode = kCAAlignmentCenter
+        textLayer.contentsScale = UIScreen.main.scale
+        var value = bubbleConfig.value
+        let font = value.createFont()
+        textLayer.font = font.ctfont
+        textLayer.fontSize = font.size
+        textLayer.string = bubbleConfig.value.value
+        view.layer.addSublayer(textLayer)
     }
 
-    fileprivate func drawTextBubleLabel(view: UIView, xPos: CGFloat, yPos: CGFloat, textValue: String) {
+    fileprivate func drawTextBubleLabel(view: UIView, xPos: CGFloat, yPos: CGFloat, bubbleConfig: MLBubleConfig) {
         let textLayer = CATextLayer()
-
-        if let bubbleConfig = bubbleConfig {
-            textLayer.frame = CGRect(x: xPos, y: yPos-(bubbleConfig.radius/2)+12, width: bubbleConfig.radius*2, height: bubbleConfig.radius*2)
-            textLayer.foregroundColor = bubbleConfig.label.color.cgColor
-            textLayer.backgroundColor = UIColor.clear.cgColor
-            textLayer.alignmentMode = kCAAlignmentCenter
-            textLayer.contentsScale = UIScreen.main.scale
-            let font = bubbleConfig.label.createFont()
-            textLayer.font = font.ctfont
-            textLayer.fontSize = font.size
-            textLayer.string = textValue
-            view.layer.addSublayer(textLayer)
-        }
+        textLayer.frame = CGRect(x: xPos, y: yPos-(bubbleConfig.radius/2)+12,
+                                 width: bubbleConfig.radius*2,
+                                 height: bubbleConfig.radius*2)
+        textLayer.foregroundColor = bubbleConfig.label.color!.cgColor
+        textLayer.backgroundColor = UIColor.clear.cgColor
+        textLayer.alignmentMode = kCAAlignmentCenter
+        textLayer.contentsScale = UIScreen.main.scale
+        var label = bubbleConfig.label
+        let font = label.createFont()
+        textLayer.font = font.ctfont
+        textLayer.fontSize = font.size
+        textLayer.string = label.value
+        view.layer.addSublayer(textLayer)
     }
 }
 
@@ -615,10 +626,7 @@ extension MLLineChart {
     @objc fileprivate func handleTouchEvents(touchPoint: CGPoint) {
         let xValue = touchPoint.x
         let yValue = touchPoint.y
-
-        print("touch X: \(xValue)  touch Y: \(yValue) ")
         if dotLayers.count > 0 {
-            print("\n -------- 10 DOTS -------- \n")
             for (index, dotLayer) in dotLayers.enumerated() {
                 var flagBreakX = false
                 var flagBreakY = false
@@ -628,37 +636,21 @@ extension MLLineChart {
                 let dotLayerYErrPlus = dotLayer.position.y + 12
                 let dotLayerYErrMin = dotLayer.position.y - 12
 
-                //if dotLayer.position.x ~= xValue
-
                 if dotLayer.position.x...dotLayerXErrPlus ~= xValue || dotLayerXErrMin...dotLayer.position.x ~= xValue {
-                    print("OPA X")
                     flagBreakX = true
                 } else {
                     flagBreakX = false
                 }
-
                 if dotLayer.position.y...dotLayerYErrPlus ~= yValue || dotLayerYErrMin...dotLayer.position.y ~= yValue {
-                    print("OPA Y")
                     flagBreakY = true
                 } else {
                     flagBreakY = false
                 }
-
-                print("X: \(dotLayer.position.x)  Y: \(dotLayer.position.y)")
-                print("XerrP: \(dotLayerXErrPlus)  YerrP: \(dotLayerYErrPlus)")
-                print("XerrM: \(dotLayerXErrMin)  YerrM: \(dotLayerYErrMin)")
-                //dotLayer.position.x
-                //dotLayer.position.y
-
                 if flagBreakX && flagBreakY {
-                    print("INDEX: \(index)")
-                    drawTopBuble(index: index)
+                    checkBubbleIndex(index: index)
                     break
                 }
-
             }
-
-            print("\n -------- - -------- \n")
         }
         delegate?.didSelectDataPoint(touchPoint.x, yValues: [touchPoint.y])
     }
