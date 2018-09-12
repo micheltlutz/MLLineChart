@@ -24,7 +24,7 @@ import UIKit
 
 /// delegate method
 public protocol MLLineChartDelegate {
-    func didSelectDataPoint(_ x: CGFloat, yValues: [CGFloat])
+    func didSelectDataPoint(_ xValue: CGFloat, yValues: [CGFloat])
 }
 
 open class MLLineChart: UIView {
@@ -155,7 +155,7 @@ open class MLLineChart: UIView {
         self.layer.addSublayer(gridLayer)
         self.addSubview(scrollView)
 
-        addTapGestureRecognizer { (action) in
+        addMLTapGestureRecognizer { (action) in
             if let touch = action?.location(in: self.scrollView) {
                 self.handleTouchEvents(touchPoint: touch)
             }
@@ -494,7 +494,7 @@ extension MLLineChart {
                                             height: (bubbleConfig.radius * 2) + bubbleConfig.radius))
             //view.layer.backgroundColor = Helpers.randomizedColor().cgColor
 
-            view.addTapGestureRecognizer { (action) in
+            view.addMLTapGestureRecognizer { (action) in
                 let bubbleIndex = self.bubblesVisible.index(of: index)
                 self.bubblesVisible.remove(at: bubbleIndex!)
                 view.removeFromSuperview()
