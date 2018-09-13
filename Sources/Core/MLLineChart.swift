@@ -41,7 +41,17 @@ open class MLLineChart: UIView {
     /// The top most horizontal line in the chart will be 10% higher than the highest value in the chart
     let topHorizontalLine: CGFloat = 110.0 / 100.0
 
+    ///
+    public var labelBottomConfig: (color: UIColor, rounded: Bool, backgroundColor: UIColor)?
+
+    ///
     public var isCurved: Bool = false
+
+    ///
+    public var minPoint: CGFloat?
+
+    ///
+    public var maxPoint: CGFloat?
 
     /// Active or desactive animation on dots
     public var animateDots: Bool = false
@@ -163,14 +173,37 @@ open class MLLineChart: UIView {
     }
 
     override open func layoutSubviews() {
+
+        let height = self.frame.size.height - topSpace
+
         scrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         if let dataEntries = dataEntries {
-            scrollView.contentSize = CGSize(width: CGFloat(dataEntries.count) * lineGap, height: self.frame.size.height)
-            mainLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(dataEntries.count) * lineGap, height: self.frame.size.height)
+            scrollView.contentSize = CGSize(width: CGFloat(dataEntries.count) * lineGap, height: height)
+
+
+            //scrollView.adjustedContentInset
+
+            scrollView.contentInset = UIEdgeInsets(top: topSpace/2, left: 0, bottom: 0, right: 0)
+
+            //mainLayer.backgroundColor = UIColor.orange.cgColor
+
+            mainLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(dataEntries.count) * lineGap, height: height)
             dataLayer.frame = CGRect(x: 0, y: topSpace, width: mainLayer.frame.width, height: mainLayer.frame.height - topSpace - bottomSpace)
+            //dataLayer.frame = CGRect(x: 0, y: 0, width: mainLayer.frame.width, height: mainLayer.frame.height - topSpace - bottomSpace)
+
             gradientLayer.frame = dataLayer.frame
-            dataPoints = convertDataEntriesToPoints(entries: dataEntries)
-            gridLayer.frame = CGRect(x: 0, y: topSpace, width: self.frame.width, height: mainLayer.frame.height - topSpace - bottomSpace)
+
+
+            if let _ = minPoint, let _ = maxPoint {
+                dataPoints = convertDataEntriesToPoints(entries: dataEntries)
+            } else {
+                dataPoints = convertDataEntriesToDinamicPoints(entries: dataEntries)
+            }
+
+            //dataPoints = convertDataEntriesToPoints(entries: dataEntries)
+            gridLayer.frame = CGRect(x: 0, y: topSpace + bottomSpace, width: self.frame.width, height: mainLayer.frame.height - topSpace - bottomSpace)
+            //gridLayer.backgroundColor = UIColor.yellow.cgColor
+
             clean()
             if showHorizontalLines { drawHorizontalLines() }
             if isCurved {
@@ -192,7 +225,7 @@ open class MLLineChart: UIView {
     /**
      Convert an array of MLPointEntry to an array of CGPoint on dataLayer coordinate system
      */
-    private func convertDataEntriesToPoints(entries: [MLPointEntry]) -> [CGPoint] {
+    private func convertDataEntriesToDinamicPoints(entries: [MLPointEntry]) -> [CGPoint] {
         if let max = entries.max()?.value,
             let min = entries.min()?.value {
 
@@ -208,6 +241,27 @@ open class MLLineChart: UIView {
         }
         return []
     }
+
+    /**
+     Convert an array of MLPointEntry to an array of CGPoint on dataLayer coordinate system
+     */
+    private func convertDataEntriesToPoints(entries: [MLPointEntry]) -> [CGPoint] {
+        if let max = maxPoint,
+            let min = minPoint {
+
+            var result: [CGPoint] = []
+            let minMaxRange: CGFloat = CGFloat(max - min) * topHorizontalLine
+
+            for i in 0..<entries.count {
+                let height = dataLayer.frame.height * (1 - ((CGFloat(entries[i].value) - CGFloat(min)) / minMaxRange))
+                let point = CGPoint(x: CGFloat(i)*lineGap + 40, y: height)
+                result.append(point)
+            }
+            return result
+        }
+        return []
+    }
+    //
 
     /**
      Draw a zigzag line connecting all points in dataPoints
@@ -301,12 +355,25 @@ open class MLLineChart: UIView {
                 } else {
                     textLayer.foregroundColor = labelColor.cgColor
                 }
-                textLayer.backgroundColor = UIColor.clear.cgColor
+                //Mike
+                if let configLabel = labelBottomConfig {
+                    textLayer.backgroundColor = configLabel.backgroundColor.cgColor
+                    textLayer.foregroundColor = configLabel.color.cgColor
+                    if configLabel.rounded {
+                        textLayer.cornerRadius = 8
+                    }
+                } else {
+                    textLayer.backgroundColor = UIColor.clear.cgColor
+                }
+
+
                 textLayer.alignmentMode = kCAAlignmentCenter
                 textLayer.contentsScale = UIScreen.main.scale
                 textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
                 textLayer.fontSize = 11
                 textLayer.string = dataEntries[i].label
+
+
                 mainLayer.addSublayer(textLayer)
             }
         }
