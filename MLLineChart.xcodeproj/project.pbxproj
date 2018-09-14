@@ -23,6 +23,7 @@
 		35B742301F82A5E000829B21 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7422E1F82A5E000829B21 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35B742311F82A5EC00829B21 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7422D1F82A5DF00829B21 /* Nimble.framework */; };
 		35B742321F82A5EC00829B21 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7422E1F82A5E000829B21 /* Quick.framework */; };
+		D0954999214BCFF4005DD8EE /* MLLabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0954998214BCFF4005DD8EE /* MLLabelConfig.swift */; };
 		D0FE2DAF2147FEB40088CA2A /* UIView+tapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */; };
 		D0FE2DB02147FEB40088CA2A /* UIView+tapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */; };
 		D0FE2DB12147FEB40088CA2A /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA82147FEB30088CA2A /* MLLinearScale.swift */; };
@@ -103,6 +104,7 @@
 		35B7422E1F82A5E000829B21 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		35B742341F82A61D00829B21 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		35B742351F82A61E00829B21 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		D0954998214BCFF4005DD8EE /* MLLabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLLabelConfig.swift; sourceTree = "<group>"; };
 		D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+tapGesture.swift"; sourceTree = "<group>"; };
 		D0FE2DA82147FEB30088CA2A /* MLLinearScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MLLinearScale.swift; path = ../../../MLLineChart_old/Sources/Core/MLLinearScale.swift; sourceTree = "<group>"; };
 		D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLPointEntry.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				D0FE2DAE2147FEB40088CA2A /* MLTextConfig.swift */,
 				D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */,
 				359649021FB18CBF00FC7ADC /* MLLineChart.swift */,
+				D0954998214BCFF4005DD8EE /* MLLabelConfig.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				359649031FB18CC000FC7ADC /* MLLineChart.swift in Sources */,
 				D0FE2DBB2147FEB40088CA2A /* MLCurveAlgorithm.swift in Sources */,
 				D0FE2DB72147FEB40088CA2A /* MLLineChart+Helpers.swift in Sources */,
+				D0954999214BCFF4005DD8EE /* MLLabelConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

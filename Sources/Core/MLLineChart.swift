@@ -42,7 +42,7 @@ open class MLLineChart: UIView {
     let topHorizontalLine: CGFloat = 110.0 / 100.0
 
     ///
-    public var labelBottomConfig: (color: UIColor, rounded: Bool, backgroundColor: UIColor)?
+    public var labelBottomConfig = MLLabelConfig()
 
     ///
     public var isCurved: Bool = false
@@ -340,7 +340,7 @@ open class MLLineChart: UIView {
             gradientLayer.mask = maskLayer
         }
     }
-
+    // MARK: Labels
     /**
      Create titles at the bottom for all entries showed in the chart
      */
@@ -349,31 +349,28 @@ open class MLLineChart: UIView {
             dataEntries.count > 0 {
             for i in 0..<dataEntries.count {
                 let textLayer = CATextLayer()
-                textLayer.frame = CGRect(x: lineGap*CGFloat(i) - lineGap/2 + 40, y: mainLayer.frame.size.height - bottomSpace/2 - 8, width: lineGap, height: 16)
-                if let dataLabelColor = dataEntries[i].color {
-                    textLayer.foregroundColor = dataLabelColor.cgColor
-                } else {
-                    textLayer.foregroundColor = labelColor.cgColor
+                let width = labelBottomConfig.width!
+                let height = labelBottomConfig.height!
+                textLayer.backgroundColor = labelBottomConfig.backgroundColor!.cgColor
+                textLayer.foregroundColor = labelBottomConfig.color!.cgColor
+                if labelBottomConfig.rounded! {
+                    textLayer.cornerRadius = height / 2
                 }
-                //Mike
-                if let configLabel = labelBottomConfig {
-                    textLayer.backgroundColor = configLabel.backgroundColor.cgColor
-                    textLayer.foregroundColor = configLabel.color.cgColor
-                    if configLabel.rounded {
-                        textLayer.cornerRadius = 8
-                    }
-                } else {
-                    textLayer.backgroundColor = UIColor.clear.cgColor
-                }
+                textLayer.frame = CGRect(x: lineGap*CGFloat(i) - lineGap/2 + 40,
+                                         y: mainLayer.frame.size.height - bottomSpace/2 - 8,
+                                         width: width, height: height)
 
+//                if let dataLabelColor = dataEntries[i].color {
+//                    textLayer.foregroundColor = dataLabelColor.cgColor
+//                } else {
+//                    textLayer.foregroundColor = labelColor.cgColor
+//                }
 
                 textLayer.alignmentMode = kCAAlignmentCenter
                 textLayer.contentsScale = UIScreen.main.scale
                 textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
-                textLayer.fontSize = 11
+                textLayer.fontSize = labelBottomConfig.fontSize!
                 textLayer.string = dataEntries[i].label
-
-
                 mainLayer.addSublayer(textLayer)
             }
         }
