@@ -356,7 +356,7 @@ open class MLLineChart: UIView {
                 if labelBottomConfig.rounded! {
                     textLayer.cornerRadius = height / 2
                 }
-                textLayer.frame = CGRect(x: lineGap*CGFloat(i) - lineGap/2 + 40,
+                textLayer.frame = CGRect(x: lineGap*CGFloat(i) - lineGap/2,
                                          y: mainLayer.frame.size.height - bottomSpace/2 - 8,
                                          width: width, height: height)
 
