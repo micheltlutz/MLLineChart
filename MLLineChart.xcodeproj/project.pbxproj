@@ -26,8 +26,6 @@
 		D0954999214BCFF4005DD8EE /* MLLabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0954998214BCFF4005DD8EE /* MLLabelConfig.swift */; };
 		D0FE2DAF2147FEB40088CA2A /* UIView+tapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */; };
 		D0FE2DB02147FEB40088CA2A /* UIView+tapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */; };
-		D0FE2DB12147FEB40088CA2A /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA82147FEB30088CA2A /* MLLinearScale.swift */; };
-		D0FE2DB22147FEB40088CA2A /* MLLinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA82147FEB30088CA2A /* MLLinearScale.swift */; };
 		D0FE2DB32147FEB40088CA2A /* MLPointEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */; };
 		D0FE2DB42147FEB40088CA2A /* MLPointEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */; };
 		D0FE2DB52147FEB40088CA2A /* MLBubleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DAA2147FEB30088CA2A /* MLBubleConfig.swift */; };
@@ -106,7 +104,6 @@
 		35B742351F82A61E00829B21 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		D0954998214BCFF4005DD8EE /* MLLabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLLabelConfig.swift; sourceTree = "<group>"; };
 		D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+tapGesture.swift"; sourceTree = "<group>"; };
-		D0FE2DA82147FEB30088CA2A /* MLLinearScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MLLinearScale.swift; path = ../../../MLLineChart_old/Sources/Core/MLLinearScale.swift; sourceTree = "<group>"; };
 		D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLPointEntry.swift; sourceTree = "<group>"; };
 		D0FE2DAA2147FEB30088CA2A /* MLBubleConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBubleConfig.swift; sourceTree = "<group>"; };
 		D0FE2DAB2147FEB30088CA2A /* MLLineChart+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLLineChart+Helpers.swift"; sourceTree = "<group>"; };
@@ -230,7 +227,6 @@
 				D0FE2DAA2147FEB30088CA2A /* MLBubleConfig.swift */,
 				D0FE2DAD2147FEB40088CA2A /* MLCurveAlgorithm.swift */,
 				D0FE2DAC2147FEB40088CA2A /* MLDotCALayer.swift */,
-				D0FE2DA82147FEB30088CA2A /* MLLinearScale.swift */,
 				D0FE2DAB2147FEB30088CA2A /* MLLineChart+Helpers.swift */,
 				D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */,
 				D0FE2DAE2147FEB40088CA2A /* MLTextConfig.swift */,
@@ -428,7 +424,6 @@
 				D0FE2DB52147FEB40088CA2A /* MLBubleConfig.swift in Sources */,
 				D0FE2DB92147FEB40088CA2A /* MLDotCALayer.swift in Sources */,
 				D0FE2DAF2147FEB40088CA2A /* UIView+tapGesture.swift in Sources */,
-				D0FE2DB12147FEB40088CA2A /* MLLinearScale.swift in Sources */,
 				D0FE2DB32147FEB40088CA2A /* MLPointEntry.swift in Sources */,
 				D0FE2DBD2147FEB40088CA2A /* MLTextConfig.swift in Sources */,
 				359649031FB18CC000FC7ADC /* MLLineChart.swift in Sources */,
@@ -445,7 +440,6 @@
 				D0FE2DB62147FEB40088CA2A /* MLBubleConfig.swift in Sources */,
 				D0FE2DBA2147FEB40088CA2A /* MLDotCALayer.swift in Sources */,
 				D0FE2DB02147FEB40088CA2A /* UIView+tapGesture.swift in Sources */,
-				D0FE2DB22147FEB40088CA2A /* MLLinearScale.swift in Sources */,
 				D0FE2DB42147FEB40088CA2A /* MLPointEntry.swift in Sources */,
 				D0FE2DBE2147FEB40088CA2A /* MLTextConfig.swift in Sources */,
 				359649051FB18CC000FC7ADC /* MLLineChart.swift in Sources */,
