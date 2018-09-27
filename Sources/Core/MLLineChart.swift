@@ -180,15 +180,17 @@ open class MLLineChart: UIView {
         if let dataEntries = dataEntries {
             scrollView.contentSize = CGSize(width: CGFloat(dataEntries.count) * lineGap, height: height)
 
-
-            //scrollView.adjustedContentInset
-
             scrollView.contentInset = UIEdgeInsets(top: topSpace/2, left: 0, bottom: 0, right: 0)
+            let mainLayerHeight = height
+            print("mainLayerHeight and contentSize: \(height)")
 
-            //mainLayer.backgroundColor = UIColor.orange.cgColor
+            mainLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(dataEntries.count) * lineGap, height: mainLayerHeight)
 
-            mainLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(dataEntries.count) * lineGap, height: height)
-            dataLayer.frame = CGRect(x: 0, y: topSpace, width: mainLayer.frame.width, height: mainLayer.frame.height - topSpace - bottomSpace)
+
+            let dataLayerHeight = mainLayer.frame.height - topSpace - bottomSpace
+            print("dataLayerHeight: \(dataLayerHeight)")
+
+            dataLayer.frame = CGRect(x: 0, y: topSpace, width: mainLayer.frame.width, height: dataLayerHeight)
             //dataLayer.frame = CGRect(x: 0, y: 0, width: mainLayer.frame.width, height: mainLayer.frame.height - topSpace - bottomSpace)
 
             gradientLayer.frame = dataLayer.frame
@@ -347,7 +349,10 @@ open class MLLineChart: UIView {
     private func drawLables() {
         if let dataEntries = dataEntries,
             dataEntries.count > 0 {
-            for i in 0..<dataEntries.count {
+            for (i, dataEntry) in dataEntries.enumerated() {
+
+            //}
+            //for i in 0..<dataEntries.count {
                 let textLayer = CATextLayer()
                 let width = labelBottomConfig.width!
                 let height = labelBottomConfig.height!
@@ -356,21 +361,16 @@ open class MLLineChart: UIView {
                 if labelBottomConfig.rounded! {
                     textLayer.cornerRadius = height / 2
                 }
-                textLayer.frame = CGRect(x: lineGap*CGFloat(i) - lineGap/2,
+                textLayer.frame = CGRect(x: lineGap*CGFloat(i+1) - lineGap/2,
                                          y: mainLayer.frame.size.height - bottomSpace/2 - 8,
                                          width: width, height: height)
-
-//                if let dataLabelColor = dataEntries[i].color {
-//                    textLayer.foregroundColor = dataLabelColor.cgColor
-//                } else {
-//                    textLayer.foregroundColor = labelColor.cgColor
-//                }
 
                 textLayer.alignmentMode = kCAAlignmentCenter
                 textLayer.contentsScale = UIScreen.main.scale
                 textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
                 textLayer.fontSize = labelBottomConfig.fontSize!
-                textLayer.string = dataEntries[i].label
+                //textLayer.string = dataEntries[i].label
+                textLayer.string = dataEntry.label
                 mainLayer.addSublayer(textLayer)
             }
         }
@@ -535,7 +535,6 @@ extension MLLineChart {
         var bubbleConfig: MLBubleConfig!
         if let globalBubbleConfig = bubbleConfig { bubbleConfig = globalBubbleConfig }
         if let dataPoints = dataPoints {
-            //for (index, dataPoint) in dataPoints.enumerated() {
             let dataEntry = dataEntries![index]
             if let entryBubleConfig = dataEntry.bubleConfig {
                 bubbleConfig = entryBubleConfig
@@ -556,8 +555,6 @@ extension MLLineChart {
             let view = UIView(frame: CGRect(x: xPos - diffTouchAreaX, y: yPos - diffTouchAreaY,
                                             width: (bubbleConfig.radius * 2) + bubbleConfig.radius / 2,
                                             height: (bubbleConfig.radius * 2) + bubbleConfig.radius))
-            //view.layer.backgroundColor = Helpers.randomizedColor().cgColor
-
             view.addMLTapGestureRecognizer { (action) in
                 let bubbleIndex = self.bubblesVisible.index(of: index)
                 self.bubblesVisible.remove(at: bubbleIndex!)
