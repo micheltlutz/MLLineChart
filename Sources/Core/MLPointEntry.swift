@@ -26,12 +26,12 @@ public struct MLPointEntry {
     public let value: Int
     public let label: String
     public let color: UIColor?
-    public let bubleConfig: MLBubleConfig?
-    public init(value: Int, label: String, color: UIColor? = .gray, bubleConfig: MLBubleConfig?) {
+    public let bubbleConfig: MLBubbleConfig?
+    public init(value: Int, label: String, color: UIColor? = .gray, bubbleConfig: MLBubbleConfig?) {
         self.value = value
         self.label = label
         self.color = color
-        self.bubleConfig = bubleConfig
+        self.bubbleConfig = bubbleConfig
     }
 }
 

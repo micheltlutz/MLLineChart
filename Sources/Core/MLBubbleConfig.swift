@@ -22,7 +22,7 @@
 
 import UIKit
 
-public struct MLBubleConfig {
+public struct MLBubbleConfig {
     public var radius: CGFloat = 25.0
     public let value: MLTextConfig
     public let label: MLTextConfig

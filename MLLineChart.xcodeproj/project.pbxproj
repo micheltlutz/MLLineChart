@@ -28,8 +28,8 @@
 		D0FE2DB02147FEB40088CA2A /* UIView+tapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */; };
 		D0FE2DB32147FEB40088CA2A /* MLPointEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */; };
 		D0FE2DB42147FEB40088CA2A /* MLPointEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */; };
-		D0FE2DB52147FEB40088CA2A /* MLBubleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DAA2147FEB30088CA2A /* MLBubleConfig.swift */; };
-		D0FE2DB62147FEB40088CA2A /* MLBubleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DAA2147FEB30088CA2A /* MLBubleConfig.swift */; };
+		D0FE2DB52147FEB40088CA2A /* MLBubbleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DAA2147FEB30088CA2A /* MLBubbleConfig.swift */; };
+		D0FE2DB62147FEB40088CA2A /* MLBubbleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DAA2147FEB30088CA2A /* MLBubbleConfig.swift */; };
 		D0FE2DB72147FEB40088CA2A /* MLLineChart+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DAB2147FEB30088CA2A /* MLLineChart+Helpers.swift */; };
 		D0FE2DB82147FEB40088CA2A /* MLLineChart+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DAB2147FEB30088CA2A /* MLLineChart+Helpers.swift */; };
 		D0FE2DB92147FEB40088CA2A /* MLDotCALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DAC2147FEB40088CA2A /* MLDotCALayer.swift */; };
@@ -105,7 +105,7 @@
 		D0954998214BCFF4005DD8EE /* MLLabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLLabelConfig.swift; sourceTree = "<group>"; };
 		D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+tapGesture.swift"; sourceTree = "<group>"; };
 		D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLPointEntry.swift; sourceTree = "<group>"; };
-		D0FE2DAA2147FEB30088CA2A /* MLBubleConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBubleConfig.swift; sourceTree = "<group>"; };
+		D0FE2DAA2147FEB30088CA2A /* MLBubbleConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBubbleConfig.swift; sourceTree = "<group>"; };
 		D0FE2DAB2147FEB30088CA2A /* MLLineChart+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLLineChart+Helpers.swift"; sourceTree = "<group>"; };
 		D0FE2DAC2147FEB40088CA2A /* MLDotCALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLDotCALayer.swift; sourceTree = "<group>"; };
 		D0FE2DAD2147FEB40088CA2A /* MLCurveAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLCurveAlgorithm.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 		359649011FB18CBF00FC7ADC /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				D0FE2DAA2147FEB30088CA2A /* MLBubleConfig.swift */,
+				D0FE2DAA2147FEB30088CA2A /* MLBubbleConfig.swift */,
 				D0FE2DAD2147FEB40088CA2A /* MLCurveAlgorithm.swift */,
 				D0FE2DAC2147FEB40088CA2A /* MLDotCALayer.swift */,
 				D0FE2DAB2147FEB30088CA2A /* MLLineChart+Helpers.swift */,
@@ -421,7 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0FE2DB52147FEB40088CA2A /* MLBubleConfig.swift in Sources */,
+				D0FE2DB52147FEB40088CA2A /* MLBubbleConfig.swift in Sources */,
 				D0FE2DB92147FEB40088CA2A /* MLDotCALayer.swift in Sources */,
 				D0FE2DAF2147FEB40088CA2A /* UIView+tapGesture.swift in Sources */,
 				D0FE2DB32147FEB40088CA2A /* MLPointEntry.swift in Sources */,
@@ -437,7 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0FE2DB62147FEB40088CA2A /* MLBubleConfig.swift in Sources */,
+				D0FE2DB62147FEB40088CA2A /* MLBubbleConfig.swift in Sources */,
 				D0FE2DBA2147FEB40088CA2A /* MLDotCALayer.swift in Sources */,
 				D0FE2DB02147FEB40088CA2A /* UIView+tapGesture.swift in Sources */,
 				D0FE2DB42147FEB40088CA2A /* MLPointEntry.swift in Sources */,
@@ -536,7 +536,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -592,7 +592,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
