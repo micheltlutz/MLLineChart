@@ -159,13 +159,20 @@ $ git submodule update --init --recursive
 
 </p></details>
 
+
+## Demo App
+
+Clone: [MLLineChartDemo](https://github.com/micheltlutz/MLLineChartDemo)
+
+
 ## Usage
+
 
 ```swift
 import MLLineChart
 
 class ViewController: UIViewController {
-    private var lineChart: MLLineChart!
+    private var lineLinearChart: MLLineChart!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChart()
@@ -250,6 +257,11 @@ class ViewController: UIViewController {
 ## Contributing
 
 Issues and pull requests are welcome!
+
+## Todo
+
+- [ ] Curved chart with colors on segments
+- [ ] Migrate to Swift 4.2
 
 ## Author
 

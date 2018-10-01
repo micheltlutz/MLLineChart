@@ -145,6 +145,9 @@ open class MLLineChart: UIView {
     /// Contains horizontal lines
     private let gridLayer: CALayer = CALayer()
 
+    /// Contains horizontal lines
+    private let frameLChart: CALayer = CALayer()
+
     /// Contains an array of MLDotCALayer
     private var dotLayers: [MLDotCALayer] = []
 
@@ -153,6 +156,8 @@ open class MLLineChart: UIView {
 
     /// An array of CGPoint on dataLayer coordinate system that the main line will go through. These points will be calculated from dataEntries array
     private var dataPoints: [CGPoint]?
+
+    private var viewLChart: MLViewLChart?
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -174,9 +179,10 @@ open class MLLineChart: UIView {
         mainLayer.addSublayer(dataLayer)
         scrollView.layer.addSublayer(mainLayer)
         scrollView.layer.addSublayer(gradientLayer)
-        self.layer.addSublayer(gridLayer)
-        self.addSubview(scrollView)
 
+        self.layer.addSublayer(gridLayer)
+        //self.layer.addSublayer(frameLChart)
+        self.addSubview(scrollView)
         addMLTapGestureRecognizer { (action) in
             if let touch = action?.location(in: self.scrollView) {
                 self.handleTouchEvents(touchPoint: touch)
@@ -189,18 +195,26 @@ open class MLLineChart: UIView {
         scrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         if let dataEntries = dataEntries {
             scrollView.contentSize = CGSize(width: CGFloat(dataEntries.count + 1) * lineGap, height: height)
-            scrollView.contentInset = UIEdgeInsets(top: topSpace/2, left: 0, bottom: 0, right: 0)
+            scrollView.contentInset = UIEdgeInsets(top: topSpace, left: 0, bottom: 0, right: 0)
             let mainLayerHeight = height
             mainLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(dataEntries.count) * lineGap, height: mainLayerHeight)
             let dataLayerHeight = mainLayer.frame.height - topSpace - bottomSpace
             dataLayer.frame = CGRect(x: 0, y: topSpace, width: mainLayer.frame.width, height: dataLayerHeight)
-            gradientLayer.frame = dataLayer.frame
+
+//            dataLayer.backgroundColor = UIColor.green.cgColor
+//            viewLChart = MLViewLChart(frame: CGRect(x: 0, y: topSpace + (bottomSpace / 2), width: self.frame.width, height: dataLayerHeight),
+//                                      thickness: 2,
+//                                      color: UIColor.purple)
+//            self.addSubview(viewLChart!)
+//            gradientLayer.frame = dataLayer.frame
             if let _ = minPoint, let _ = maxPoint {
                 dataPoints = convertDataEntriesToPoints(entries: dataEntries)
             } else {
                 dataPoints = convertDataEntriesToDinamicPoints(entries: dataEntries)
             }
-            gridLayer.frame = CGRect(x: 0, y: topSpace + bottomSpace, width: self.frame.width, height: mainLayer.frame.height - topSpace - bottomSpace)
+            gridLayer.frame = CGRect(x: 0, y: topSpace + bottomSpace, width: self.frame.width, height: dataLayerHeight)
+            gridLayer.backgroundColor = UIColor.yellow.cgColor
+
             clean()
             if showHorizontalLines { drawHorizontalLines() }
             if isCurved {
@@ -217,6 +231,7 @@ open class MLLineChart: UIView {
             if showDots { drawDots() }
         }
     }
+
     /*
      Scroll chart to the end contentOffset.x
      */
@@ -267,7 +282,6 @@ open class MLLineChart: UIView {
         }
         return []
     }
-    //
 
     /**
      Draw a zigzag line connecting all points in dataPoints
@@ -388,7 +402,7 @@ open class MLLineChart: UIView {
         guard let dataEntries = dataEntries else {
             return
         }
-
+        //var gridValues: [CGFloat] = [CGFloat](repeating: 1, count: dataEntries.count)
         var gridValues: [CGFloat]? = nil
         if dataEntries.count < 4 && dataEntries.count > 0 {
             gridValues = [0, 1]
@@ -453,11 +467,11 @@ open class MLLineChart: UIView {
             var lastPoint = CGPoint(x: 0, y: 0)
             var strokeColorLine = UIColor.white.cgColor
             for i in 1..<dataPoints.count {
-                if i == 0 {
-                    lastPoint = dataPoints[0]
-                } else {
+//                if i == 0 {
+//                    lastPoint = dataPoints[0]
+//                } else {
                     lastPoint = dataPoints[i - 1]
-                }
+//                }
                 if let path = createLinePath(initialPoint:lastPoint, moveToPoint: dataPoints[i]){
                     let lineLayer = CAShapeLayer()
                     lineLayer.lineWidth = lineWidth
@@ -475,11 +489,11 @@ open class MLLineChart: UIView {
      Get color line by datePoint index if linesColors no range from index return a last color from array
      */
     private func getColorLine(by index: Int) -> CGColor {
-        if let unwrappedLinesColors = linesColors {
-            if unwrappedLinesColors.indices.contains(index) {
-                return unwrappedLinesColors[index].cgColor
+        if let unwrappedDataEntries = dataEntries {
+            if let color = unwrappedDataEntries[index].color {
+                return color.cgColor
             } else {
-                return unwrappedLinesColors.last!.cgColor
+                return Helpers.randomColors[Int(arc4random_uniform(UInt32(Helpers.randomColors.count)))].cgColor
             }
         } else {
             return Helpers.randomColors[Int(arc4random_uniform(UInt32(Helpers.randomColors.count)))].cgColor
@@ -502,7 +516,6 @@ extension MLLineChart {
      Create Dots on line points
      */
     fileprivate func drawDots() {
-        //var dotLayers: [MLDotCALayer] = []
         if let dataPoints = dataPoints {
             for dataPoint in dataPoints {
                 let xValue = dataPoint.x - outerRadius / 2
