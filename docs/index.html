@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MLLineChart  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="MLLineChart  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">MLLineChart Docs</a> (44% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">MLLineChart Reference</a>
+        <img id="carat" src="img/carat.png" />
+        MLLineChart  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/MLAxisLine.html">MLAxisLine</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MLCurveAlgorithm.html">MLCurveAlgorithm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MLDotCALayer.html">MLDotCALayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MLLineChart.html">MLLineChart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MLLineChart/Helpers.html">– Helpers</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/UIView.html">UIView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIView/ViewSide.html">– ViewSide</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIView/AssociatedObjectKeys.html">– AssociatedObjectKeys</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/MLLineChartDelegate.html">MLLineChartDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/MLBubbleConfig.html">MLBubbleConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MLCurvedSegment.html">MLCurvedSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MLLabelConfig.html">MLLabelConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MLPointEntry.html">MLPointEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MLTextConfig.html">MLTextConfig</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='mllinechart' class='heading'>MLLineChart</h1>
+
+<p align="center">
+ <img width="300" height="300"src="http://micheltlutz.me/imagens/projetos/MLLineChart/logo.png">
+</p>
+
+<p><a href="https://swift.org"><img src="https://img.shields.io/badge/swift-4.1-brightgreen.svg" alt="Swift 4.1"></a>
+<a href="https://cocoapods.org/pods/MLLineChart"><img src="https://img.shields.io/cocoapods/p/MLLineChart.svg" alt="Platforms"></a>
+<a href="https://raw.githubusercontent.com/micheltlutz/MLLineChart/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="License"></a>
+<a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="Swift Package Manager"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
+<a href="https://cocoapods.org/pods/MLLineChart"><img src="https://img.shields.io/cocoapods/v/MLLineChart.svg" alt="CocoaPods compatible"></a>
+<a href="https://travis-ci.org/micheltlutz/MLLineChart/branches"><img src="https://img.shields.io/travis/micheltlutz/MLLineChart/master.svg" alt="Travis"></a>
+<a href="http://github.com/RahulKatariya/SwiftFrameworkTemplate"><img src="https://img.shields.io/badge/SwiftFramework-Template-red.svg" alt="SwiftFrameworkTemplate"></a></p>
+
+<p>A Simple Line Chart Librarie</p>
+
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 10.0+ / tvOS 9.0+</li>
+<li>Xcode 9.0+</li>
+</ul>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p>Add the following line to your Podfile:</p>
+<pre class="highlight plaintext"><code>pod "MLLineChart"
+</code></pre>
+
+<p><code>$ pod install</code></p>
+<h3 id='dependency-managers' class='heading'>Dependency Managers</h3>
+
+<details>
+  <summary><strong>CocoaPods</strong></summary>
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+&ldquo;`bash
+$ gem install cocoapods
+&rdquo;`
+
+To integrate MLLineChart into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+&ldquo;`ruby
+source &lsquo;https://github.com/CocoaPods/Specs.git&rsquo;
+platform :ios, &lsquo;10.0&rsquo;
+use_frameworks!
+
+pod &lsquo;MLLineChart&rsquo;, &lsquo;~> 1.0&rsquo;
+&rdquo;`
+
+Then, run the following command:
+
+&ldquo;`bash
+$ pod install
+&rdquo;`
+
+</details>
+
+<details>
+  <summary><strong>Carthage</strong></summary>
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+&ldquo;`bash
+$ brew update
+$ brew install carthage
+&rdquo;`
+
+To integrate MLLineChart into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+&ldquo;`ogdl
+github &quot;micheltlutz/MLLineChart&rdquo; ~> 1.0
+&ldquo;`
+
+</details>
+
+<details>
+  <summary><strong>Swift Package Manager</strong></summary>
+
+To use MLLineChart as a [Swift Package Manager](https://swift.org/package-manager/) package just add the following in your Package.swift file.
+
+&rdquo;` swift
+// swift-tools-version:4.1
+
+import PackageDescription
+
+let package = Package(
+    name: &ldquo;HelloMLLineChart&rdquo;,
+    dependencies: [
+        .package(url: &ldquo;https://github.com/micheltlutz/MLLineChart.git&rdquo;, .upToNextMajor(from: &ldquo;1.0&rdquo;))
+    ],
+    targets: [
+        .target(name: &ldquo;HelloMLLineChart&rdquo;, dependencies: [&ldquo;MLLineChart&rdquo;])
+    ]
+)
+&ldquo;`
+</details>
+<h3 id='manually' class='heading'>Manually</h3>
+
+<p>If you prefer not to use either of the aforementioned dependency managers, you can integrate MLLineChart into your project manually.</p>
+
+<details>
+  <summary><strong>Git Submodules</strong></summary><p>
+
+- Open up Terminal, `cd` into your top-level project directory, and run the following command &quot;if&rdquo; your project is not initialized as a git repository:
+
+&ldquo;`bash
+$ git init
+&rdquo;`
+
+- Add MLLineChart as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following command:
+
+&ldquo;`bash
+$ git submodule add https://github.com/micheltlutz/MLLineChart.git
+$ git submodule update &ndash;init &ndash;recursive
+&rdquo;`
+
+- Open the new `MLLineChart` folder, and drag the `MLLineChart.xcodeproj` into the Project Navigator of your application&rsquo;s Xcode project.
+
+    > It should appear nested underneath your application&rsquo;s blue project icon. Whether it is above or below all the other Xcode groups does not matter.
+
+- Select the `MLLineChart.xcodeproj` in the Project Navigator and verify the deployment target matches that of your application target.
+- Next, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the &ldquo;Targets&rdquo; heading in the sidebar.
+- In the tab bar at the top of that window, open the &ldquo;General&rdquo; panel.
+- Click on the `+` button under the &ldquo;Embedded Binaries&rdquo; section.
+- You will see two different `MLLineChart.xcodeproj` folders each with two different versions of the `MLLineChart.framework` nested inside a `Products` folder.
+
+    > It does not matter which `Products` folder you choose from.
+
+- Select the `MLLineChart.framework`.
+
+- And that&rsquo;s it!
+
+> The `MLLineChart.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
+
+</p></details>
+
+<details>
+  <summary><strong>Embedded Binaries</strong></summary><p>
+
+- Download the latest release from https://github.com/micheltlutz/MLLineChart/releases
+- Next, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the &ldquo;Targets&rdquo; heading in the sidebar.
+- In the tab bar at the top of that window, open the &ldquo;General&rdquo; panel.
+- Click on the `+` button under the &ldquo;Embedded Binaries&rdquo; section.
+- Add the downloaded `MLLineChart.framework`.
+- And that&rsquo;s it!
+
+</p></details>
+<h2 id='usage' class='heading'>Usage</h2>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">MLLineChart</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">lineLinearChart</span><span class="p">:</span> <span class="kt">MLLineChart</span><span class="o">!</span>
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">dataEntries</span><span class="p">:</span> <span class="p">[</span><span class="kt">MLPointEntry</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+        <span class="nf">makeData</span><span class="p">()</span>
+        <span class="nf">setupChart</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">makeData</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">dataEntries</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">MLPointEntry</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"f0f0f0"</span><span class="p">),</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kc">nil</span><span class="p">))</span>
+        <span class="n">dataEntries</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">MLPointEntry</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="s">"2"</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"70A886"</span><span class="p">),</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kc">nil</span><span class="p">))</span>
+        <span class="n">dataEntries</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">MLPointEntry</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="s">"3"</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"70A886"</span><span class="p">),</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kc">nil</span><span class="p">))</span>
+        <span class="n">dataEntries</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">MLPointEntry</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="s">"4"</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"F3A634"</span><span class="p">),</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kc">nil</span><span class="p">))</span>
+        <span class="n">dataEntries</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">MLPointEntry</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="s">"5"</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"F3A634"</span><span class="p">),</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kc">nil</span><span class="p">))</span>
+        <span class="n">dataEntries</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">MLPointEntry</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="s">"6"</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"EB7F33"</span><span class="p">),</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kc">nil</span><span class="p">))</span>
+        <span class="n">dataEntries</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">MLPointEntry</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="s">"7"</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"F3A634"</span><span class="p">),</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kc">nil</span><span class="p">))</span>
+        <span class="n">dataEntries</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">MLPointEntry</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="s">"8"</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"F29D53"</span><span class="p">),</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kc">nil</span><span class="p">))</span>
+        <span class="n">dataEntries</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">MLPointEntry</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="s">"9"</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"F3A634"</span><span class="p">),</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kc">nil</span><span class="p">))</span>
+        <span class="n">dataEntries</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">MLPointEntry</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="s">"10"</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"EB7F33"</span><span class="p">),</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kc">nil</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">setupChart</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">lineLinearChart</span> <span class="o">=</span> <span class="kt">MLLineChart</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">320</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">heightChart</span><span class="p">))</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">translatesAutoresizingMaskIntoConstraints</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">dataEntries</span> <span class="o">=</span> <span class="n">dataEntries</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">minPoint</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">maxPoint</span> <span class="o">=</span> <span class="mi">7</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">showAxisLine</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">showHorizontalLines</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">showDots</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">lineColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">lightGray</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">horizontalLinesColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">gray</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">labelColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">gray</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">showBubbleInfo</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">hasColoredLines</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="n">labelBottomConfig</span> <span class="o">=</span> <span class="kt">MLLabelConfig</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="o">.</span><span class="n">gray</span><span class="p">,</span>
+                                                          <span class="nv">backgroundColor</span><span class="p">:</span> <span class="o">.</span><span class="n">clear</span><span class="p">,</span>
+                                                          <span class="nv">rounded</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                                                          <span class="nv">font</span><span class="p">:</span> <span class="kt">UIFont</span><span class="o">.</span><span class="nf">systemFont</span><span class="p">(</span><span class="nv">ofSize</span><span class="p">:</span> <span class="mi">11</span><span class="p">),</span>
+                                                          <span class="nv">width</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="nv">fontSize</span><span class="p">:</span> <span class="mi">11</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="nf">setupViewConfiguration</span><span class="p">()</span>
+
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">animate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">lineLinearChart</span><span class="o">.</span><span class="nf">scrollToTheEnd</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// Cntinue your code</span>
+
+<span class="p">}</span>
+
+</code></pre>
+<h2 id='docs' class='heading'>Docs</h2>
+
+<p><a href="https://github.com/micheltlutz/MLLineChart/docs/">Documentation</a></p>
+
+<p>MLLineChart Docs (39% documented)</p>
+<h2 id='demo-app' class='heading'>Demo App</h2>
+
+<p>Clone: <a href="https://github.com/micheltlutz/MLLineChartDemo">MLLineChartDemo</a></p>
+
+<p align="center">
+ <img width="300" height="358"src="http://micheltlutz.me/imagens/projetos/MLLineChart/IMG_4604.jpg"> 
+ 
+ 
+ <img width="300" height="358"src="http://micheltlutz.me/imagens/projetos/MLLineChart/IMG_4605.jpg">
+</p>
+<h2 id='contributing' class='heading'>Contributing</h2>
+
+<p>Issues and pull requests are welcome!</p>
+<h2 id='todo' class='heading'>Todo</h2>
+
+<ul>
+<li>[ ] Curved chart with colors on segments</li>
+<li>[ ] Migrate to Swift 4.2</li>
+<li>[ ] 100% documented</li>
+</ul>
+<h2 id='author' class='heading'>Author</h2>
+
+<p>Michel Anderson Lutz Teixeira <a href="https://twitter.com/michel_lutz">@michel_lutz</a></p>
+
+<p>Inspired on  <a href="https://github.com/nhatminh12369/LineChart">nhatminh12369/LineChart</a></p>
+
+<p><a href="http://micheltlutz.me">My Site</a></p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>MLLineChart is released under the MIT license. See <a href="https://github.com/micheltlutz/MLLineChart/blob/master/LICENSE">LICENSE</a> for details.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="http://micheltlutz.me" target="_blank" rel="external">Michel Anderson Lutz Teixeira</a>. All rights reserved. (Last updated: 2018-10-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
