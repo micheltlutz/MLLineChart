@@ -229,7 +229,7 @@ class ViewController: UIViewController {
 
 ## Docs
 
-[Documentation](https://github.com/micheltlutz/MLLineChart/docs/)
+[Documentation](http://htmlpreview.github.io/?https://github.com/micheltlutz/MLLineChart/blob/develop/docs/index.html)
 
 MLLineChart Docs (44% documented)
 
