@@ -41,16 +41,16 @@ open class MLLineChart: UIView {
     /// The top most horizontal line in the chart will be 10% higher than the highest value in the chart
     let topHorizontalLine: CGFloat = 110.0 / 100.0
 
-    ///MLLabelConfig
+    ///Create a MLLabelConfig
     public var labelBottomConfig = MLLabelConfig()
 
     ///Define if chart is Curved default = false
     public var isCurved: Bool = false
 
-    ///minPoint
+    ///minPoint a min point on chart CGFloat
     public var minPoint: CGFloat?
 
-    ///maxPoint
+    ///maxPoint a max point on chart CGFloat
     public var maxPoint: CGFloat?
 
     /// Active or desactive animation on dots
@@ -84,7 +84,7 @@ open class MLLineChart: UIView {
         }
     }
 
-    ///MLLineChart Delegate
+    ///Define a MLLineChart Delegate
     open var delegate: MLLineChartDelegate?
 
     ///Define Data Line color
@@ -129,6 +129,9 @@ open class MLLineChart: UIView {
 
     ///Define a Bubble Configuration
     public var bubbleConfig: MLBubbleConfig?
+    
+    ///Indicates if Axis line is visible
+    public var showAxisLine: Bool = false
 
     /// Contains the main line which represents the data
     private let dataLayer: CALayer = CALayer()
@@ -156,8 +159,9 @@ open class MLLineChart: UIView {
 
     /// An array of CGPoint on dataLayer coordinate system that the main line will go through. These points will be calculated from dataEntries array
     private var dataPoints: [CGPoint]?
-
-    private var viewLChart: MLViewLChart?
+    
+    ///Optional MLAxisLine if showAxisLine = true, mlAxisLine is created
+    private var mlAxisLine: MLAxisLine?
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -179,9 +183,7 @@ open class MLLineChart: UIView {
         mainLayer.addSublayer(dataLayer)
         scrollView.layer.addSublayer(mainLayer)
         scrollView.layer.addSublayer(gradientLayer)
-
         self.layer.addSublayer(gridLayer)
-        //self.layer.addSublayer(frameLChart)
         self.addSubview(scrollView)
         addMLTapGestureRecognizer { (action) in
             if let touch = action?.location(in: self.scrollView) {
@@ -200,21 +202,14 @@ open class MLLineChart: UIView {
             mainLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(dataEntries.count) * lineGap, height: mainLayerHeight)
             let dataLayerHeight = mainLayer.frame.height - topSpace - bottomSpace
             dataLayer.frame = CGRect(x: 0, y: topSpace, width: mainLayer.frame.width, height: dataLayerHeight)
-
-//            dataLayer.backgroundColor = UIColor.green.cgColor
-//            viewLChart = MLViewLChart(frame: CGRect(x: 0, y: topSpace + (bottomSpace / 2), width: self.frame.width, height: dataLayerHeight),
-//                                      thickness: 2,
-//                                      color: UIColor.purple)
-//            self.addSubview(viewLChart!)
-//            gradientLayer.frame = dataLayer.frame
+            gradientLayer.frame = dataLayer.frame
             if let _ = minPoint, let _ = maxPoint {
                 dataPoints = convertDataEntriesToPoints(entries: dataEntries)
             } else {
                 dataPoints = convertDataEntriesToDinamicPoints(entries: dataEntries)
             }
-            gridLayer.frame = CGRect(x: 0, y: topSpace + bottomSpace, width: self.frame.width, height: dataLayerHeight)
-            gridLayer.backgroundColor = UIColor.yellow.cgColor
-
+            gridLayer.frame = CGRect(x: 0, y: topSpace + bottomSpace,
+                                     width: self.frame.width, height: dataLayerHeight)
             clean()
             if showHorizontalLines { drawHorizontalLines() }
             if isCurved {
@@ -227,9 +222,20 @@ open class MLLineChart: UIView {
                 }
             }
             maskGradientLayer()
+            if showAxisLine { createAxisLine(dataLayerHeight: dataLayerHeight) }
             if showLabels { drawLables() }
             if showDots { drawDots() }
         }
+    }
+    
+    private func createAxisLine(dataLayerHeight: CGFloat) {
+        mlAxisLine = MLAxisLine(frame: CGRect(x: 0, y: topSpace + bottomSpace,
+                                              width: self.frame.width,
+                                              height: dataLayerHeight),
+                                thickness: lineWidth,
+                                color: lineColor)
+        self.addSubview(mlAxisLine!)
+        self.sendSubview(toBack: mlAxisLine!)
     }
 
     /*
@@ -290,7 +296,6 @@ open class MLLineChart: UIView {
         if let dataPoints = dataPoints,
             dataPoints.count > 0,
             let path = createPath() {
-
             let lineLayer = CAShapeLayer()
             lineLayer.path = path.cgPath
             lineLayer.strokeColor = lineColor.cgColor
@@ -703,7 +708,7 @@ extension MLLineChart {
         view.layer.addSublayer(textLayer)
     }
 }
-
+//extension MLLineChart Handles
 extension MLLineChart {
     /**
      * Handle touch events.

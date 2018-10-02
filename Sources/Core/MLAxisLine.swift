@@ -1,5 +1,5 @@
 //
-//  MLViewLChart.swift
+//  MLAxisLine.swift
 //  MLLineChart-iOS
 //
 //  Created by Michel Anderson Lutz Teixeira on 01/10/18.
@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-class MLViewLChart: UIView {
+class MLAxisLine: UIView {
     init(frame: CGRect, thickness: CGFloat, color: UIColor) {
         super.init(frame: frame)
         self.addBorder(side: .bottom, thickness: thickness, color: color)
