@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MLLineChart Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/MLLineChart" class="dashAnchor"></a>
+    <a title="MLLineChart Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">MLLineChart Docs</a> (44% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">MLLineChart Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MLLineChart Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/MLAxisLine.html">MLAxisLine</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MLCurveAlgorithm.html">MLCurveAlgorithm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MLDotCALayer.html">MLDotCALayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MLLineChart.html">MLLineChart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MLLineChart/Helpers.html">– Helpers</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UIView.html">UIView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIView/ViewSide.html">– ViewSide</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIView/AssociatedObjectKeys.html">– AssociatedObjectKeys</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/MLLineChartDelegate.html">MLLineChartDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/MLBubbleConfig.html">MLBubbleConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MLCurvedSegment.html">MLCurvedSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MLLabelConfig.html">MLLabelConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MLPointEntry.html">MLPointEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MLTextConfig.html">MLTextConfig</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MLLineChart</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">MLLineChart</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC7lineGap12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/lineGap" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC7lineGap12CoreGraphics7CGFloatVvp">lineGap</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>gap between each point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">lineGap</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC8topSpace12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/topSpace" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC8topSpace12CoreGraphics7CGFloatVvp">topSpace</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>preseved space at top of the chart</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">topSpace</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC11bottomSpace12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/bottomSpace" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC11bottomSpace12CoreGraphics7CGFloatVvp">bottomSpace</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>preserved space at bottom of the chart to show labels along the Y axis</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">bottomSpace</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC17topHorizontalLine12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/topHorizontalLine" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC17topHorizontalLine12CoreGraphics7CGFloatVvp">topHorizontalLine</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The top most horizontal line in the chart will be 10% higher than the highest value in the chart</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">topHorizontalLine</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC17labelBottomConfigAA07MLLabelE0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/labelBottomConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC17labelBottomConfigAA07MLLabelE0Vvp">labelBottomConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a MLLabelConfig</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">labelBottomConfig</span><span class="p">:</span> <span class="kt"><a href="../Structs/MLLabelConfig.html">MLLabelConfig</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC8isCurvedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isCurved" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC8isCurvedSbvp">isCurved</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define if chart is Curved default = false</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isCurved</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC8minPoint12CoreGraphics7CGFloatVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/minPoint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC8minPoint12CoreGraphics7CGFloatVSgvp">minPoint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>minPoint a min point on chart CGFloat</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">minPoint</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC8maxPoint12CoreGraphics7CGFloatVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/maxPoint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC8maxPoint12CoreGraphics7CGFloatVSgvp">maxPoint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>maxPoint a max point on chart CGFloat</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">maxPoint</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC11animateDotsSbvp"></a>
+                    <a name="//apple_ref/swift/Property/animateDots" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC11animateDotsSbvp">animateDots</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Active or desactive animation on dots</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">animateDots</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC8showDotsSbvp"></a>
+                    <a name="//apple_ref/swift/Property/showDots" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC8showDotsSbvp">showDots</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Active or desactive dots default = false</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showDots</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC8dotColorSo7UIColorCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/dotColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC8dotColorSo7UIColorCSgvp">dotColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define dot color</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">dotColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC11innerRadius12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/innerRadius" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC11innerRadius12CoreGraphics7CGFloatVvp">innerRadius</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Dot inner Radius default = 12</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">innerRadius</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC11outerRadius12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/outerRadius" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC11outerRadius12CoreGraphics7CGFloatVvp">outerRadius</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Dot outer Radius default = 1</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">outerRadius</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC9lineWidth12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/lineWidth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC9lineWidth12CoreGraphics7CGFloatVvp">lineWidth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lineWidth</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC15hasColoredLinesSbvp"></a>
+                    <a name="//apple_ref/swift/Property/hasColoredLines" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC15hasColoredLinesSbvp">hasColoredLines</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates if lines is colored</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hasColoredLines</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC19bubbleLabelDistance12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/bubbleLabelDistance" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC19bubbleLabelDistance12CoreGraphics7CGFloatVvp">bubbleLabelDistance</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define Bubble Label Distance default = 18</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">bubbleLabelDistance</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC14gradientColorsSaySo10CGColorRefaGvp"></a>
+                    <a name="//apple_ref/swift/Property/gradientColors" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC14gradientColorsSaySo10CGColorRefaGvp">gradientColors</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define Gradient colors</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">gradientColors</span><span class="p">:</span> <span class="p">[</span><span class="kt">CGColor</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC8delegateAA0aB8Delegate_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC8delegateAA0aB8Delegate_pSgvp">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define a MLLineChart Delegate</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MLLineChartDelegate.html">MLLineChartDelegate</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC9lineColorSo7UIColorCvp"></a>
+                    <a name="//apple_ref/swift/Property/lineColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC9lineColorSo7UIColorCvp">lineColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define Data Line color</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lineColor</span><span class="p">:</span> <span class="kt">UIColor</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC11linesColorsSaySo7UIColorCGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/linesColors" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC11linesColorsSaySo7UIColorCGSgvp">linesColors</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define array of line colors</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">linesColors</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIColor</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC10labelColorSo7UIColorCvp"></a>
+                    <a name="//apple_ref/swift/Property/labelColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC10labelColorSo7UIColorCvp">labelColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define default label color</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">labelColor</span><span class="p">:</span> <span class="kt">UIColor</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC9labelSize12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/labelSize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC9labelSize12CoreGraphics7CGFloatVvp">labelSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define default label font size</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">labelSize</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC11showShadowsSbvp"></a>
+                    <a name="//apple_ref/swift/Property/showShadows" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC11showShadowsSbvp">showShadows</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define if shadow is active</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showShadows</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC11dataEntriesSayAA12MLPointEntryVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/dataEntries" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC11dataEntriesSayAA12MLPointEntryVGSgvp">dataEntries</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define a data to draw Chart</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">dataEntries</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/MLPointEntry.html">MLPointEntry</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC20horizontalLinesColorSo7UIColorCvp"></a>
+                    <a name="//apple_ref/swift/Property/horizontalLinesColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC20horizontalLinesColorSo7UIColorCvp">horizontalLinesColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates if lines is colored</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">horizontalLinesColor</span><span class="p">:</span> <span class="kt">UIColor</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC19showHorizontalLinesSbvp"></a>
+                    <a name="//apple_ref/swift/Property/showHorizontalLines" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC19showHorizontalLinesSbvp">showHorizontalLines</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates if show Horizontal Lines</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showHorizontalLines</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC10showLabelsSbvp"></a>
+                    <a name="//apple_ref/swift/Property/showLabels" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC10showLabelsSbvp">showLabels</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates if show Labels</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showLabels</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC14showBubbleInfoSbvp"></a>
+                    <a name="//apple_ref/swift/Property/showBubbleInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC14showBubbleInfoSbvp">showBubbleInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define a BubbleRadius</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showBubbleInfo</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC17scrollAnimeteTimeSdvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollAnimeteTime" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC17scrollAnimeteTimeSdvp">scrollAnimeteTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define Scroll Animation Time default = 1.0</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollAnimeteTime</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC14animationStyleSo22UIViewAnimationOptionsVvp"></a>
+                    <a name="//apple_ref/swift/Property/animationStyle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC14animationStyleSo22UIViewAnimationOptionsVvp">animationStyle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Dedine UIViewAnimationOptions Default .curveEaseIn</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">animationStyle</span><span class="p">:</span> <span class="kt">UIViewAnimationOptions</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC12bubbleConfigAA08MLBubbleD0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/bubbleConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC12bubbleConfigAA08MLBubbleD0VSgvp">bubbleConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define a Bubble Configuration</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kt"><a href="../Structs/MLBubbleConfig.html">MLBubbleConfig</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC12showAxisLineSbvp"></a>
+                    <a name="//apple_ref/swift/Property/showAxisLine" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC12showAxisLineSbvp">showAxisLine</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates if Axis line is visible</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showAxisLine</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC9dataLayer030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo7CALayerCvp"></a>
+                    <a name="//apple_ref/swift/Property/dataLayer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC9dataLayer030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo7CALayerCvp">dataLayer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains the main line which represents the data</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">dataLayer</span><span class="p">:</span> <span class="kt">CALayer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC13gradientLayer030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo010CAGradientD0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/gradientLayer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC13gradientLayer030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo010CAGradientD0Cvp">gradientLayer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>To show the gradient below the main line</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">gradientLayer</span><span class="p">:</span> <span class="kt">CAGradientLayer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC9mainLayer030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo7CALayerCvp"></a>
+                    <a name="//apple_ref/swift/Property/mainLayer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC9mainLayer030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo7CALayerCvp">mainLayer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains dataLayer and gradientLayer</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">mainLayer</span><span class="p">:</span> <span class="kt">CALayer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC10scrollView030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo08UIScrollD0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC10scrollView030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo08UIScrollD0Cvp">scrollView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains mainLayer and label for each data entry</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">scrollView</span><span class="p">:</span> <span class="kt">UIScrollView</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC9gridLayer030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo7CALayerCvp"></a>
+                    <a name="//apple_ref/swift/Property/gridLayer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC9gridLayer030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo7CALayerCvp">gridLayer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains horizontal lines</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">gridLayer</span><span class="p">:</span> <span class="kt">CALayer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC11frameLChart030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo7CALayerCvp"></a>
+                    <a name="//apple_ref/swift/Property/frameLChart" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC11frameLChart030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo7CALayerCvp">frameLChart</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains horizontal lines</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">frameLChart</span><span class="p">:</span> <span class="kt">CALayer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC9dotLayers030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSayAA12MLDotCALayerCGvp"></a>
+                    <a name="//apple_ref/swift/Property/dotLayers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC9dotLayers030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSayAA12MLDotCALayerCGvp">dotLayers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains an array of MLDotCALayer</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">dotLayers</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/MLDotCALayer.html">MLDotCALayer</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC14bubblesVisible030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSaySiGvp"></a>
+                    <a name="//apple_ref/swift/Property/bubblesVisible" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC14bubblesVisible030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSaySiGvp">bubblesVisible</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains an array of Indexes datapoits</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">bubblesVisible</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC10dataPoints030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSaySo7CGPointVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/dataPoints" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC10dataPoints030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSaySo7CGPointVGSgvp">dataPoints</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of CGPoint on dataLayer coordinate system that the main line will go through. These points will be calculated from dataEntries array</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">dataPoints</span><span class="p">:</span> <span class="p">[</span><span class="kt">CGPoint</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC10mlAxisLine030_26C80E8FCCE6B3170C3C022A0B6D2F0LLAA06MLAxisE0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/mlAxisLine" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC10mlAxisLine030_26C80E8FCCE6B3170C3C022A0B6D2F0LLAA06MLAxisE0CSgvp">mlAxisLine</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional MLAxisLine if showAxisLine = true, mlAxisLine is created</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">mlAxisLine</span><span class="p">:</span> <span class="kt"><a href="../Classes/MLAxisLine.html">MLAxisLine</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MLLineChart@objc(cs)MLLineChart(im)initWithFrame:"></a>
+                    <a name="//apple_ref/swift/Method/init(frame:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MLLineChart@objc(cs)MLLineChart(im)initWithFrame:">init(frame:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRect</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MLLineChart@objc(cs)MLLineChart(im)init"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MLLineChart@objc(cs)MLLineChart(im)init">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MLLineChart@objc(cs)MLLineChart(im)initWithCoder:"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MLLineChart@objc(cs)MLLineChart(im)initWithCoder:">init(coder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC9setupView030_26C80E8FCCE6B3170C3C022A0B6D2E0LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/setupView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC9setupView030_26C80E8FCCE6B3170C3C022A0B6D2E0LLyyF">setupView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">setupView</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MLLineChart@objc(cs)MLLineChart(im)layoutSubviews"></a>
+                    <a name="//apple_ref/swift/Method/layoutSubviews()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MLLineChart@objc(cs)MLLineChart(im)layoutSubviews">layoutSubviews()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">open</span> <span class="kd">func</span> <span class="nf">layoutSubviews</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC14createAxisLine030_26C80E8FCCE6B3170C3C022A0B6D2F0LL15dataLayerHeighty12CoreGraphics7CGFloatV_tF"></a>
+                    <a name="//apple_ref/swift/Method/createAxisLine(dataLayerHeight:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC14createAxisLine030_26C80E8FCCE6B3170C3C022A0B6D2F0LL15dataLayerHeighty12CoreGraphics7CGFloatV_tF">createAxisLine(dataLayerHeight:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">createAxisLine</span><span class="p">(</span><span class="nv">dataLayerHeight</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC14scrollToTheEndyyF"></a>
+                    <a name="//apple_ref/swift/Method/scrollToTheEnd()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC14scrollToTheEndyyF">scrollToTheEnd()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">scrollToTheEnd</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC33convertDataEntriesToDinamicPoints030_26C80E8FCCE6B3170C3C022A0B6D2I0LL7entriesSaySo7CGPointVGSayAA12MLPointEntryVG_tF"></a>
+                    <a name="//apple_ref/swift/Method/convertDataEntriesToDinamicPoints(entries:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC33convertDataEntriesToDinamicPoints030_26C80E8FCCE6B3170C3C022A0B6D2I0LL7entriesSaySo7CGPointVGSayAA12MLPointEntryVG_tF">convertDataEntriesToDinamicPoints(entries:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convert an array of MLPointEntry to an array of CGPoint on dataLayer coordinate system</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">convertDataEntriesToDinamicPoints</span><span class="p">(</span><span class="nv">entries</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/MLPointEntry.html">MLPointEntry</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">CGPoint</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC26convertDataEntriesToPoints030_26C80E8FCCE6B3170C3C022A0B6D2H0LL7entriesSaySo7CGPointVGSayAA12MLPointEntryVG_tF"></a>
+                    <a name="//apple_ref/swift/Method/convertDataEntriesToPoints(entries:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC26convertDataEntriesToPoints030_26C80E8FCCE6B3170C3C022A0B6D2H0LL7entriesSaySo7CGPointVGSayAA12MLPointEntryVG_tF">convertDataEntriesToPoints(entries:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convert an array of MLPointEntry to an array of CGPoint on dataLayer coordinate system</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">convertDataEntriesToPoints</span><span class="p">(</span><span class="nv">entries</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/MLPointEntry.html">MLPointEntry</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">CGPoint</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC04drawB0030_26C80E8FCCE6B3170C3C022A0B6D2D0LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/drawChart()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC04drawB0030_26C80E8FCCE6B3170C3C022A0B6D2D0LLyyF">drawChart()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Draw a zigzag line connecting all points in dataPoints</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">drawChart</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC10createPath030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo08UIBezierD0CSgyF"></a>
+                    <a name="//apple_ref/swift/Method/createPath()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC10createPath030_26C80E8FCCE6B3170C3C022A0B6D2E0LLSo08UIBezierD0CSgyF">createPath()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a zigzag bezier path that connects all points in dataPoints</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">createPath</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIBezierPath</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC010drawCurvedB0030_26C80E8FCCE6B3170C3C022A0B6D2E0LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/drawCurvedChart()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC010drawCurvedB0030_26C80E8FCCE6B3170C3C022A0B6D2E0LLyyF">drawCurvedChart()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Draw a curved line connecting all points in dataPoints</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">drawCurvedChart</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC17maskGradientLayer030_26C80E8FCCE6B3170C3C022A0B6D2F0LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/maskGradientLayer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC17maskGradientLayer030_26C80E8FCCE6B3170C3C022A0B6D2F0LLyyF">maskGradientLayer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a gradient layer below the line that connecting all dataPoints</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">maskGradientLayer</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Labels"></a>
+                <a name="//apple_ref/swift/Section/Labels" class="dashAnchor"></a>
+                <a href="#/Labels">
+                  <h3 class="section-name">Labels</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC10drawLables030_26C80E8FCCE6B3170C3C022A0B6D2E0LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/drawLables()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC10drawLables030_26C80E8FCCE6B3170C3C022A0B6D2E0LLyyF">drawLables()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create titles at the bottom for all entries showed in the chart</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">drawLables</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC19drawHorizontalLines030_26C80E8FCCE6B3170C3C022A0B6D2F0LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/drawHorizontalLines()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC19drawHorizontalLines030_26C80E8FCCE6B3170C3C022A0B6D2F0LLyyF">drawHorizontalLines()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create horizontal lines (grid lines) and show the value of each line</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">drawHorizontalLines</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC5clean030_26C80E8FCCE6B3170C3C022A0B6D2D0LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/clean()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC5clean030_26C80E8FCCE6B3170C3C022A0B6D2D0LLyyF">clean()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">clean</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC04drawB12ColoredLines030_26C80E8FCCE6B3170C3C022A0B6D2F0LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/drawChartColoredLines()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC04drawB12ColoredLines030_26C80E8FCCE6B3170C3C022A0B6D2F0LLyyF">drawChartColoredLines()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Draw a zigzag colored lines connecting all points in dataPoints</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">drawChartColoredLines</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC12getColorLine030_26C80E8FCCE6B3170C3C022A0B6D2F0LL2bySo10CGColorRefaSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getColorLine(by:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC12getColorLine030_26C80E8FCCE6B3170C3C022A0B6D2F0LL2bySo10CGColorRefaSi_tF">getColorLine(by:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get color line by datePoint index if linesColors no range from index return a last color from array</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">getColorLine</span><span class="p">(</span><span class="n">by</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGColor</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC14createLinePath030_26C80E8FCCE6B3170C3C022A0B6D2F0LL12initialPoint06moveToP0So08UIBezierE0CSgSo7CGPointV_AKtF"></a>
+                    <a name="//apple_ref/swift/Method/createLinePath(initialPoint:moveToPoint:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC14createLinePath030_26C80E8FCCE6B3170C3C022A0B6D2F0LL12initialPoint06moveToP0So08UIBezierE0CSgSo7CGPointV_AKtF">createLinePath(initialPoint:moveToPoint:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a single bezier path that connects all points in dataPoints</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">createLinePath</span><span class="p">(</span><span class="nv">initialPoint</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">moveToPoint</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIBezierPath</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC7HelpersC"></a>
+                    <a name="//apple_ref/swift/Class/Helpers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC7HelpersC">Helpers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helpers class</p>
+
+                        <a href="../Classes/MLLineChart/Helpers.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">Helpers</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Dots"></a>
+                <a name="//apple_ref/swift/Section/Dots" class="dashAnchor"></a>
+                <a href="#/Dots">
+                  <h3 class="section-name">Dots</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC8drawDots030_26C80E8FCCE6B3170C3C022A0B6D2E0LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/drawDots()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC8drawDots030_26C80E8FCCE6B3170C3C022A0B6D2E0LLyyF">drawDots()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create Dots on line points</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">fileprivate</span> <span class="kd">func</span> <span class="nf">drawDots</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Bubble"></a>
+                <a name="//apple_ref/swift/Section/Bubble" class="dashAnchor"></a>
+                <a href="#/Bubble">
+                  <h3 class="section-name">Bubble</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC16checkBubbleIndex030_26C80E8FCCE6B3170C3C022A0B6D2F0LL5indexySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/checkBubbleIndex(index:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC16checkBubbleIndex030_26C80E8FCCE6B3170C3C022A0B6D2F0LL5indexySi_tF">checkBubbleIndex(index:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">fileprivate</span> <span class="kd">func</span> <span class="nf">checkBubbleIndex</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC13drawTopBubble030_26C80E8FCCE6B3170C3C022A0B6D2F0LL5indexySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/drawTopBubble(index:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC13drawTopBubble030_26C80E8FCCE6B3170C3C022A0B6D2F0LL5indexySi_tF">drawTopBubble(index:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">fileprivate</span> <span class="kd">func</span> <span class="nf">drawTopBubble</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC11applyShadow030_26C80E8FCCE6B3170C3C022A0B6D2E0LL5layerySo7CALayerC_tF"></a>
+                    <a name="//apple_ref/swift/Method/applyShadow(layer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC11applyShadow030_26C80E8FCCE6B3170C3C022A0B6D2E0LL5layerySo7CALayerC_tF">applyShadow(layer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">fileprivate</span> <span class="kd">func</span> <span class="nf">applyShadow</span><span class="p">(</span><span class="nv">layer</span><span class="p">:</span> <span class="kt">CALayer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC11applyShadow030_26C80E8FCCE6B3170C3C022A0B6D2E0LL5layerySo12CAShapeLayerC_tF"></a>
+                    <a name="//apple_ref/swift/Method/applyShadow(layer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC11applyShadow030_26C80E8FCCE6B3170C3C022A0B6D2E0LL5layerySo12CAShapeLayerC_tF">applyShadow(layer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">fileprivate</span> <span class="kd">func</span> <span class="nf">applyShadow</span><span class="p">(</span><span class="nv">layer</span><span class="p">:</span> <span class="kt">CAShapeLayer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC19drawTextBubbleValue030_26C80E8FCCE6B3170C3C022A0B6D2G0LL4view4xPos01yQ012bubbleConfigySo6UIViewC_12CoreGraphics7CGFloatVAmA08MLBubbleS0VtF"></a>
+                    <a name="//apple_ref/swift/Method/drawTextBubbleValue(view:xPos:yPos:bubbleConfig:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC19drawTextBubbleValue030_26C80E8FCCE6B3170C3C022A0B6D2G0LL4view4xPos01yQ012bubbleConfigySo6UIViewC_12CoreGraphics7CGFloatVAmA08MLBubbleS0VtF">drawTextBubbleValue(view:xPos:yPos:bubbleConfig:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">fileprivate</span> <span class="kd">func</span> <span class="nf">drawTextBubbleValue</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">xPos</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">yPos</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kt"><a href="../Structs/MLBubbleConfig.html">MLBubbleConfig</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC19drawTextBubbleLabel030_26C80E8FCCE6B3170C3C022A0B6D2G0LL4view4xPos01yQ012bubbleConfigySo6UIViewC_12CoreGraphics7CGFloatVAmA08MLBubbleS0VtF"></a>
+                    <a name="//apple_ref/swift/Method/drawTextBubbleLabel(view:xPos:yPos:bubbleConfig:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC19drawTextBubbleLabel030_26C80E8FCCE6B3170C3C022A0B6D2G0LL4view4xPos01yQ012bubbleConfigySo6UIViewC_12CoreGraphics7CGFloatVAmA08MLBubbleS0VtF">drawTextBubbleLabel(view:xPos:yPos:bubbleConfig:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">fileprivate</span> <span class="kd">func</span> <span class="nf">drawTextBubbleLabel</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">xPos</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">yPos</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">bubbleConfig</span><span class="p">:</span> <span class="kt"><a href="../Structs/MLBubbleConfig.html">MLBubbleConfig</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Bubble2"></a>
+                <a name="//apple_ref/swift/Section/Bubble" class="dashAnchor"></a>
+                <a href="#/Bubble2">
+                  <h3 class="section-name">Bubble</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11MLLineChartAAC17handleTouchEvents030_26C80E8FCCE6B3170C3C022A0B6D2F0LL10touchPointySo7CGPointV_tF"></a>
+                    <a name="//apple_ref/swift/Method/handleTouchEvents(touchPoint:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MLLineChartAAC17handleTouchEvents030_26C80E8FCCE6B3170C3C022A0B6D2F0LL10touchPointySo7CGPointV_tF">handleTouchEvents(touchPoint:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handle touch events.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">fileprivate</span> <span class="kd">func</span> <span class="nf">handleTouchEvents</span><span class="p">(</span><span class="nv">touchPoint</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="http://micheltlutz.me" target="_blank" rel="external">Michel Anderson Lutz Teixeira</a>. All rights reserved. (Last updated: 2018-10-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

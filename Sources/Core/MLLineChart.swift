@@ -22,9 +22,9 @@
 
 import UIKit
 
-/// delegate method
+/// Delegate method
 public protocol MLLineChartDelegate {
-    func didSelectDataPoint(_ x: CGFloat, yValues: [CGFloat])
+    func didSelectDataPoint(_ xValue: CGFloat, yValues: [CGFloat])
 }
 
 open class MLLineChart: UIView {
@@ -41,25 +41,41 @@ open class MLLineChart: UIView {
     /// The top most horizontal line in the chart will be 10% higher than the highest value in the chart
     let topHorizontalLine: CGFloat = 110.0 / 100.0
 
+    ///Create a MLLabelConfig
+    public var labelBottomConfig = MLLabelConfig()
+
+    ///Define if chart is Curved default = false
     public var isCurved: Bool = false
+
+    ///minPoint a min point on chart CGFloat
+    public var minPoint: CGFloat?
+
+    ///maxPoint a max point on chart CGFloat
+    public var maxPoint: CGFloat?
 
     /// Active or desactive animation on dots
     public var animateDots: Bool = false
 
-    /// Active or desactive dots
+    /// Active or desactive dots default = false
     public var showDots: Bool = false
 
     /// Define dot color
     public var dotColor: UIColor?
 
-    /// Dot inner Radius
+    /// Dot inner Radius default = 12
     public var innerRadius: CGFloat = 12
 
-    ///Dot outer Radius
+    ///Dot outer Radius default = 1
     public var outerRadius: CGFloat = 1
+
+    //Line chart Width default = 2
+    public var lineWidth: CGFloat = 2
 
     ///Indicates if lines is colored
     public var hasColoredLines: Bool = false
+
+    /// Define Bubble Label Distance default = 18
+    public var bubbleLabelDistance: CGFloat = 18
 
     ///Define Gradient colors
     public var gradientColors: [CGColor] = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.7).cgColor, UIColor.clear.cgColor] {
@@ -68,7 +84,7 @@ open class MLLineChart: UIView {
         }
     }
 
-    ///MLLineChart Delegate
+    ///Define a MLLineChart Delegate
     open var delegate: MLLineChartDelegate?
 
     ///Define Data Line color
@@ -103,10 +119,19 @@ open class MLLineChart: UIView {
     public var showLabels: Bool = true
 
     ///Define a BubbleRadius
-    public var showBubleInfo: Bool = false
+    public var showBubbleInfo: Bool = false
+
+    /// Define Scroll Animation Time default = 1.0
+    public var scrollAnimeteTime: Double = 1.0
+
+    /// Dedine UIViewAnimationOptions Default .curveEaseIn
+    public var animationStyle: UIViewAnimationOptions = .curveEaseIn
 
     ///Define a Bubble Configuration
-    public var bubbleConfig: MLBubleConfig?
+    public var bubbleConfig: MLBubbleConfig?
+    
+    ///Indicates if Axis line is visible
+    public var showAxisLine: Bool = false
 
     /// Contains the main line which represents the data
     private let dataLayer: CALayer = CALayer()
@@ -123,11 +148,20 @@ open class MLLineChart: UIView {
     /// Contains horizontal lines
     private let gridLayer: CALayer = CALayer()
 
+    /// Contains horizontal lines
+    private let frameLChart: CALayer = CALayer()
+
     /// Contains an array of MLDotCALayer
     private var dotLayers: [MLDotCALayer] = []
 
+    /// Contains an array of Indexes datapoits
+    private var bubblesVisible: [Int] = []
+
     /// An array of CGPoint on dataLayer coordinate system that the main line will go through. These points will be calculated from dataEntries array
     private var dataPoints: [CGPoint]?
+    
+    ///Optional MLAxisLine if showAxisLine = true, mlAxisLine is created
+    private var mlAxisLine: MLAxisLine?
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -151,8 +185,7 @@ open class MLLineChart: UIView {
         scrollView.layer.addSublayer(gradientLayer)
         self.layer.addSublayer(gridLayer)
         self.addSubview(scrollView)
-
-        addTapGestureRecognizer { (action) in
+        addMLTapGestureRecognizer { (action) in
             if let touch = action?.location(in: self.scrollView) {
                 self.handleTouchEvents(touchPoint: touch)
             }
@@ -160,14 +193,23 @@ open class MLLineChart: UIView {
     }
 
     override open func layoutSubviews() {
+        let height = self.frame.size.height - topSpace
         scrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         if let dataEntries = dataEntries {
-            scrollView.contentSize = CGSize(width: CGFloat(dataEntries.count) * lineGap, height: self.frame.size.height)
-            mainLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(dataEntries.count) * lineGap, height: self.frame.size.height)
-            dataLayer.frame = CGRect(x: 0, y: topSpace, width: mainLayer.frame.width, height: mainLayer.frame.height - topSpace - bottomSpace)
+            scrollView.contentSize = CGSize(width: CGFloat(dataEntries.count + 1) * lineGap, height: height)
+            scrollView.contentInset = UIEdgeInsets(top: topSpace, left: 0, bottom: 0, right: 0)
+            let mainLayerHeight = height
+            mainLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(dataEntries.count) * lineGap, height: mainLayerHeight)
+            let dataLayerHeight = mainLayer.frame.height - topSpace - bottomSpace
+            dataLayer.frame = CGRect(x: 0, y: topSpace, width: mainLayer.frame.width, height: dataLayerHeight)
             gradientLayer.frame = dataLayer.frame
-            dataPoints = convertDataEntriesToPoints(entries: dataEntries)
-            gridLayer.frame = CGRect(x: 0, y: topSpace, width: self.frame.width, height: mainLayer.frame.height - topSpace - bottomSpace)
+            if let _ = minPoint, let _ = maxPoint {
+                dataPoints = convertDataEntriesToPoints(entries: dataEntries)
+            } else {
+                dataPoints = convertDataEntriesToDinamicPoints(entries: dataEntries)
+            }
+            gridLayer.frame = CGRect(x: 0, y: topSpace + bottomSpace,
+                                     width: self.frame.width, height: dataLayerHeight)
             clean()
             if showHorizontalLines { drawHorizontalLines() }
             if isCurved {
@@ -180,18 +222,59 @@ open class MLLineChart: UIView {
                 }
             }
             maskGradientLayer()
+            if showAxisLine { createAxisLine(dataLayerHeight: dataLayerHeight) }
             if showLabels { drawLables() }
-            //if showBubleInfo { drawTopBuble() }
             if showDots { drawDots() }
+        }
+    }
+    
+    private func createAxisLine(dataLayerHeight: CGFloat) {
+        mlAxisLine = MLAxisLine(frame: CGRect(x: 0, y: topSpace + bottomSpace,
+                                              width: self.frame.width,
+                                              height: dataLayerHeight),
+                                thickness: lineWidth,
+                                color: lineColor)
+        self.addSubview(mlAxisLine!)
+        self.sendSubview(toBack: mlAxisLine!)
+    }
+
+    /*
+     Scroll chart to the end contentOffset.x
+     */
+    public func scrollToTheEnd() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: self.scrollAnimeteTime, delay: 0, options: self.animationStyle, animations: {
+                self.scrollView.contentOffset.x = self.scrollView.contentSize.width - self.scrollView.bounds.size.width
+            }, completion: nil)
         }
     }
 
     /**
      Convert an array of MLPointEntry to an array of CGPoint on dataLayer coordinate system
      */
-    private func convertDataEntriesToPoints(entries: [MLPointEntry]) -> [CGPoint] {
+    private func convertDataEntriesToDinamicPoints(entries: [MLPointEntry]) -> [CGPoint] {
         if let max = entries.max()?.value,
             let min = entries.min()?.value {
+
+            var result: [CGPoint] = []
+            let minMaxRange: CGFloat = CGFloat(max - min) * topHorizontalLine
+
+            for i in 0..<entries.count {
+                let height = dataLayer.frame.height * (1 - ((CGFloat(entries[i].value) - CGFloat(min)) / minMaxRange))
+                let point = CGPoint(x: CGFloat(i)*lineGap + 40, y: height)
+                result.append(point)
+            }
+            return result
+        }
+        return []
+    }
+
+    /**
+     Convert an array of MLPointEntry to an array of CGPoint on dataLayer coordinate system
+     */
+    private func convertDataEntriesToPoints(entries: [MLPointEntry]) -> [CGPoint] {
+        if let max = maxPoint,
+            let min = minPoint {
 
             var result: [CGPoint] = []
             let minMaxRange: CGFloat = CGFloat(max - min) * topHorizontalLine
@@ -213,7 +296,6 @@ open class MLLineChart: UIView {
         if let dataPoints = dataPoints,
             dataPoints.count > 0,
             let path = createPath() {
-
             let lineLayer = CAShapeLayer()
             lineLayer.path = path.cgPath
             lineLayer.strokeColor = lineColor.cgColor
@@ -250,6 +332,7 @@ open class MLLineChart: UIView {
             lineLayer.path = path.cgPath
             lineLayer.strokeColor = lineColor.cgColor
             lineLayer.fillColor = UIColor.clear.cgColor
+            lineLayer.lineWidth = lineWidth
             applyShadow(layer: lineLayer)
             dataLayer.addSublayer(lineLayer)
         }
@@ -283,27 +366,35 @@ open class MLLineChart: UIView {
             gradientLayer.mask = maskLayer
         }
     }
-
+    // MARK: Labels
     /**
      Create titles at the bottom for all entries showed in the chart
      */
     private func drawLables() {
         if let dataEntries = dataEntries,
             dataEntries.count > 0 {
-            for i in 0..<dataEntries.count {
+            for (i, dataEntry) in dataEntries.enumerated() {
+
+            //}
+            //for i in 0..<dataEntries.count {
                 let textLayer = CATextLayer()
-                textLayer.frame = CGRect(x: lineGap*CGFloat(i) - lineGap/2 + 40, y: mainLayer.frame.size.height - bottomSpace/2 - 8, width: lineGap, height: 16)
-                if let dataLabelColor = dataEntries[i].color {
-                    textLayer.foregroundColor = dataLabelColor.cgColor
-                } else {
-                    textLayer.foregroundColor = labelColor.cgColor
+                let width = labelBottomConfig.width!
+                let height = labelBottomConfig.height!
+                textLayer.backgroundColor = labelBottomConfig.backgroundColor!.cgColor
+                textLayer.foregroundColor = labelBottomConfig.color!.cgColor
+                if labelBottomConfig.rounded! {
+                    textLayer.cornerRadius = height / 2
                 }
-                textLayer.backgroundColor = UIColor.clear.cgColor
+                textLayer.frame = CGRect(x: lineGap*CGFloat(i+1) - lineGap/2,
+                                         y: mainLayer.frame.size.height - bottomSpace/2 - 8,
+                                         width: width, height: height)
+
                 textLayer.alignmentMode = kCAAlignmentCenter
                 textLayer.contentsScale = UIScreen.main.scale
                 textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
-                textLayer.fontSize = 11
-                textLayer.string = dataEntries[i].label
+                textLayer.fontSize = labelBottomConfig.fontSize!
+                //textLayer.string = dataEntries[i].label
+                textLayer.string = dataEntry.label
                 mainLayer.addSublayer(textLayer)
             }
         }
@@ -316,7 +407,7 @@ open class MLLineChart: UIView {
         guard let dataEntries = dataEntries else {
             return
         }
-
+        //var gridValues: [CGFloat] = [CGFloat](repeating: 1, count: dataEntries.count)
         var gridValues: [CGFloat]? = nil
         if dataEntries.count < 4 && dataEntries.count > 0 {
             gridValues = [0, 1]
@@ -358,7 +449,6 @@ open class MLLineChart: UIView {
                 textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
                 textLayer.fontSize = labelSize + 1
                 textLayer.string = "\(lineValue)"
-
                 gridLayer.addSublayer(textLayer)
             }
         }
@@ -382,13 +472,14 @@ open class MLLineChart: UIView {
             var lastPoint = CGPoint(x: 0, y: 0)
             var strokeColorLine = UIColor.white.cgColor
             for i in 1..<dataPoints.count {
-                if i == 0 {
-                    lastPoint = dataPoints[0]
-                } else {
+//                if i == 0 {
+//                    lastPoint = dataPoints[0]
+//                } else {
                     lastPoint = dataPoints[i - 1]
-                }
+//                }
                 if let path = createLinePath(initialPoint:lastPoint, moveToPoint: dataPoints[i]){
                     let lineLayer = CAShapeLayer()
+                    lineLayer.lineWidth = lineWidth
                     lineLayer.path = path.cgPath
                     if hasColoredLines { strokeColorLine = getColorLine(by: i) }
                     lineLayer.strokeColor = strokeColorLine
@@ -403,11 +494,11 @@ open class MLLineChart: UIView {
      Get color line by datePoint index if linesColors no range from index return a last color from array
      */
     private func getColorLine(by index: Int) -> CGColor {
-        if let unwrappedLinesColors = linesColors {
-            if unwrappedLinesColors.indices.contains(index) {
-                return unwrappedLinesColors[index].cgColor
+        if let unwrappedDataEntries = dataEntries {
+            if let color = unwrappedDataEntries[index].color {
+                return color.cgColor
             } else {
-                return unwrappedLinesColors.last!.cgColor
+                return Helpers.randomColors[Int(arc4random_uniform(UInt32(Helpers.randomColors.count)))].cgColor
             }
         } else {
             return Helpers.randomColors[Int(arc4random_uniform(UInt32(Helpers.randomColors.count)))].cgColor
@@ -430,7 +521,6 @@ extension MLLineChart {
      Create Dots on line points
      */
     fileprivate func drawDots() {
-        //var dotLayers: [MLDotCALayer] = []
         if let dataPoints = dataPoints {
             for dataPoint in dataPoints {
                 let xValue = dataPoint.x - outerRadius / 2
@@ -455,12 +545,25 @@ extension MLLineChart {
         }
     }
 }
-// MARK: Buble
+// MARK: Bubble
 extension MLLineChart {
-    fileprivate func drawTopBuble(index: Int) {
-        if let dataPoints = dataPoints, let bubbleConfig = bubbleConfig {
-            //for (index, dataPoint) in dataPoints.enumerated() {
-
+    fileprivate func checkBubbleIndex(index: Int) {
+        if !bubblesVisible.contains(index) {
+            bubblesVisible.append(index)
+            drawTopBubble(index: index)
+        }
+    }
+    /*
+     Draw Top Bubble inside chart over Dot
+     */
+    fileprivate func drawTopBubble(index: Int) {
+        var bubbleConfig: MLBubbleConfig!
+        if let globalBubbleConfig = bubbleConfig { bubbleConfig = globalBubbleConfig }
+        if let dataPoints = dataPoints {
+            let dataEntry = dataEntries![index]
+            if let entryBubbleConfig = dataEntry.bubbleConfig {
+                bubbleConfig = entryBubbleConfig
+            }
             /// This magicValue helps to create 2 control points that can be used to draw a quater of a
             ///  circle using Bezier curve function
             let magicValue: CGFloat = 0.552284749831 * bubbleConfig.radius
@@ -476,10 +579,9 @@ extension MLLineChart {
             let view = UIView(frame: CGRect(x: xPos - diffTouchAreaX, y: yPos - diffTouchAreaY,
                                             width: (bubbleConfig.radius * 2) + bubbleConfig.radius / 2,
                                             height: (bubbleConfig.radius * 2) + bubbleConfig.radius))
-            //view.layer.backgroundColor = Helpers.randomizedColor().cgColor
-
-            view.addTapGestureRecognizer { (action) in
-                print("addTapGestureRecognizer")
+            view.addMLTapGestureRecognizer { (action) in
+                let bubbleIndex = self.bubblesVisible.index(of: index)
+                self.bubblesVisible.remove(at: bubbleIndex!)
                 view.removeFromSuperview()
             }
 
@@ -498,10 +600,8 @@ extension MLLineChart {
             segment1Layer.fillColor = color.cgColor
             segment1Layer.strokeColor = color.cgColor
             segment1Layer.lineWidth = 0.0
-            //applyShadow(layer: segment1Layer)
-
             view.layer.addSublayer(segment1Layer)
-            //
+
             let segment2Path = UIBezierPath()
             segment2Path.move(to: CGPoint(x: xPosP+bubbleConfig.radius, y: yPosP-bubbleConfig.radius))
             segment2Path.addCurve(to: CGPoint(x: xPosP+bubbleConfig.radius*2, y: yPosP),
@@ -514,7 +614,6 @@ extension MLLineChart {
             segment2Layer.fillColor = color.cgColor
             segment2Layer.strokeColor = color.cgColor
             segment2Layer.lineWidth = 0.0
-            //applyShadow(layer: segment2Layer)
             view.layer.addSublayer(segment2Layer)
 
             let segment3Path = UIBezierPath()
@@ -529,7 +628,6 @@ extension MLLineChart {
             segment3Layer.fillColor = color.cgColor
             segment3Layer.strokeColor = color.cgColor
             segment3Layer.lineWidth = 0.0
-            //applyShadow(layer: segment3Layer)
             view.layer.addSublayer(segment3Layer)
 
             let segment4Path = UIBezierPath()
@@ -551,11 +649,9 @@ extension MLLineChart {
                 applyShadow(layer: view.layer)
             }
 
-            drawTextBubleValue(view: view,xPos: xPosP, yPos: yPosP, textValue: String(dataEntries![index].value))
-            drawTextBubleLabel(view: view, xPos: xPosP, yPos: yPosP, textValue: dataEntries![index].label)
+            drawTextBubbleValue(view: view,xPos: xPosP, yPos: yPosP, bubbleConfig: bubbleConfig)
+            drawTextBubbleLabel(view: view, xPos: xPosP, yPos: yPosP, bubbleConfig: bubbleConfig)
             scrollView.addSubview(view)
-
-            view.layer.zPosition = 10
         }
     }
 
@@ -572,42 +668,47 @@ extension MLLineChart {
         layer.shadowRadius = 2
         layer.shadowOpacity = 1
     }
-
-    fileprivate func drawTextBubleValue(view: UIView, xPos: CGFloat, yPos: CGFloat, textValue: String) {
+    /*
+     Draw Text Value inseide Bubble
+     */
+    fileprivate func drawTextBubbleValue(view: UIView, xPos: CGFloat, yPos: CGFloat, bubbleConfig: MLBubbleConfig) {
         let textLayer = CATextLayer()
-
-        if let bubbleConfig = bubbleConfig {
-            textLayer.frame = CGRect(x: xPos, y: yPos-(bubbleConfig.radius)+4, width: bubbleConfig.radius*2, height: bubbleConfig.radius*2)
-            textLayer.foregroundColor = bubbleConfig.value.color.cgColor
-            textLayer.backgroundColor = UIColor.clear.cgColor
-            textLayer.alignmentMode = kCAAlignmentCenter
-            textLayer.contentsScale = UIScreen.main.scale
-            let font = bubbleConfig.value.createFont()
-            textLayer.font = font.ctfont
-            textLayer.fontSize = font.size
-            textLayer.string = textValue
-            view.layer.addSublayer(textLayer)
-        }
+        textLayer.frame = CGRect(x: xPos, y: yPos-(bubbleConfig.radius)+4,
+                                 width: bubbleConfig.radius*2,
+                                 height: bubbleConfig.radius*2)
+        textLayer.foregroundColor = bubbleConfig.value.color!.cgColor
+        textLayer.backgroundColor = UIColor.clear.cgColor
+        textLayer.alignmentMode = kCAAlignmentCenter
+        textLayer.contentsScale = UIScreen.main.scale
+        var value = bubbleConfig.value
+        let font = value.createFont()
+        textLayer.font = font.ctfont
+        textLayer.fontSize = font.size
+        textLayer.string = bubbleConfig.value.value
+        view.layer.addSublayer(textLayer)
     }
 
-    fileprivate func drawTextBubleLabel(view: UIView, xPos: CGFloat, yPos: CGFloat, textValue: String) {
+    /*
+     Draw Text Label inseide Bubble
+     */
+    fileprivate func drawTextBubbleLabel(view: UIView, xPos: CGFloat, yPos: CGFloat, bubbleConfig: MLBubbleConfig) {
         let textLayer = CATextLayer()
-
-        if let bubbleConfig = bubbleConfig {
-            textLayer.frame = CGRect(x: xPos, y: yPos-(bubbleConfig.radius/2)+12, width: bubbleConfig.radius*2, height: bubbleConfig.radius*2)
-            textLayer.foregroundColor = bubbleConfig.label.color.cgColor
-            textLayer.backgroundColor = UIColor.clear.cgColor
-            textLayer.alignmentMode = kCAAlignmentCenter
-            textLayer.contentsScale = UIScreen.main.scale
-            let font = bubbleConfig.label.createFont()
-            textLayer.font = font.ctfont
-            textLayer.fontSize = font.size
-            textLayer.string = textValue
-            view.layer.addSublayer(textLayer)
-        }
+        textLayer.frame = CGRect(x: xPos, y: yPos-(bubbleConfig.radius / 2) + bubbleLabelDistance,
+                                 width: bubbleConfig.radius * 2,
+                                 height: bubbleConfig.radius * 2)
+        textLayer.foregroundColor = bubbleConfig.label.color!.cgColor
+        textLayer.backgroundColor = UIColor.clear.cgColor
+        textLayer.alignmentMode = kCAAlignmentCenter
+        textLayer.contentsScale = UIScreen.main.scale
+        var label = bubbleConfig.label
+        let font = label.createFont()
+        textLayer.font = font.ctfont
+        textLayer.fontSize = font.size
+        textLayer.string = label.value
+        view.layer.addSublayer(textLayer)
     }
 }
-
+//extension MLLineChart Handles
 extension MLLineChart {
     /**
      * Handle touch events.
@@ -615,10 +716,7 @@ extension MLLineChart {
     @objc fileprivate func handleTouchEvents(touchPoint: CGPoint) {
         let xValue = touchPoint.x
         let yValue = touchPoint.y
-
-        print("touch X: \(xValue)  touch Y: \(yValue) ")
         if dotLayers.count > 0 {
-            print("\n -------- 10 DOTS -------- \n")
             for (index, dotLayer) in dotLayers.enumerated() {
                 var flagBreakX = false
                 var flagBreakY = false
@@ -628,37 +726,21 @@ extension MLLineChart {
                 let dotLayerYErrPlus = dotLayer.position.y + 12
                 let dotLayerYErrMin = dotLayer.position.y - 12
 
-                //if dotLayer.position.x ~= xValue
-
                 if dotLayer.position.x...dotLayerXErrPlus ~= xValue || dotLayerXErrMin...dotLayer.position.x ~= xValue {
-                    print("OPA X")
                     flagBreakX = true
                 } else {
                     flagBreakX = false
                 }
-
                 if dotLayer.position.y...dotLayerYErrPlus ~= yValue || dotLayerYErrMin...dotLayer.position.y ~= yValue {
-                    print("OPA Y")
                     flagBreakY = true
                 } else {
                     flagBreakY = false
                 }
-
-                print("X: \(dotLayer.position.x)  Y: \(dotLayer.position.y)")
-                print("XerrP: \(dotLayerXErrPlus)  YerrP: \(dotLayerYErrPlus)")
-                print("XerrM: \(dotLayerXErrMin)  YerrM: \(dotLayerYErrMin)")
-                //dotLayer.position.x
-                //dotLayer.position.y
-
                 if flagBreakX && flagBreakY {
-                    print("INDEX: \(index)")
-                    drawTopBuble(index: index)
+                    checkBubbleIndex(index: index)
                     break
                 }
-
             }
-
-            print("\n -------- - -------- \n")
         }
         delegate?.didSelectDataPoint(touchPoint.x, yValues: [touchPoint.y])
     }

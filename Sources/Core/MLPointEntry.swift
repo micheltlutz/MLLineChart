@@ -23,13 +23,15 @@
 import UIKit
 
 public struct MLPointEntry {
-    public let value: Int
+    public let value: CGFloat
     public let label: String
     public let color: UIColor?
-    public init(value: Int, label: String, color: UIColor? = .gray) {
+    public let bubbleConfig: MLBubbleConfig?
+    public init(value: CGFloat, label: String, color: UIColor? = .gray, bubbleConfig: MLBubbleConfig?) {
         self.value = value
         self.label = label
         self.color = color
+        self.bubbleConfig = bubbleConfig
     }
 }
 

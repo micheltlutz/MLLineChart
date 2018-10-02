@@ -1,7 +1,7 @@
 # MLLineChart
 
 <p align="center">
- <img width="300" height="300"src="http://micheltlutz.me/imagens/projetos/MLLineChart/logoML_BETA.png">
+ <img width="300" height="300"src="http://micheltlutz.me/imagens/projetos/MLLineChart/logo.png">
 </p>
 
 
@@ -159,97 +159,105 @@ $ git submodule update --init --recursive
 
 </p></details>
 
+
 ## Usage
+
 
 ```swift
 import MLLineChart
 
 class ViewController: UIViewController {
-    private var lineChart: MLLineChart!
+    private var lineLinearChart: MLLineChart!
+    private var dataEntries: [MLPointEntry] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeData()
         setupChart()
-        
-        view.addSubview(lineChart)
-        lineChart.translatesAutoresizingMaskIntoConstraints = false
-        lineChart.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        lineChart.heightAnchor.constraint(equalToConstant: 260).isActive = true
-        lineChart.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        lineChart.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
-    
-    private func setupChart() {
-        lineChart = MLLineChart()
-        lineChart.animation.enabled = true
-        lineChart.area = false
-        lineChart.dots.visible = false
-        lineChart.x.grid.count = 31
-        lineChart.y.grid.count = 7
-        
-        let configAxis = MLConfigAxisXY(
-            xAxisConfig: MLConfigAxis(from: 1, to: 31, by: 5, visible: false),
-            yAxisConfig: MLConfigAxis(from: 7, to: 1, by: 1, visible: false)
-        )
 
-        var xlabels = MLLineChart.Labels()
-        xlabels.values = ["1", "5", "10", "15", "20", "25", "30"]
-        xlabels.visible = true
-        xlabels.textAlignment = .right
-        
-        var ylabels = MLLineChart.Labels()
-        ylabels.values = ["1", "2", "3", "4", "5", "6", "7"]
-        ylabels.visible = true
-        ylabels.textAlignment = .center
-        
-        let labelsConfig = MLConfigLabelsXY(xLabels: xlabels, yLabels: ylabels)
-        
-        lineChart.configAxis = configAxis
-        lineChart.configLabels = labelsConfig
-        lineChart.y.grid.visible = false
-        lineChart.x.grid.visible = false
-//        let colorsLines: [UIColor] = [.blue, .blue, .green, .green, .green, .brown, .green, .green, UIColor.cyan]
-//        lineChart.lineColors = colorsLines
-        let dataItens: [CGFloat] = convertValToChart([1, 1, 2, 2, 2, 6, 2, 2, 3])
-        lineChart.addLine(dataItens)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        lineLinearChart.animate()
+    }
+
+    private func makeData() {
+        dataEntries.append(MLPointEntry(value: 0, label: "1", color: UIColor.init(hex: "f0f0f0"), bubbleConfig: nil))
+        dataEntries.append(MLPointEntry(value: 6, label: "2", color: UIColor.init(hex: "70A886"), bubbleConfig: nil))
+        dataEntries.append(MLPointEntry(value: 6, label: "3", color: UIColor.init(hex: "70A886"), bubbleConfig: nil))
+        dataEntries.append(MLPointEntry(value: 5, label: "4", color: UIColor.init(hex: "F3A634"), bubbleConfig: nil))
+        dataEntries.append(MLPointEntry(value: 5, label: "5", color: UIColor.init(hex: "F3A634"), bubbleConfig: nil))
+        dataEntries.append(MLPointEntry(value: 3, label: "6", color: UIColor.init(hex: "EB7F33"), bubbleConfig: nil))
+        dataEntries.append(MLPointEntry(value: 5, label: "7", color: UIColor.init(hex: "F3A634"), bubbleConfig: nil))
+        dataEntries.append(MLPointEntry(value: 4, label: "8", color: UIColor.init(hex: "F29D53"), bubbleConfig: nil))
+        dataEntries.append(MLPointEntry(value: 5, label: "9", color: UIColor.init(hex: "F3A634"), bubbleConfig: nil))
+        dataEntries.append(MLPointEntry(value: 3, label: "10", color: UIColor.init(hex: "EB7F33"), bubbleConfig: nil))
+    }
+
+    private func setupChart() {
+        lineLinearChart = MLLineChart(frame: CGRect(x: 0, y: 0, width: 320, height: heightChart))
+        lineLinearChart.translatesAutoresizingMaskIntoConstraints = false
+        lineLinearChart.dataEntries = dataEntries
+        lineLinearChart.minPoint = 0
+        lineLinearChart.maxPoint = 7
+        lineLinearChart.showAxisLine = true
+        lineLinearChart.showHorizontalLines = true
+        lineLinearChart.showDots = false
+        lineLinearChart.lineColor = .lightGray
+        lineLinearChart.horizontalLinesColor = .gray
+        lineLinearChart.labelColor = .gray
+        lineLinearChart.showBubbleInfo = false
+        lineLinearChart.hasColoredLines = true
+        lineLinearChart.labelBottomConfig = MLLabelConfig(color: .gray,
+                                                          backgroundColor: .clear,
+                                                          rounded: false,
+                                                          font: UIFont.systemFont(ofSize: 11),
+                                                          width: 16, height: 16, fontSize: 11)
+        self.setupViewConfiguration()
+
+    }
+
+    public func animate() {
+        lineLinearChart.scrollToTheEnd()
     }
     
-    func convertValToChart(_ data: [Int]) -> [CGFloat]{
-        var dataChart: [CGFloat] = []
-        for item in data {
-            switch item {
-            case 7:
-                dataChart.append(0)
-            case 6:
-                dataChart.append(1)
-            case 5:
-                dataChart.append(2)
-            case 4:
-                dataChart.append(3)
-            case 3:
-                dataChart.append(4)
-            case 2:
-                dataChart.append(5)
-            case 1:
-                dataChart.append(6)
-            default:
-                dataChart.append(6)
-            }
-        }
-        return dataChart
-    }
+    /// Cntinue your code
+    
 }
 
 ```
 
+## Docs
+
+[Documentation](https://github.com/micheltlutz/MLLineChart/docs/)
+
+MLLineChart Docs (44% documented)
+
+
+## Demo App
+
+
+
+Clone: [MLLineChartDemo](https://github.com/micheltlutz/MLLineChartDemo)
+
+
 <p align="center">
- <img width="300" height="600"src="http://micheltlutz.me/imagens/projetos/MLLineChart/IMG_4293.PNG">
- <img width="300" height="600"src="http://micheltlutz.me/imagens/projetos/MLLineChart/IMG_4294.PNG">
+ <img width="300" height="358"src="http://micheltlutz.me/imagens/projetos/MLLineChart/IMG_4604.jpg"> 
+ 
+ 
+ <img width="300" height="358"src="http://micheltlutz.me/imagens/projetos/MLLineChart/IMG_4605.jpg">
 </p>
 
 
 ## Contributing
 
 Issues and pull requests are welcome!
+
+## Todo
+
+- [ ] Curved chart with colors on segments
+- [ ] Migrate to Swift 4.2
+- [ ] 100% documented
 
 ## Author
 
