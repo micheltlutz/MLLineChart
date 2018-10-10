@@ -28,6 +28,10 @@ public protocol MLLineChartDelegate {
 }
 
 open class MLLineChart: UIView {
+    
+    static var name: String {
+        get { return "MLLineChart" }
+    }
 
     /// gap between each point
     let lineGap: CGFloat = 60.0
@@ -125,7 +129,7 @@ open class MLLineChart: UIView {
     public var scrollAnimeteTime: Double = 1.0
 
     /// Dedine UIViewAnimationOptions Default .curveEaseIn
-    public var animationStyle: UIViewAnimationOptions = .curveEaseIn
+    public var animationStyle: UIView.AnimationOptions = .curveEaseIn
 
     ///Define a Bubble Configuration
     public var bubbleConfig: MLBubbleConfig?
@@ -235,7 +239,7 @@ open class MLLineChart: UIView {
                                 thickness: lineWidth,
                                 color: lineColor)
         self.addSubview(mlAxisLine!)
-        self.sendSubview(toBack: mlAxisLine!)
+        self.sendSubviewToBack(mlAxisLine!)
     }
 
     /*
@@ -389,7 +393,7 @@ open class MLLineChart: UIView {
                                          y: mainLayer.frame.size.height - bottomSpace/2 - 8,
                                          width: width, height: height)
 
-                textLayer.alignmentMode = kCAAlignmentCenter
+                textLayer.alignmentMode = CATextLayerAlignmentMode.center
                 textLayer.contentsScale = UIScreen.main.scale
                 textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
                 textLayer.fontSize = labelBottomConfig.fontSize!
@@ -678,7 +682,7 @@ extension MLLineChart {
                                  height: bubbleConfig.radius*2)
         textLayer.foregroundColor = bubbleConfig.value.color!.cgColor
         textLayer.backgroundColor = UIColor.clear.cgColor
-        textLayer.alignmentMode = kCAAlignmentCenter
+        textLayer.alignmentMode = CATextLayerAlignmentMode.center
         textLayer.contentsScale = UIScreen.main.scale
         var value = bubbleConfig.value
         let font = value.createFont()
@@ -698,7 +702,7 @@ extension MLLineChart {
                                  height: bubbleConfig.radius * 2)
         textLayer.foregroundColor = bubbleConfig.label.color!.cgColor
         textLayer.backgroundColor = UIColor.clear.cgColor
-        textLayer.alignmentMode = kCAAlignmentCenter
+        textLayer.alignmentMode = CATextLayerAlignmentMode.center
         textLayer.contentsScale = UIScreen.main.scale
         var label = bubbleConfig.label
         let font = label.createFont()
