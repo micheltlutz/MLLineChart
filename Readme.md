@@ -256,7 +256,7 @@ Issues and pull requests are welcome!
 ## Todo
 
 - [ ] Curved chart with colors on segments
-- [ ] Migrate to Swift 4.2
+- [X] Migrate to Swift 4.2
 - [ ] 100% documented
 
 ## Author
