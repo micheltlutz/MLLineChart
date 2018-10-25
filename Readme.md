@@ -5,7 +5,7 @@
 </p>
 
 
-[![Swift 4.1](https://img.shields.io/badge/swift-4.1-brightgreen.svg)](https://swift.org)
+[![Swift 4.2](https://img.shields.io/badge/swift-4.2-brightgreen.svg)](https://swift.org)
 [![Platforms](https://img.shields.io/cocoapods/p/MLLineChart.svg)](https://cocoapods.org/pods/MLLineChart)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/micheltlutz/MLLineChart/master/LICENSE)
 [![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
@@ -54,7 +54,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
 
-pod 'MLLineChart', '~> 1.0'
+pod 'MLLineChart', '~> 1.1.0'
 ```
 
 Then, run the following command:
@@ -80,7 +80,7 @@ $ brew install carthage
 To integrate MLLineChart into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "micheltlutz/MLLineChart" ~> 1.0
+github "micheltlutz/MLLineChart" ~> 1.1.0
 ```
 
 </details>
@@ -91,14 +91,14 @@ github "micheltlutz/MLLineChart" ~> 1.0
 To use MLLineChart as a [Swift Package Manager](https://swift.org/package-manager/) package just add the following in your Package.swift file.
 
 ``` swift
-// swift-tools-version:4.1
+// swift-tools-version:4.2
 
 import PackageDescription
 
 let package = Package(
     name: "HelloMLLineChart",
     dependencies: [
-        .package(url: "https://github.com/micheltlutz/MLLineChart.git", .upToNextMajor(from: "1.0"))
+        .package(url: "https://github.com/micheltlutz/MLLineChart.git", .upToNextMajor(from: "1.1.0"))
     ],
     targets: [
         .target(name: "HelloMLLineChart", dependencies: ["MLLineChart"])
@@ -266,6 +266,10 @@ Michel Anderson Lutz Teixeira [@michel_lutz](https://twitter.com/michel_lutz)
 Inspired on  [nhatminh12369/LineChart](https://github.com/nhatminh12369/LineChart)
 
 [My Site](http://micheltlutz.me)
+
+## Contributions
+
+<a href="https://github.com/maclacerda"><img src="https://avatars.githubusercontent.com/u/4759987?v=3" title="maclacerda" width="80" height="80"></a>
 
 ## License
 

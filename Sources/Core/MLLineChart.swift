@@ -34,7 +34,7 @@ open class MLLineChart: UIView {
     }
 
     /// gap between each point
-    let lineGap: CGFloat = 60.0
+    public var lineGap: CGFloat = 60.0
 
     /// preseved space at top of the chart
     let topSpace: CGFloat = 60.0
@@ -199,6 +199,7 @@ open class MLLineChart: UIView {
     override open func layoutSubviews() {
         let height = self.frame.size.height - topSpace
         scrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+
         if let dataEntries = dataEntries {
             scrollView.contentSize = CGSize(width: CGFloat(dataEntries.count + 1) * lineGap, height: height)
             scrollView.contentInset = UIEdgeInsets(top: topSpace, left: 0, bottom: 0, right: 0)
@@ -229,6 +230,9 @@ open class MLLineChart: UIView {
             if showAxisLine { createAxisLine(dataLayerHeight: dataLayerHeight) }
             if showLabels { drawLables() }
             if showDots { drawDots() }
+//            scrollView.backgroundColor = .green
+//            let bg = UIColor.blue.withAlphaComponent(0.4)
+//            dataLayer.backgroundColor = bg.cgColor
         }
     }
     
@@ -279,13 +283,25 @@ open class MLLineChart: UIView {
     private func convertDataEntriesToPoints(entries: [MLPointEntry]) -> [CGPoint] {
         if let max = maxPoint,
             let min = minPoint {
-
             var result: [CGPoint] = []
             let minMaxRange: CGFloat = CGFloat(max - min) * topHorizontalLine
-
             for i in 0..<entries.count {
-                let height = dataLayer.frame.height * (1 - ((CGFloat(entries[i].value) - CGFloat(min)) / minMaxRange))
-                let point = CGPoint(x: CGFloat(i)*lineGap + 40, y: height)
+                var height: CGFloat = dataLayer.frame.height * (1 - ((CGFloat(entries[i].value)) / minMaxRange))
+                if entries[i].value == 0 {
+                    height = dataLayer.frame.height
+                } else if entries[i].value == maxPoint {
+                    height = 0
+                }
+                print("------------------------------------------------")
+                print("dataLayer height: \(dataLayer.frame.height)")
+                print("height: \(height) for value: \(entries[i].value)")
+                print("minMaxRange: \(minMaxRange)")
+                print("topHorizontalLine: \(topHorizontalLine)")
+                print("entries[i].value) / minMaxRange: \((CGFloat(entries[i].value) * minMaxRange))")
+                print("------------------------------------------------")
+
+                let point = CGPoint(x: CGFloat(i)*lineGap, y: height)
+                //let point = CGPoint(x: CGFloat(i)*lineGap + 40, y: height)
                 result.append(point)
             }
             return result

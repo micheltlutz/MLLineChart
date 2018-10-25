@@ -38,9 +38,6 @@
       location = "group:Gemfile">
    </FileRef>
    <FileRef
-      location = "group:Gemfile.lock">
-   </FileRef>
-   <FileRef
       location = "group:Package.swift">
    </FileRef>
    <FileRef
