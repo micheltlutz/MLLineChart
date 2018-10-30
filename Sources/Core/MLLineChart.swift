@@ -137,6 +137,12 @@ open class MLLineChart: UIView {
     ///Indicates if Axis line is visible
     public var showAxisLine: Bool = false
 
+    //Indicates if chartignores ZeroValues and conect point to point
+    public var ignoreZeros: Bool = false
+
+    /// Contains the colors for points without zero
+    private var dataColorsNonZeros: [UIColor] = []
+
     /// Contains the main line which represents the data
     private let dataLayer: CALayer = CALayer()
 
@@ -209,7 +215,11 @@ open class MLLineChart: UIView {
             dataLayer.frame = CGRect(x: 0, y: topSpace, width: mainLayer.frame.width, height: dataLayerHeight)
             gradientLayer.frame = dataLayer.frame
             if let _ = minPoint, let _ = maxPoint {
-                dataPoints = convertDataEntriesToPoints(entries: dataEntries)
+                if ignoreZeros {
+                    dataPoints = convertDataEntriesToPointsZeros(entries: dataEntries)
+                } else {
+                    dataPoints = convertDataEntriesToPoints(entries: dataEntries)
+                }
             } else {
                 dataPoints = convertDataEntriesToDinamicPoints(entries: dataEntries)
             }
@@ -226,13 +236,10 @@ open class MLLineChart: UIView {
                     drawChart()
                 }
             }
-            maskGradientLayer()
+            //maskGradientLayer()
             if showAxisLine { createAxisLine(dataLayerHeight: dataLayerHeight) }
             if showLabels { drawLables() }
             if showDots { drawDots() }
-//            scrollView.backgroundColor = .green
-//            let bg = UIColor.blue.withAlphaComponent(0.4)
-//            dataLayer.backgroundColor = bg.cgColor
         }
     }
     
@@ -280,28 +287,65 @@ open class MLLineChart: UIView {
     /**
      Convert an array of MLPointEntry to an array of CGPoint on dataLayer coordinate system
      */
+    private func convertDataEntriesToPointsZeros(entries: [MLPointEntry]) -> [CGPoint] {
+        if let max = maxPoint,
+            let min = minPoint {
+            var result: [CGPoint] = []
+            dataColorsNonZeros = []
+            let minMaxRange: CGFloat = CGFloat(max - min) * topHorizontalLine
+
+            for i in 0..<entries.count {
+                if entries[i].value != 0 {
+                    var height = dataLayer.frame.height * (1 - ((CGFloat(entries[i].value) - CGFloat(min)) / minMaxRange))
+                    if entries[i].value == minPoint {
+                        height = dataLayer.frame.height
+                    } else if entries[i].value == maxPoint {
+                        height = 0
+                    }
+
+                    if let color = entries[i].color {
+                        dataColorsNonZeros.append(color)
+                    }
+                    let point = CGPoint(x: CGFloat(i)*lineGap, y: height)
+                    result.append(point)
+                } else {
+                    continue
+                }
+            }
+            print("\n\n-------------- MLLineChart Debug ---------------")
+            print("dataColorsNonZeros: \(dataColorsNonZeros.count)")
+            print("result.count: \(result.count)")
+            print("------------------------------------------------\n\n")
+            return result
+        }
+        return []
+    }
+
+    private func findNextColor(indexContinue: Int, entries: [MLPointEntry]) -> UIColor? {
+        for i in indexContinue..<entries.count {
+            let nextIndex = (indexContinue + i) - 1
+            if nextIndex < entries.count {
+                if let color = entries[nextIndex].color {
+                    return color
+                }
+            }
+        }
+        return nil
+    }
+
     private func convertDataEntriesToPoints(entries: [MLPointEntry]) -> [CGPoint] {
         if let max = maxPoint,
             let min = minPoint {
             var result: [CGPoint] = []
             let minMaxRange: CGFloat = CGFloat(max - min) * topHorizontalLine
             for i in 0..<entries.count {
-                var height: CGFloat = dataLayer.frame.height * (1 - ((CGFloat(entries[i].value)) / minMaxRange))
-                if entries[i].value == 0 {
+                var height = dataLayer.frame.height * (1 - ((CGFloat(entries[i].value) - CGFloat(min)) / minMaxRange))
+                if entries[i].value == minPoint {
                     height = dataLayer.frame.height
                 } else if entries[i].value == maxPoint {
                     height = 0
                 }
-                print("------------------------------------------------")
-                print("dataLayer height: \(dataLayer.frame.height)")
-                print("height: \(height) for value: \(entries[i].value)")
-                print("minMaxRange: \(minMaxRange)")
-                print("topHorizontalLine: \(topHorizontalLine)")
-                print("entries[i].value) / minMaxRange: \((CGFloat(entries[i].value) * minMaxRange))")
-                print("------------------------------------------------")
-
                 let point = CGPoint(x: CGFloat(i)*lineGap, y: height)
-                //let point = CGPoint(x: CGFloat(i)*lineGap + 40, y: height)
                 result.append(point)
             }
             return result
@@ -318,6 +362,7 @@ open class MLLineChart: UIView {
             let path = createPath() {
             let lineLayer = CAShapeLayer()
             lineLayer.path = path.cgPath
+            lineLayer.lineWidth = lineWidth
             lineLayer.strokeColor = lineColor.cgColor
             lineLayer.fillColor = UIColor.clear.cgColor
             dataLayer.addSublayer(lineLayer)
@@ -394,9 +439,6 @@ open class MLLineChart: UIView {
         if let dataEntries = dataEntries,
             dataEntries.count > 0 {
             for (i, dataEntry) in dataEntries.enumerated() {
-
-            //}
-            //for i in 0..<dataEntries.count {
                 let textLayer = CATextLayer()
                 let width = labelBottomConfig.width!
                 let height = labelBottomConfig.height!
@@ -413,16 +455,12 @@ open class MLLineChart: UIView {
                 textLayer.contentsScale = UIScreen.main.scale
                 textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
                 textLayer.fontSize = labelBottomConfig.fontSize!
-                //textLayer.string = dataEntries[i].label
                 textLayer.string = dataEntry.label
                 mainLayer.addSublayer(textLayer)
             }
         }
     }
 
-    /**
-     Create horizontal lines (grid lines) and show the value of each line
-     */
     private func drawHorizontalLines() {
         guard let dataEntries = dataEntries else {
             return
@@ -490,24 +528,30 @@ open class MLLineChart: UIView {
         if let dataPoints = dataPoints,
             dataPoints.count > 0 {
             var lastPoint = CGPoint(x: 0, y: 0)
-            var strokeColorLine = UIColor.white.cgColor
+            var strokeColorLine = UIColor.red.cgColor
             for i in 1..<dataPoints.count {
-//                if i == 0 {
-//                    lastPoint = dataPoints[0]
-//                } else {
-                    lastPoint = dataPoints[i - 1]
-//                }
+                lastPoint = dataPoints[i - 1]
                 if let path = createLinePath(initialPoint:lastPoint, moveToPoint: dataPoints[i]){
                     let lineLayer = CAShapeLayer()
                     lineLayer.lineWidth = lineWidth
                     lineLayer.path = path.cgPath
-                    if hasColoredLines { strokeColorLine = getColorLine(by: i) }
+                    if hasColoredLines {
+                        if ignoreZeros {
+                            strokeColorLine = getColorLineNonZeros(by: i)
+                        } else {
+                            strokeColorLine = getColorLine(by: i)
+                        }
+                    }
                     lineLayer.strokeColor = strokeColorLine
-                    lineLayer.fillColor = UIColor.clear.cgColor
+                    lineLayer.fillColor = UIColor.red.cgColor
                     dataLayer.addSublayer(lineLayer)
                 }
             }
         }
+    }
+
+    private func getColorLineNonZeros(by index: Int) -> CGColor {
+        return dataColorsNonZeros[index].cgColor
     }
 
     /**
