@@ -23,9 +23,14 @@
 		35B742301F82A5E000829B21 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7422E1F82A5E000829B21 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35B742311F82A5EC00829B21 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7422D1F82A5DF00829B21 /* Nimble.framework */; };
 		35B742321F82A5EC00829B21 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7422E1F82A5E000829B21 /* Quick.framework */; };
+		D017E742218B6304003E1BF7 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3549BB551DA38A5E00C63030 /* Info-tvOS.plist */; };
+		D017E743218B630A003E1BF7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3549BB171DA3890B00C63030 /* Info.plist */; };
 		D03FFDC021629EFB0054B01F /* MLUIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03FFDBF21629EFB0054B01F /* MLUIView+Borders.swift */; };
 		D03FFDC22162A3F90054B01F /* MLAxisLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03FFDC12162A3F90054B01F /* MLAxisLine.swift */; };
 		D0954999214BCFF4005DD8EE /* MLLabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0954998214BCFF4005DD8EE /* MLLabelConfig.swift */; };
+		D0C261EE218B31DB0002CEC2 /* MLLabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0954998214BCFF4005DD8EE /* MLLabelConfig.swift */; };
+		D0C261EF218B31E00002CEC2 /* MLUIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03FFDBF21629EFB0054B01F /* MLUIView+Borders.swift */; };
+		D0C261F0218B31E50002CEC2 /* MLAxisLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03FFDC12162A3F90054B01F /* MLAxisLine.swift */; };
 		D0FE2DAF2147FEB40088CA2A /* UIView+tapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */; };
 		D0FE2DB02147FEB40088CA2A /* UIView+tapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */; };
 		D0FE2DB32147FEB40088CA2A /* MLPointEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */; };
@@ -398,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D017E743218B630A003E1BF7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D017E742218B6304003E1BF7 /* Info-tvOS.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,8 +458,11 @@
 				D0FE2DBA2147FEB40088CA2A /* MLDotCALayer.swift in Sources */,
 				D0FE2DB02147FEB40088CA2A /* UIView+tapGesture.swift in Sources */,
 				D0FE2DB42147FEB40088CA2A /* MLPointEntry.swift in Sources */,
+				D0C261EE218B31DB0002CEC2 /* MLLabelConfig.swift in Sources */,
 				D0FE2DBE2147FEB40088CA2A /* MLTextConfig.swift in Sources */,
 				359649051FB18CC000FC7ADC /* MLLineChart.swift in Sources */,
+				D0C261F0218B31E50002CEC2 /* MLAxisLine.swift in Sources */,
+				D0C261EF218B31E00002CEC2 /* MLUIView+Borders.swift in Sources */,
 				D0FE2DBC2147FEB40088CA2A /* MLCurveAlgorithm.swift in Sources */,
 				D0FE2DB82147FEB40088CA2A /* MLLineChart+Helpers.swift in Sources */,
 			);
