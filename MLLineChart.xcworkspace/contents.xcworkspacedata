@@ -5,9 +5,6 @@
       location = "group:MLLineChart.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:MLLineChart.playground">
-   </FileRef>
-   <FileRef
       location = "group:scripts">
    </FileRef>
    <FileRef
@@ -36,9 +33,6 @@
    </FileRef>
    <FileRef
       location = "group:Gemfile">
-   </FileRef>
-   <FileRef
-      location = "group:Gemfile.lock">
    </FileRef>
    <FileRef
       location = "group:Package.swift">

@@ -59,6 +59,8 @@ extension MLLineChart {
             UIColor(red: 0.0901961, green: 0.745098, blue: 0.811765, alpha: 1)
         ]
 
+        
+
         public static func randomizedColor() -> UIColor {
             return Helpers.randomColors[Int(arc4random_uniform(UInt32(Helpers.randomColors.count)))]
         }

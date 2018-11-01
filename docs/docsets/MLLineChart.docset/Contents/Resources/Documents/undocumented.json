@@ -1,6 +1,27 @@
 {
   "warnings": [
     {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLAxisLine.swift",
+      "line": 11,
+      "symbol": "MLAxisLine",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLAxisLine.swift",
+      "line": 12,
+      "symbol": "MLAxisLine.init(frame:thickness:color:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLAxisLine.swift",
+      "line": 18,
+      "symbol": "MLAxisLine.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLBubbleConfig.swift",
       "line": 25,
       "symbol": "MLBubbleConfig",
@@ -39,6 +60,90 @@
       "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLBubbleConfig.swift",
       "line": 31,
       "symbol": "MLBubbleConfig.init(radius:value:label:color:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLCurveAlgorithm.swift",
+      "line": 25,
+      "symbol": "MLCurvedSegment",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLCurveAlgorithm.swift",
+      "line": 26,
+      "symbol": "MLCurvedSegment.controlPoint1",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLCurveAlgorithm.swift",
+      "line": 27,
+      "symbol": "MLCurvedSegment.controlPoint2",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLCurveAlgorithm.swift",
+      "line": 30,
+      "symbol": "MLCurveAlgorithm",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLCurveAlgorithm.swift",
+      "line": 31,
+      "symbol": "MLCurveAlgorithm.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLCurveAlgorithm.swift",
+      "line": 33,
+      "symbol": "MLCurveAlgorithm.controlPointsFrom(points:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLDotCALayer.swift",
+      "line": 30,
+      "symbol": "MLDotCALayer.innerRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLDotCALayer.swift",
+      "line": 31,
+      "symbol": "MLDotCALayer.dotInnerColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLDotCALayer.swift",
+      "line": 33,
+      "symbol": "MLDotCALayer.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLDotCALayer.swift",
+      "line": 37,
+      "symbol": "MLDotCALayer.init(layer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLDotCALayer.swift",
+      "line": 41,
+      "symbol": "MLDotCALayer.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLDotCALayer.swift",
+      "line": 45,
+      "symbol": "MLDotCALayer.layoutSublayers()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -128,6 +233,27 @@
     },
     {
       "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": null,
+      "symbol": "MLLineChart",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": null,
+      "symbol": "MLLineChart",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": null,
+      "symbol": "MLLineChart",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
       "line": 27,
       "symbol": "MLLineChartDelegate.didSelectDataPoint(_:yValues:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -156,8 +282,22 @@
     },
     {
       "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": 171,
+      "symbol": "MLLineChart.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
       "line": 177,
       "symbol": "MLLineChart.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": 182,
+      "symbol": "MLLineChart.setupView()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -170,8 +310,64 @@
     },
     {
       "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": 231,
+      "symbol": "MLLineChart.createAxisLine(dataLayerHeight:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
       "line": 244,
       "symbol": "MLLineChart.scrollToTheEnd()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": 457,
+      "symbol": "MLLineChart.clean()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": 550,
+      "symbol": "MLLineChart.checkBubbleIndex(index:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": 559,
+      "symbol": "MLLineChart.drawTopBubble(index:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": 658,
+      "symbol": "MLLineChart.applyShadow(layer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": 665,
+      "symbol": "MLLineChart.applyShadow(layer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": 674,
+      "symbol": "MLLineChart.drawTextBubbleValue(view:xPos:yPos:bubbleConfig:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLLineChart.swift",
+      "line": 694,
+      "symbol": "MLLineChart.drawTextBubbleLabel(view:xPos:yPos:bubbleConfig:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -253,6 +449,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLTextConfig.swift",
+      "line": 39,
+      "symbol": "MLTextConfig.createFont()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLUIView+Borders.swift",
       "line": 12,
       "symbol": "UIView.ViewSide",
@@ -316,9 +519,51 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/MLUIView+Borders.swift",
+      "line": 178,
+      "symbol": "UIView._getViewBackedOneSidedBorder(frame:color:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/UIView+tapGesture.swift",
+      "line": 14,
+      "symbol": "UIView.AssociatedObjectKeys",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/UIView+tapGesture.swift",
+      "line": 15,
+      "symbol": "UIView.AssociatedObjectKeys.MLtapGestureRecognizer",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/UIView+tapGesture.swift",
+      "line": 18,
+      "symbol": "UIView.MLAction",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/UIView+tapGesture.swift",
+      "line": 21,
+      "symbol": "UIView.MLtapGestureRecognizerAction",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/UIView+tapGesture.swift",
       "line": 36,
       "symbol": "UIView.addMLTapGestureRecognizer(action:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/michel/DeviOS/MLPods/MLLineChart/Sources/Core/UIView+tapGesture.swift",
+      "line": 45,
+      "symbol": "UIView.handleMLTapGesture(sender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
