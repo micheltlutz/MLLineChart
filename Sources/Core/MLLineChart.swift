@@ -724,7 +724,6 @@ extension MLLineChart {
         layer.shadowRadius = 4
         layer.shadowOpacity = 1
     }
-
     fileprivate func applyShadow(layer: CAShapeLayer) {
         let color = UIColor(red: 38/255, green: 46/255, blue: 48/255, alpha: 0.4)
         layer.shadowColor = color.cgColor
