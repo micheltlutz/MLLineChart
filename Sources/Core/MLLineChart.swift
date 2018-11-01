@@ -126,7 +126,7 @@ open class MLLineChart: UIView {
     public var showBubbleInfo: Bool = false
 
     /// Define Scroll Animation Time default = 1.0
-    public var scrollAnimeteTime: Double = 1.0
+    public var scrollAnimateTime: Double = 1.0
 
     /// Dedine UIViewAnimationOptions Default .curveEaseIn
     public var animationStyle: UIView.AnimationOptions = .curveEaseIn
@@ -236,7 +236,7 @@ open class MLLineChart: UIView {
                     drawChart()
                 }
             }
-            //maskGradientLayer()
+            maskGradientLayer()
             if showAxisLine { createAxisLine(dataLayerHeight: dataLayerHeight) }
             if showLabels { drawLables() }
             if showDots { drawDots() }
@@ -257,11 +257,9 @@ open class MLLineChart: UIView {
      Scroll chart to the end contentOffset.x
      */
     public func scrollToTheEnd() {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: self.scrollAnimeteTime, delay: 0, options: self.animationStyle, animations: {
-                self.scrollView.contentOffset.x = self.scrollView.contentSize.width - self.scrollView.bounds.size.width
-            }, completion: nil)
-        }
+        UIView.animate(withDuration: self.scrollAnimateTime, delay: 0, options: self.animationStyle, animations: {
+            self.scrollView.contentOffset.x = self.scrollView.contentSize.width - self.scrollView.bounds.size.width
+        }, completion: nil)
     }
 
     /**
@@ -312,10 +310,6 @@ open class MLLineChart: UIView {
                     continue
                 }
             }
-            print("\n\n-------------- MLLineChart Debug ---------------")
-            print("dataColorsNonZeros: \(dataColorsNonZeros.count)")
-            print("result.count: \(result.count)")
-            print("------------------------------------------------\n\n")
             return result
         }
         return []
@@ -338,6 +332,7 @@ open class MLLineChart: UIView {
             let min = minPoint {
             var result: [CGPoint] = []
             let minMaxRange: CGFloat = CGFloat(max - min) * topHorizontalLine
+            var point: CGPoint!
             for i in 0..<entries.count {
                 var height = dataLayer.frame.height * (1 - ((CGFloat(entries[i].value) - CGFloat(min)) / minMaxRange))
                 if entries[i].value == minPoint {
@@ -345,7 +340,11 @@ open class MLLineChart: UIView {
                 } else if entries[i].value == maxPoint {
                     height = 0
                 }
-                let point = CGPoint(x: CGFloat(i)*lineGap, y: height)
+                if isCurved {
+                    point = CGPoint(x: CGFloat(i)*lineGap + 40, y: height)
+                } else {
+                    point = CGPoint(x: CGFloat(i)*lineGap, y: height)
+                }
                 result.append(point)
             }
             return result

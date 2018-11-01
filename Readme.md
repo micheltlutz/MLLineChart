@@ -12,9 +12,8 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/MLLineChart.svg)](https://cocoapods.org/pods/MLLineChart)
 [![Travis](https://img.shields.io/travis/micheltlutz/MLLineChart/master.svg)](https://travis-ci.org/micheltlutz/MLLineChart/branches)
-[![SwiftFrameworkTemplate](https://img.shields.io/badge/SwiftFramework-Template-red.svg)](http://github.com/RahulKatariya/SwiftFrameworkTemplate)
 
-A Simple Line Chart Librarie
+A Simple Line Chart Library
 
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -231,7 +230,7 @@ class ViewController: UIViewController {
 
 [Documentation](http://htmlpreview.github.io/?https://github.com/micheltlutz/MLLineChart/blob/develop/docs/index.html)
 
-MLLineChart Docs (44% documented)
+MLLineChart Docs (42% documented)
 
 
 ## Demo App
