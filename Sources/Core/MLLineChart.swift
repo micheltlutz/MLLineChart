@@ -217,14 +217,25 @@ open class MLLineChart: UIView {
         let height = self.frame.size.height - topSpace
         scrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
 
+        backgroundColor = .yellow
+
         if let dataEntries = dataEntries {
             scrollView.contentSize = CGSize(width: CGFloat(dataEntries.count + 1) * lineGap, height: height)
-            scrollView.contentInset = UIEdgeInsets(top: topSpace, left: 0, bottom: 0, right: 0)
+//            scrollView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: -8, right: 0)
+
+            scrollView.backgroundColor = .green
+
+
+
             let mainLayerHeight = height
             mainLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(dataEntries.count) * lineGap, height: mainLayerHeight)
             let dataLayerHeight = mainLayer.frame.height - topSpace - bottomSpace
+
             dataLayer.frame = CGRect(x: 0, y: topSpace, width: mainLayer.frame.width, height: dataLayerHeight)
+            mainLayer.backgroundColor = UIColor.blue.cgColor
+
             gradientLayer.frame = dataLayer.frame
+
             if let _ = minPoint, let _ = maxPoint {
                 if ignoreZeros {
                     dataPoints = convertDataEntriesToPointsZeros(entries: dataEntries)
@@ -250,9 +261,9 @@ open class MLLineChart: UIView {
                     drawChart()
                 }
             }
-            maskGradientLayer()
+//            maskGradientLayer()
             if showAxisLine { createAxisLine(dataLayerHeight: dataLayerHeight) }
-            if showLabels { drawLables() }
+            if showLabels { drawLabels() }
             if showDots { drawDots() }
         }
     }
@@ -412,21 +423,25 @@ open class MLLineChart: UIView {
             lineLayer.fillColor = UIColor.clear.cgColor
             lineLayer.lineWidth = lineWidth
             if isGradientLineColors && gradienLinesColors.count > 0 {
-                let gradient = CAGradientLayer()
-                gradient.frame = dataLayer.frame
-                print("mainLayer.frame: \(mainLayer.frame)")
-                print("dataLayer.frame: \(dataLayer.frame)")
-                gradient.colors = gradienLinesColors
-                gradient.startPoint = CGPoint(x: 0, y: 0)
-                gradient.endPoint = CGPoint(x: 0, y: 1)
+                let gradient = createGradientToStroke()
                 gradient.mask = lineLayer
-                MLLayersShadow.applyShadow(layer: gradient)
+                MLLayersShadow.applyShadow(layer: lineLayer)
                 dataLayer.addSublayer(gradient)
             } else {
                 MLLayersShadow.applyShadow(layer: lineLayer)
                 dataLayer.addSublayer(lineLayer)
             }
         }
+    }
+    // MARK: Gradients
+
+    private func createGradientToStroke() -> CAGradientLayer {
+        let gradient = CAGradientLayer()
+        gradient.frame = dataLayer.frame
+        gradient.colors = gradienLinesColors
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+        return gradient
     }
 
     /**
@@ -461,7 +476,7 @@ open class MLLineChart: UIView {
     /**
      Create titles at the bottom for all entries showed in the chart
      */
-    private func drawLables() {
+    private func drawLabels() {
         if let dataEntries = dataEntries,
             dataEntries.count > 0 {
             for (i, dataEntry) in dataEntries.enumerated() {
@@ -631,7 +646,64 @@ extension MLLineChart {
                 dotLayer.frame = CGRect(x: xValue, y: yValue, width: outerRadius, height: outerRadius)
                 dotLayers.append(dotLayer)
                 if showShadows { MLLayersShadow.applyShadow(layer: dotLayer) }
-                dataLayer.addSublayer(dotLayer)
+
+                if isGradientLineColors && gradienLinesColors.count > 0 {
+                    let gradient = createGradientToStroke()
+                    gradient.mask = dotLayer
+                    MLLayersShadow.applyShadow(layer: dotLayer)
+                    dataLayer.addSublayer(gradient)
+                } else {
+                    dataLayer.addSublayer(dotLayer)
+                }
+
+                if animateDots {
+                    let anim = CABasicAnimation(keyPath: "opacity")
+                    anim.duration = 1.0
+                    anim.fromValue = 0
+                    anim.toValue = 1
+                    dotLayer.add(anim, forKey: "opacity")
+                }
+            }
+        }
+    }
+
+    fileprivate func drawDotsLLL() {
+        if let dataPoints = dataPoints {
+            for (index, dataPoint) in dataPoints.enumerated() {
+                let xValue = dataPoint.x - outerRadius / 2
+                let yValue = (dataPoint.y + topSpace) - (outerRadius * 2)
+                //                let yValue = dataPoint.y - (outerRadius * 2)
+                let dotLayer = MLDotCALayer()
+                let dataEntry = dataEntries![index]
+                dotLayer.innerRadius = innerRadius
+                dotLayer.cornerRadius = outerRadius / 2
+                dotLayer.frame = CGRect(x: xValue, y: yValue, width: outerRadius, height: outerRadius)
+                if isGradientLineColors && gradienLinesColors.count > 0 {
+                    let gradient = CAGradientLayer()
+                    gradient.frame = dotLayer.frame
+                    print("mainLayer.frame: \(mainLayer.frame)")
+                    print("dataLayer.frame: \(dataLayer.frame)")
+                    gradient.colors = gradienLinesColors
+                    gradient.startPoint = CGPoint(x: 0, y: 0)
+                    gradient.endPoint = CGPoint(x: 0, y: 1)
+                    gradient.mask = dotLayer
+                    MLLayersShadow.applyShadow(layer: dotLayer)
+                    dotLayers.append(dotLayer)
+                    dataLayer.addSublayer(gradient)
+                } else {
+                    if let unwrappedDataEntryColor = dataEntry.dotColor {
+                        dotLayer.dotInnerColor = unwrappedDataEntryColor
+                    } else {
+                        if let unwrappedDotColor = dotColor {
+                            dotLayer.dotInnerColor = unwrappedDotColor
+                        }
+                    }
+
+                    if showShadows { MLLayersShadow.applyShadow(layer: dotLayer) }
+                    dotLayers.append(dotLayer)
+                    dataLayer.addSublayer(dotLayer)
+                }
+
                 if animateDots {
                     let anim = CABasicAnimation(keyPath: "opacity")
                     anim.duration = 1.0
