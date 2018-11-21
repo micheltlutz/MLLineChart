@@ -139,7 +139,16 @@ open class MLLineChart: UIView {
 
     //Indicates if chartignores ZeroValues and conect point to point
     public var ignoreZeros: Bool = false
-
+    
+    ///Indicates if gridLayer is colored
+    public var gridLayerColor: UIColor?
+    
+    ///Indicates if line is gradient
+    public var isGradientLineColors: Bool = false
+    
+    ///Indicates gradient colors
+    public var gradienLinesColors: [CGColor] = []
+    
     /// Contains the colors for points without zero
     private var dataColorsNonZeros: [UIColor] = []
 
@@ -195,9 +204,11 @@ open class MLLineChart: UIView {
         scrollView.layer.addSublayer(gradientLayer)
         self.layer.addSublayer(gridLayer)
         self.addSubview(scrollView)
-        addMLTapGestureRecognizer { (action) in
-            if let touch = action?.location(in: self.scrollView) {
-                self.handleTouchEvents(touchPoint: touch)
+        if showBubbleInfo {
+            addMLTapGestureRecognizer { (action) in
+                if let touch = action?.location(in: self.scrollView) {
+                    self.handleTouchEvents(touchPoint: touch)
+                }
             }
         }
     }
@@ -225,6 +236,9 @@ open class MLLineChart: UIView {
             }
             gridLayer.frame = CGRect(x: 0, y: topSpace + bottomSpace,
                                      width: self.frame.width, height: dataLayerHeight)
+            if let gridColor = gridLayerColor {
+                gridLayer.backgroundColor = gridColor.cgColor
+            }
             clean()
             if showHorizontalLines { drawHorizontalLines() }
             if isCurved {
@@ -397,8 +411,21 @@ open class MLLineChart: UIView {
             lineLayer.strokeColor = lineColor.cgColor
             lineLayer.fillColor = UIColor.clear.cgColor
             lineLayer.lineWidth = lineWidth
-            applyShadow(layer: lineLayer)
-            dataLayer.addSublayer(lineLayer)
+            if isGradientLineColors && gradienLinesColors.count > 0 {
+                let gradient = CAGradientLayer()
+                gradient.frame = dataLayer.frame
+                print("mainLayer.frame: \(mainLayer.frame)")
+                print("dataLayer.frame: \(dataLayer.frame)")
+                gradient.colors = gradienLinesColors
+                gradient.startPoint = CGPoint(x: 0, y: 0)
+                gradient.endPoint = CGPoint(x: 0, y: 1)
+                gradient.mask = lineLayer
+                MLLayersShadow.applyShadow(layer: gradient)
+                dataLayer.addSublayer(gradient)
+            } else {
+                MLLayersShadow.applyShadow(layer: lineLayer)
+                dataLayer.addSublayer(lineLayer)
+            }
         }
     }
 
@@ -517,6 +544,7 @@ open class MLLineChart: UIView {
                 $0.removeFromSuperlayer()
             }
         })
+        dotLayers = []
         dataLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         gridLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
     }
@@ -585,18 +613,25 @@ extension MLLineChart {
      */
     fileprivate func drawDots() {
         if let dataPoints = dataPoints {
-            for dataPoint in dataPoints {
+            for (index, dataPoint) in dataPoints.enumerated() {
                 let xValue = dataPoint.x - outerRadius / 2
-                let yValue = (dataPoint.y + lineGap) - (outerRadius * 2)
+//                let yValue = (dataPoint.y + topSpace) - (outerRadius * 2)
+                let yValue = dataPoint.y - (outerRadius * 2)
                 let dotLayer = MLDotCALayer()
-                if let unwrappedDotColor = dotColor {
-                    dotLayer.dotInnerColor = unwrappedDotColor
+                let dataEntry = dataEntries![index]
+                if let unwrappedDataEntryColor = dataEntry.dotColor {
+                    dotLayer.dotInnerColor = unwrappedDataEntryColor
+                } else {
+                    if let unwrappedDotColor = dotColor {
+                        dotLayer.dotInnerColor = unwrappedDotColor
+                    }
                 }
                 dotLayer.innerRadius = innerRadius
                 dotLayer.cornerRadius = outerRadius / 2
                 dotLayer.frame = CGRect(x: xValue, y: yValue, width: outerRadius, height: outerRadius)
                 dotLayers.append(dotLayer)
-                mainLayer.addSublayer(dotLayer)
+                if showShadows { MLLayersShadow.applyShadow(layer: dotLayer) }
+                dataLayer.addSublayer(dotLayer)
                 if animateDots {
                     let anim = CABasicAnimation(keyPath: "opacity")
                     anim.duration = 1.0
@@ -634,8 +669,6 @@ extension MLLineChart {
             let xPos = dataPoints[index].x - bubbleConfig.radius
             let yPos = dataPoints[index].y - 8
             let color = bubbleConfig.color!
-
-
             let diffTouchAreaX = CGFloat((bubbleConfig.radius / 2) - 5)
             let diffTouchAreaY = CGFloat(bubbleConfig.radius)
 
@@ -709,27 +742,14 @@ extension MLLineChart {
 
             if showShadows {
                 view.layer.shouldRasterize = true
-                applyShadow(layer: view.layer)
+                MLLayersShadow.applyShadow(layer: view.layer)
             }
-
             drawTextBubbleValue(view: view,xPos: xPosP, yPos: yPosP, bubbleConfig: bubbleConfig)
             drawTextBubbleLabel(view: view, xPos: xPosP, yPos: yPosP, bubbleConfig: bubbleConfig)
             scrollView.addSubview(view)
         }
     }
 
-    fileprivate func applyShadow(layer: CALayer) {
-        let color = UIColor(red: 38/255, green: 46/255, blue: 48/255, alpha: 0.5)
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = 4
-        layer.shadowOpacity = 1
-    }
-    fileprivate func applyShadow(layer: CAShapeLayer) {
-        let color = UIColor(red: 38/255, green: 46/255, blue: 48/255, alpha: 0.4)
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = 2
-        layer.shadowOpacity = 1
-    }
     /*
      Draw Text Value inseide Bubble
      */
