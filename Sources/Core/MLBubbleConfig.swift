@@ -26,12 +26,15 @@ public struct MLBubbleConfig {
     public var radius: CGFloat = 25.0
     public let value: MLTextConfig
     public let label: MLTextConfig
+    public var labelDistance: CGFloat = 18
     public let color: UIColor?
 
-    public init(radius: CGFloat, value: MLTextConfig, label: MLTextConfig, color: UIColor? = .gray) {
+    public init(radius: CGFloat, value: MLTextConfig, label: MLTextConfig,
+                labelDistance: CGFloat, color: UIColor? = .gray) {
         self.radius = radius
         self.label = label
         self.value = value
         self.color = color
+        self.labelDistance = labelDistance
     }
 }

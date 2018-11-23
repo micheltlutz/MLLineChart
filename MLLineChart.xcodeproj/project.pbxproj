@@ -30,6 +30,7 @@
 		D0C261EE218B31DB0002CEC2 /* MLLabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0954998214BCFF4005DD8EE /* MLLabelConfig.swift */; };
 		D0C261EF218B31E00002CEC2 /* MLUIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03FFDBF21629EFB0054B01F /* MLUIView+Borders.swift */; };
 		D0C261F0218B31E50002CEC2 /* MLAxisLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03FFDC12162A3F90054B01F /* MLAxisLine.swift */; };
+		D0C94E9221A6C6FC0070A6B6 /* MLBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C94E9121A6C6FC0070A6B6 /* MLBubbleView.swift */; };
 		D0FE2DAF2147FEB40088CA2A /* UIView+tapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */; };
 		D0FE2DB02147FEB40088CA2A /* UIView+tapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */; };
 		D0FE2DB32147FEB40088CA2A /* MLPointEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */; };
@@ -113,6 +114,7 @@
 		D0954998214BCFF4005DD8EE /* MLLabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLLabelConfig.swift; sourceTree = "<group>"; };
 		D095CB5E218748C70087BF05 /* ChartPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ChartPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0A5686221A463AC00D5950C /* MLLayersShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLLayersShadow.swift; sourceTree = "<group>"; };
+		D0C94E9121A6C6FC0070A6B6 /* MLBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBubbleView.swift; sourceTree = "<group>"; };
 		D0FE2DA72147FEB30088CA2A /* UIView+tapGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+tapGesture.swift"; sourceTree = "<group>"; };
 		D0FE2DA92147FEB30088CA2A /* MLPointEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLPointEntry.swift; sourceTree = "<group>"; };
 		D0FE2DAA2147FEB30088CA2A /* MLBubbleConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBubbleConfig.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				D03FFDBF21629EFB0054B01F /* MLUIView+Borders.swift */,
 				D03FFDC12162A3F90054B01F /* MLAxisLine.swift */,
 				D0A5686221A463AC00D5950C /* MLLayersShadow.swift */,
+				D0C94E9121A6C6FC0070A6B6 /* MLBubbleView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0C94E9221A6C6FC0070A6B6 /* MLBubbleView.swift in Sources */,
 				D0FE2DB52147FEB40088CA2A /* MLBubbleConfig.swift in Sources */,
 				D0FE2DB92147FEB40088CA2A /* MLDotCALayer.swift in Sources */,
 				D0A5686321A463AC00D5950C /* MLLayersShadow.swift in Sources */,

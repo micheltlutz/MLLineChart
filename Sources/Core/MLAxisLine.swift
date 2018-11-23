@@ -9,10 +9,13 @@
 import UIKit
 
 class MLAxisLine: UIView {
-    init(frame: CGRect, thickness: CGFloat, color: UIColor) {
+    init(frame: CGRect, thickness: CGFloat, color: UIColor, backgroundColor: UIColor?) {
         super.init(frame: frame)
         self.addBorder(side: .bottom, thickness: thickness, color: color)
         self.addBorder(side: .left, thickness: thickness, color: color)
+        if let bgColor = backgroundColor {
+            self.backgroundColor = bgColor
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
