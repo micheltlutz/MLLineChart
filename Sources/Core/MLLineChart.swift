@@ -37,7 +37,7 @@ open class MLLineChart: UIView {
     public var lineGap: CGFloat = 60.0
 
     /// preseved space at top of the chart
-    let topSpace: CGFloat = 60.0
+    let topSpace: CGFloat = 20.0
 
     /// preserved space at bottom of the chart to show labels along the Y axis
     let bottomSpace: CGFloat = 60.0
@@ -77,9 +77,11 @@ open class MLLineChart: UIView {
 
     ///Indicates if lines is colored
     public var hasColoredLines: Bool = false
-
-    /// Define Bubble Label Distance default = 18
-    public var bubbleLabelDistance: CGFloat = 18
+    
+    public var disableScroll: Bool = false
+    
+    public var marginLimitData: CGFloat = 30
+    public var marginXData: CGFloat = 20
 
     ///Define Gradient colors
     public var gradientColors: [CGColor] = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.7).cgColor, UIColor.clear.cgColor] {
@@ -102,6 +104,8 @@ open class MLLineChart: UIView {
 
     ///Define default label font size
     public var labelSize: CGFloat = 11
+    
+    public var labelTopMargin: CGFloat = 2
 
     ///Define if shadow is active
     public var showShadows: Bool = true
@@ -139,7 +143,27 @@ open class MLLineChart: UIView {
 
     //Indicates if chartignores ZeroValues and conect point to point
     public var ignoreZeros: Bool = false
-
+    
+    ///Indicates if gridLayer is colored
+    public var gridLayerColor: UIColor?
+    
+    ///Indicates if gridLayer is colored
+    public var mainLayerColor: UIColor?
+    
+    ///Indicates if MLAxisLene is colored background
+    public var axisBackgroundColor: UIColor?
+    
+    ///Indicates if line is gradient
+    public var isGradientLineColors: Bool = false
+    
+    ///Indicates gradient colors
+    public var gradienLinesColors: [CGColor] = []
+    
+    /// Contains horizontal lines
+    public var frameView: UIView = UIView()
+    
+    // MARK: Private var/let
+    
     /// Contains the colors for points without zero
     private var dataColorsNonZeros: [UIColor] = []
 
@@ -157,7 +181,7 @@ open class MLLineChart: UIView {
 
     /// Contains horizontal lines
     private let gridLayer: CALayer = CALayer()
-
+    
     /// Contains horizontal lines
     private let frameLChart: CALayer = CALayer()
 
@@ -194,37 +218,42 @@ open class MLLineChart: UIView {
         scrollView.layer.addSublayer(mainLayer)
         scrollView.layer.addSublayer(gradientLayer)
         self.layer.addSublayer(gridLayer)
+        self.addSubview(frameView)
         self.addSubview(scrollView)
-        addMLTapGestureRecognizer { (action) in
-            if let touch = action?.location(in: self.scrollView) {
-                self.handleTouchEvents(touchPoint: touch)
+        
+//        if showBubbleInfo {
+            addMLTapGestureRecognizer { (action) in
+                if let touch = action?.location(in: self.scrollView) {
+                    self.handleTouchEvents(touchPoint: touch)
+                }
             }
-        }
+//        }
     }
 
     override open func layoutSubviews() {
-        let height = self.frame.size.height - topSpace
+        let height = self.frame.size.height - topSpace - labelTopMargin
         scrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-
+        frameView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         if let dataEntries = dataEntries {
             scrollView.contentSize = CGSize(width: CGFloat(dataEntries.count + 1) * lineGap, height: height)
-            scrollView.contentInset = UIEdgeInsets(top: topSpace, left: 0, bottom: 0, right: 0)
             let mainLayerHeight = height
             mainLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(dataEntries.count) * lineGap, height: mainLayerHeight)
             let dataLayerHeight = mainLayer.frame.height - topSpace - bottomSpace
-            dataLayer.frame = CGRect(x: 0, y: topSpace, width: mainLayer.frame.width, height: dataLayerHeight)
-            gradientLayer.frame = dataLayer.frame
-            if let _ = minPoint, let _ = maxPoint {
-                if ignoreZeros {
-                    dataPoints = convertDataEntriesToPointsZeros(entries: dataEntries)
-                } else {
-                    dataPoints = convertDataEntriesToPoints(entries: dataEntries)
-                }
-            } else {
-                dataPoints = convertDataEntriesToDinamicPoints(entries: dataEntries)
+
+            dataLayer.frame = mainLayer.frame
+            gridLayer.frame = mainLayer.frame
+            if disableScroll {
+                scrollView.isScrollEnabled = !disableScroll
             }
-            gridLayer.frame = CGRect(x: 0, y: topSpace + bottomSpace,
-                                     width: self.frame.width, height: dataLayerHeight)
+            makeDataPoints(dataEntries: dataEntries)
+            
+            if let gridColor = gridLayerColor {
+                gridLayer.backgroundColor = gridColor.cgColor
+            }
+            
+            if let mainColor = mainLayerColor {
+                mainLayer.backgroundColor = mainColor.cgColor
+            }
             clean()
             if showHorizontalLines { drawHorizontalLines() }
             if isCurved {
@@ -236,19 +265,30 @@ open class MLLineChart: UIView {
                     drawChart()
                 }
             }
-            maskGradientLayer()
+//            maskGradientLayer()
             if showAxisLine { createAxisLine(dataLayerHeight: dataLayerHeight) }
-            if showLabels { drawLables() }
+            if showLabels { drawLabels() }
             if showDots { drawDots() }
         }
     }
     
+    private func makeDataPoints(dataEntries: [MLPointEntry]) {
+        if let _ = minPoint, let _ = maxPoint {
+            if ignoreZeros {
+                dataPoints = convertDataEntriesToPointsZeros(entries: dataEntries)
+            } else {
+                dataPoints = convertDataEntriesToPoints(entries: dataEntries)
+            }
+        } else {
+            dataPoints = convertDataEntriesToDinamicPoints(entries: dataEntries)
+        }
+    }
+
     private func createAxisLine(dataLayerHeight: CGFloat) {
-        mlAxisLine = MLAxisLine(frame: CGRect(x: 0, y: topSpace + bottomSpace,
-                                              width: self.frame.width,
-                                              height: dataLayerHeight),
+        mlAxisLine = MLAxisLine(frame: dataLayer.frame,
                                 thickness: lineWidth,
-                                color: lineColor)
+                                color: lineColor,
+                                backgroundColor: axisBackgroundColor)
         self.addSubview(mlAxisLine!)
         self.sendSubviewToBack(mlAxisLine!)
     }
@@ -291,20 +331,18 @@ open class MLLineChart: UIView {
             var result: [CGPoint] = []
             dataColorsNonZeros = []
             let minMaxRange: CGFloat = CGFloat(max - min) * topHorizontalLine
-
             for i in 0..<entries.count {
                 if entries[i].value != 0 {
                     var height = dataLayer.frame.height * (1 - ((CGFloat(entries[i].value) - CGFloat(min)) / minMaxRange))
-                    if entries[i].value == minPoint {
-                        height = dataLayer.frame.height
-                    } else if entries[i].value == maxPoint {
-                        height = 0
+                    if entries[i].value == minPoint! {
+                        height = dataLayer.frame.height - (marginLimitData / 2)
+                    } else if entries[i].value == maxPoint! {
+                        height = marginLimitData
                     }
-
                     if let color = entries[i].color {
                         dataColorsNonZeros.append(color)
                     }
-                    let point = CGPoint(x: CGFloat(i)*lineGap, y: height)
+                    let point = CGPoint(x: CGFloat(i)*lineGap + marginXData, y: height)
                     result.append(point)
                 } else {
                     continue
@@ -397,9 +435,26 @@ open class MLLineChart: UIView {
             lineLayer.strokeColor = lineColor.cgColor
             lineLayer.fillColor = UIColor.clear.cgColor
             lineLayer.lineWidth = lineWidth
-            applyShadow(layer: lineLayer)
-            dataLayer.addSublayer(lineLayer)
+            if isGradientLineColors && gradienLinesColors.count > 0 {
+                let gradient = createGradientToStroke()
+                gradient.mask = lineLayer
+                MLLayersShadow.applyShadow(layer: lineLayer)
+                dataLayer.addSublayer(gradient)
+            } else {
+                MLLayersShadow.applyShadow(layer: lineLayer)
+                dataLayer.addSublayer(lineLayer)
+            }
         }
+    }
+    // MARK: Gradients
+
+    private func createGradientToStroke() -> CAGradientLayer {
+        let gradient = CAGradientLayer()
+        gradient.frame = dataLayer.frame
+        gradient.colors = gradienLinesColors
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+        return gradient
     }
 
     /**
@@ -434,7 +489,7 @@ open class MLLineChart: UIView {
     /**
      Create titles at the bottom for all entries showed in the chart
      */
-    private func drawLables() {
+    private func drawLabels() {
         if let dataEntries = dataEntries,
             dataEntries.count > 0 {
             for (i, dataEntry) in dataEntries.enumerated() {
@@ -446,12 +501,14 @@ open class MLLineChart: UIView {
                 if labelBottomConfig.rounded! {
                     textLayer.cornerRadius = height / 2
                 }
-                textLayer.frame = CGRect(x: lineGap*CGFloat(i+1) - lineGap/2,
-                                         y: mainLayer.frame.size.height - bottomSpace/2 - 8,
-                                         width: width, height: height)
-
+                textLayer.frame = CGRect(x: lineGap*CGFloat(i) + marginLimitData,
+                                       y: mainLayer.frame.size.height + labelTopMargin,
+                                       width: width, height: height)
                 textLayer.alignmentMode = CATextLayerAlignmentMode.center
                 textLayer.contentsScale = UIScreen.main.scale
+                textLayer.shouldRasterize = true
+                textLayer.contentsScale = UIScreen.main.scale
+                textLayer.rasterizationScale = UIScreen.main.scale
                 textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
                 textLayer.fontSize = labelBottomConfig.fontSize!
                 textLayer.string = dataEntry.label
@@ -517,6 +574,7 @@ open class MLLineChart: UIView {
                 $0.removeFromSuperlayer()
             }
         })
+        dotLayers = []
         dataLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         gridLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
     }
@@ -585,18 +643,32 @@ extension MLLineChart {
      */
     fileprivate func drawDots() {
         if let dataPoints = dataPoints {
-            for dataPoint in dataPoints {
+            for (index, dataPoint) in dataPoints.enumerated() {
                 let xValue = dataPoint.x - outerRadius / 2
-                let yValue = (dataPoint.y + lineGap) - (outerRadius * 2)
+                let yValue = dataPoint.y - (outerRadius * 2)
                 let dotLayer = MLDotCALayer()
-                if let unwrappedDotColor = dotColor {
-                    dotLayer.dotInnerColor = unwrappedDotColor
+                let dataEntry = dataEntries![index]
+                if let unwrappedDataEntryColor = dataEntry.dotColor {
+                    dotLayer.dotInnerColor = unwrappedDataEntryColor
+                } else {
+                    if let unwrappedDotColor = dotColor {
+                        dotLayer.dotInnerColor = unwrappedDotColor
+                    }
                 }
                 dotLayer.innerRadius = innerRadius
                 dotLayer.cornerRadius = outerRadius / 2
                 dotLayer.frame = CGRect(x: xValue, y: yValue, width: outerRadius, height: outerRadius)
                 dotLayers.append(dotLayer)
-                mainLayer.addSublayer(dotLayer)
+                if showShadows { MLLayersShadow.applyShadow(layer: dotLayer) }
+                if isGradientLineColors && gradienLinesColors.count > 0 {
+                    let gradient = createGradientToStroke()
+                    gradient.mask = dotLayer
+                    MLLayersShadow.applyShadow(layer: dotLayer)
+                    dataLayer.addSublayer(gradient)
+                } else {
+                    dataLayer.addSublayer(dotLayer)
+                }
+
                 if animateDots {
                     let anim = CABasicAnimation(keyPath: "opacity")
                     anim.duration = 1.0
@@ -627,147 +699,25 @@ extension MLLineChart {
             if let entryBubbleConfig = dataEntry.bubbleConfig {
                 bubbleConfig = entryBubbleConfig
             }
-            /// This magicValue helps to create 2 control points that can be used to draw a quater of a
-            ///  circle using Bezier curve function
-            let magicValue: CGFloat = 0.552284749831 * bubbleConfig.radius
-
-            let xPos = dataPoints[index].x - bubbleConfig.radius
-            let yPos = dataPoints[index].y - 8
-            let color = bubbleConfig.color!
-
-
-            let diffTouchAreaX = CGFloat((bubbleConfig.radius / 2) - 5)
-            let diffTouchAreaY = CGFloat(bubbleConfig.radius)
-
-            let view = UIView(frame: CGRect(x: xPos - diffTouchAreaX, y: yPos - diffTouchAreaY,
-                                            width: (bubbleConfig.radius * 2) + bubbleConfig.radius / 2,
-                                            height: (bubbleConfig.radius * 2) + bubbleConfig.radius))
+            
+            let view = MLBubbleView(bubbleConfig: bubbleConfig, dataPoint: dataPoints[index])
             view.addMLTapGestureRecognizer { (action) in
                 let bubbleIndex = self.bubblesVisible.index(of: index)
                 self.bubblesVisible.remove(at: bubbleIndex!)
                 view.removeFromSuperview()
             }
 
-            let xPosP = CGFloat(diffTouchAreaX)
-            let yPosP = CGFloat(diffTouchAreaY)
-
-            let segment1Path = UIBezierPath()
-            segment1Path.move(to: CGPoint(x: xPosP, y: yPosP))
-            segment1Path.addCurve(to: CGPoint(x: xPosP+bubbleConfig.radius, y: yPosP-bubbleConfig.radius),
-                                  controlPoint1: CGPoint(x: xPosP, y: yPosP-magicValue),
-                                  controlPoint2: CGPoint(x: xPosP+bubbleConfig.radius-magicValue, y: yPosP-bubbleConfig.radius))
-
-            segment1Path.addLine(to: CGPoint(x: xPosP+bubbleConfig.radius, y: yPosP))
-            let segment1Layer = CAShapeLayer()
-            segment1Layer.path = segment1Path.cgPath
-            segment1Layer.fillColor = color.cgColor
-            segment1Layer.strokeColor = color.cgColor
-            segment1Layer.lineWidth = 0.0
-            view.layer.addSublayer(segment1Layer)
-
-            let segment2Path = UIBezierPath()
-            segment2Path.move(to: CGPoint(x: xPosP+bubbleConfig.radius, y: yPosP-bubbleConfig.radius))
-            segment2Path.addCurve(to: CGPoint(x: xPosP+bubbleConfig.radius*2, y: yPosP),
-                                  controlPoint1: CGPoint(x: xPosP+bubbleConfig.radius+magicValue, y: yPosP-bubbleConfig.radius),
-                                  controlPoint2: CGPoint(x: xPosP+bubbleConfig.radius*2, y: yPosP-magicValue))
-
-            segment2Path.addLine(to: CGPoint(x: xPosP+bubbleConfig.radius, y: yPosP))
-            let segment2Layer = CAShapeLayer()
-            segment2Layer.path = segment2Path.cgPath
-            segment2Layer.fillColor = color.cgColor
-            segment2Layer.strokeColor = color.cgColor
-            segment2Layer.lineWidth = 0.0
-            view.layer.addSublayer(segment2Layer)
-
-            let segment3Path = UIBezierPath()
-            segment3Path.move(to: CGPoint(x: xPosP, y: yPosP))
-            segment3Path.addCurve(to: CGPoint(x: xPosP+bubbleConfig.radius, y: yPosP+bubbleConfig.radius*1.5),
-                                  controlPoint1: CGPoint(x: xPosP, y: yPosP+magicValue),
-                                  controlPoint2: CGPoint(x: xPosP+bubbleConfig.radius-magicValue, y: yPosP+bubbleConfig.radius))
-            segment3Path.addLine(to: CGPoint(x: xPosP+bubbleConfig.radius, y: yPosP))
-
-            let segment3Layer = CAShapeLayer()
-            segment3Layer.path = segment3Path.cgPath
-            segment3Layer.fillColor = color.cgColor
-            segment3Layer.strokeColor = color.cgColor
-            segment3Layer.lineWidth = 0.0
-            view.layer.addSublayer(segment3Layer)
-
-            let segment4Path = UIBezierPath()
-            segment4Path.move(to: CGPoint(x: xPosP+bubbleConfig.radius*2, y: yPosP))
-            segment4Path.addCurve(to: CGPoint(x: xPosP+bubbleConfig.radius, y: yPosP+bubbleConfig.radius*1.5),
-                                  controlPoint1: CGPoint(x: xPosP+bubbleConfig.radius*2, y: yPosP+magicValue),
-                                  controlPoint2: CGPoint(x: xPosP+bubbleConfig.radius+magicValue, y: yPosP+bubbleConfig.radius))
-            segment4Path.addLine(to: CGPoint(x: xPosP+bubbleConfig.radius, y: yPosP))
-
-            let segment4Layer = CAShapeLayer()
-            segment4Layer.path = segment4Path.cgPath
-            segment4Layer.fillColor = color.cgColor
-            segment4Layer.strokeColor = color.cgColor
-            segment4Layer.lineWidth = 0.0
-            view.layer.addSublayer(segment4Layer)
-
             if showShadows {
                 view.layer.shouldRasterize = true
-                applyShadow(layer: view.layer)
+                MLLayersShadow.applyShadow(layer: view.layer)
             }
-
-            drawTextBubbleValue(view: view,xPos: xPosP, yPos: yPosP, bubbleConfig: bubbleConfig)
-            drawTextBubbleLabel(view: view, xPos: xPosP, yPos: yPosP, bubbleConfig: bubbleConfig)
-            scrollView.addSubview(view)
+            
+            if disableScroll {
+                addSubview(view)
+            } else {
+                scrollView.addSubview(view)
+            }
         }
-    }
-
-    fileprivate func applyShadow(layer: CALayer) {
-        let color = UIColor(red: 38/255, green: 46/255, blue: 48/255, alpha: 0.5)
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = 4
-        layer.shadowOpacity = 1
-    }
-    fileprivate func applyShadow(layer: CAShapeLayer) {
-        let color = UIColor(red: 38/255, green: 46/255, blue: 48/255, alpha: 0.4)
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = 2
-        layer.shadowOpacity = 1
-    }
-    /*
-     Draw Text Value inseide Bubble
-     */
-    fileprivate func drawTextBubbleValue(view: UIView, xPos: CGFloat, yPos: CGFloat, bubbleConfig: MLBubbleConfig) {
-        let textLayer = CATextLayer()
-        textLayer.frame = CGRect(x: xPos, y: yPos-(bubbleConfig.radius)+4,
-                                 width: bubbleConfig.radius*2,
-                                 height: bubbleConfig.radius*2)
-        textLayer.foregroundColor = bubbleConfig.value.color!.cgColor
-        textLayer.backgroundColor = UIColor.clear.cgColor
-        textLayer.alignmentMode = CATextLayerAlignmentMode.center
-        textLayer.contentsScale = UIScreen.main.scale
-        var value = bubbleConfig.value
-        let font = value.createFont()
-        textLayer.font = font.ctfont
-        textLayer.fontSize = font.size
-        textLayer.string = bubbleConfig.value.value
-        view.layer.addSublayer(textLayer)
-    }
-
-    /*
-     Draw Text Label inseide Bubble
-     */
-    fileprivate func drawTextBubbleLabel(view: UIView, xPos: CGFloat, yPos: CGFloat, bubbleConfig: MLBubbleConfig) {
-        let textLayer = CATextLayer()
-        textLayer.frame = CGRect(x: xPos, y: yPos-(bubbleConfig.radius / 2) + bubbleLabelDistance,
-                                 width: bubbleConfig.radius * 2,
-                                 height: bubbleConfig.radius * 2)
-        textLayer.foregroundColor = bubbleConfig.label.color!.cgColor
-        textLayer.backgroundColor = UIColor.clear.cgColor
-        textLayer.alignmentMode = CATextLayerAlignmentMode.center
-        textLayer.contentsScale = UIScreen.main.scale
-        var label = bubbleConfig.label
-        let font = label.createFont()
-        textLayer.font = font.ctfont
-        textLayer.fontSize = font.size
-        textLayer.string = label.value
-        view.layer.addSublayer(textLayer)
     }
 }
 //extension MLLineChart Handles

@@ -44,9 +44,12 @@ class MLCurveAlgorithm {
             let curvedSegment = MLCurvedSegment(controlPoint1: controlPoint1, controlPoint2: controlPoint2)
             result.append(curvedSegment)
         }
-        
+        var limit = 1
+        if points.count > 1 {
+            limit = points.count-1
+        }
         // Calculate good control points
-        for i in 1..<points.count-1 {
+        for i in 1..<limit {
             /// A temporary control point
             let M = result[i-1].controlPoint2
             
