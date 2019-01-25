@@ -53,7 +53,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
 
-pod 'MLLineChart', '~> 1.2.0'
+pod 'MLLineChart', '~> 2.0.0'
 ```
 
 Then, run the following command:
@@ -79,32 +79,11 @@ $ brew install carthage
 To integrate MLLineChart into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "micheltlutz/MLLineChart" ~> 1.2.0
+github "micheltlutz/MLLineChart" ~> 2.0.0
 ```
 
 </details>
 
-<details>
-  <summary><strong>Swift Package Manager</strong></summary>
-
-To use MLLineChart as a [Swift Package Manager](https://swift.org/package-manager/) package just add the following in your Package.swift file.
-
-``` swift
-// swift-tools-version:4.2
-
-import PackageDescription
-
-let package = Package(
-    name: "HelloMLLineChart",
-    dependencies: [
-        .package(url: "https://github.com/micheltlutz/MLLineChart.git", .upToNextMajor(from: "1.2.0"))
-    ],
-    targets: [
-        .target(name: "HelloMLLineChart", dependencies: ["MLLineChart"])
-    ]
-)
-```
-</details>
 
 ### Manually
 
@@ -175,11 +154,6 @@ class ViewController: UIViewController {
         setupChart()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        lineLinearChart.animate()
-    }
-
     private func makeData() {
         dataEntries.append(MLPointEntry(value: 0, label: "1", color: UIColor.init(hex: "f0f0f0"), bubbleConfig: nil))
         dataEntries.append(MLPointEntry(value: 6, label: "2", color: UIColor.init(hex: "70A886"), bubbleConfig: nil))
@@ -197,27 +171,14 @@ class ViewController: UIViewController {
         lineLinearChart = MLLineChart(frame: CGRect(x: 0, y: 0, width: 320, height: heightChart))
         lineLinearChart.translatesAutoresizingMaskIntoConstraints = false
         lineLinearChart.dataEntries = dataEntries
-        lineLinearChart.minPoint = 0
-        lineLinearChart.maxPoint = 7
-        lineLinearChart.showAxisLine = true
-        lineLinearChart.showHorizontalLines = true
-        lineLinearChart.showDots = false
-        lineLinearChart.lineColor = .lightGray
-        lineLinearChart.horizontalLinesColor = .gray
-        lineLinearChart.labelColor = .gray
-        lineLinearChart.showBubbleInfo = false
-        lineLinearChart.hasColoredLines = true
-        lineLinearChart.labelBottomConfig = MLLabelConfig(color: .gray,
-                                                          backgroundColor: .clear,
-                                                          rounded: false,
+        lineLinearChart.lineColor = .gray
+        lineLinearChart.lineWidth = 2
+        lineLinearChart.showShadows = true
+        lineLinearChart.configLabelsBottom = MLLabelConfig(color: .white,
+                                                          backgroundColor: .gray,
+                                                          rounded: true,
                                                           font: UIFont.systemFont(ofSize: 11),
                                                           width: 16, height: 16, fontSize: 11)
-        self.setupViewConfiguration()
-
-    }
-
-    public func animate() {
-        lineLinearChart.scrollToTheEnd()
     }
     
     /// Cntinue your code
@@ -228,9 +189,10 @@ class ViewController: UIViewController {
 
 ## Docs
 
+- In work
 [Documentation](http://htmlpreview.github.io/?https://github.com/micheltlutz/MLLineChart/blob/develop/docs/index.html)
 
-MLLineChart Docs (42% documented)
+MLLineChart Docs (- documented)
 
 
 ## Demo App
@@ -254,8 +216,8 @@ Issues and pull requests are welcome!
 
 ## Todo
 
-- [ ] Curved chart with colors on segments
 - [X] Migrate to Swift 4.2
+- [ ] Support again to line without curve
 - [ ] 100% documented
 
 ## Author

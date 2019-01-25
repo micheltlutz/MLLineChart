@@ -1,6 +1,6 @@
 ////MIT License
 ////
-////Copyright (c) 2018 Michel Anderson Lüz Teixeira
+////Copyright (c) 2019 Michel Anderson Lüz Teixeira
 ////
 ////Permission is hereby granted, free of charge, to any person obtaining a copy
 ////of this software and associated documentation files (the "Software"), to deal
@@ -22,33 +22,15 @@
 
 import UIKit
 
-/**
- * MLDotCALayer
- */
-class MLDotCALayer: CALayer {
+struct MLLayersShadow {
+    private static let shadowRadius: CGFloat = 3.0
+    private static let shadowOpacity: Float = 0.16
+    private static let color = UIColor(red: 38/255, green: 46/255, blue: 48/255, alpha: 0.5)
 
-    var innerRadius: CGFloat = 24
-    var dotInnerColor = UIColor.lightGray
-
-    override init() {
-        super.init()
-    }
-
-    override init(layer: Any) {
-        super.init(layer: layer)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override func layoutSublayers() {
-        super.layoutSublayers()
-        let inset = self.bounds.size.width - innerRadius
-        let innerDotLayer = CALayer()
-        innerDotLayer.frame = self.bounds.insetBy(dx: inset/2, dy: inset/2)
-        innerDotLayer.backgroundColor = dotInnerColor.cgColor
-        innerDotLayer.cornerRadius = innerRadius / 2
-        self.addSublayer(innerDotLayer)
+    static func applyShadow<T: CALayer>(layer: T) {
+        layer.shadowColor = MLLayersShadow.color.cgColor
+        layer.shadowRadius = MLLayersShadow.shadowRadius
+        layer.shadowOpacity = MLLayersShadow.shadowOpacity
+        layer.shadowOffset = CGSize(width: 0, height: 6.0)
     }
 }

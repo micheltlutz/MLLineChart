@@ -1,6 +1,6 @@
 ////MIT License
 ////
-////Copyright (c) 2018 Michel Anderson Lüz Teixeira
+////Copyright (c) 2019 Michel Anderson Lüz Teixeira
 ////
 ////Permission is hereby granted, free of charge, to any person obtaining a copy
 ////of this software and associated documentation files (the "Software"), to deal
@@ -22,19 +22,8 @@
 
 import UIKit
 
-public struct MLBubbleConfig {
-    public var radius: CGFloat = 25.0
-    public let value: MLTextConfig
-    public let label: MLTextConfig
-    public var labelDistance: CGFloat = 18
-    public let color: UIColor?
-
-    public init(radius: CGFloat, value: MLTextConfig, label: MLTextConfig,
-                labelDistance: CGFloat, color: UIColor? = .gray) {
-        self.radius = radius
-        self.label = label
-        self.value = value
-        self.color = color
-        self.labelDistance = labelDistance
-    }
+/// Delegate method
+public protocol MLDelegate {
+    func didSelectDataPoint(_ xValue: CGFloat, yValues: [CGFloat])
 }
+
