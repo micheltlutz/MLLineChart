@@ -1,6 +1,6 @@
 ////MIT License
 ////
-////Copyright (c) 2018 Michel Anderson Lüz Teixeira
+////Copyright (c) 2019 Michel Anderson Lüz Teixeira
 ////
 ////Permission is hereby granted, free of charge, to any person obtaining a copy
 ////of this software and associated documentation files (the "Software"), to deal
@@ -20,28 +20,14 @@
 ////OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ////SOFTWARE.
 
-import UIKit
+import Foundation
 
-public struct MLPointEntry {
-    public let value: CGFloat
-    public let label: String
-    public let color: UIColor?
-    public let bubbleConfig: MLBubbleConfig?
-    public let dotColor: UIColor?
-    public init(value: CGFloat, label: String, color: UIColor? = .gray, bubbleConfig: MLBubbleConfig? = nil, dotColor: UIColor? = nil) {
-        self.value = value
-        self.label = label
-        self.color = color
-        self.bubbleConfig = bubbleConfig
-        self.dotColor = dotColor
+extension NSObject {
+    var className: String {
+        return String(describing: type(of: self))
     }
-}
 
-extension MLPointEntry: Comparable {
-    public static func <(lhs: MLPointEntry, rhs: MLPointEntry) -> Bool {
-        return lhs.value < rhs.value
-    }
-    public static func ==(lhs: MLPointEntry, rhs: MLPointEntry) -> Bool {
-        return lhs.value == rhs.value
+    class var className: String {
+        return String(describing: self)
     }
 }

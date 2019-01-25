@@ -1,22 +1,36 @@
-//
-//  MLUIView+Borders.swift
-//  MLLineChart-iOS
-//
-//  Created by Michel Anderson Lutz Teixeira on 01/10/18.
-//  Copyright © 2018 micheltlutz. All rights reserved.
-//
+////MIT License
+////
+////Copyright (c) 2019 Michel Anderson Lüz Teixeira
+////
+////Permission is hereby granted, free of charge, to any person obtaining a copy
+////of this software and associated documentation files (the "Software"), to deal
+////in the Software without restriction, including without limitation the rights
+////to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+////copies of the Software, and to permit persons to whom the Software is
+////furnished to do so, subject to the following conditions:
+////
+////The above copyright notice and this permission notice shall be included in all
+////copies or substantial portions of the Software.
+////
+////THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+////IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+////FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+////AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+////LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+////OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+////SOFTWARE.
+
 import UIKit
 
 public extension UIView {
-
-    public enum ViewSide {
+    public enum MLViewSide {
         case top
         case right
         case bottom
         case left
     }
 
-    public func createBorder(side: ViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) -> CALayer {
+    public func createBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) -> CALayer {
 
         switch side {
         case .top:
@@ -53,7 +67,7 @@ public extension UIView {
         }
     }
 
-    public func createViewBackedBorder(side: ViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) -> UIView {
+    public func createViewBackedBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) -> UIView {
 
         switch side {
         case .top:
@@ -89,7 +103,7 @@ public extension UIView {
         }
     }
 
-    public func addBorder(side: ViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) {
+    public func addBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) {
 
         switch side {
         case .top:
@@ -128,7 +142,7 @@ public extension UIView {
         }
     }
 
-    public func addViewBackedBorder(side: ViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) {
+    public func addViewBackedBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) {
 
         switch side {
         case .top:

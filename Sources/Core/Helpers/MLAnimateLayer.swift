@@ -1,6 +1,6 @@
 ////MIT License
 ////
-////Copyright (c) 2018 Michel Anderson Lüz Teixeira
+////Copyright (c) 2019 Michel Anderson Lüz Teixeira
 ////
 ////Permission is hereby granted, free of charge, to any person obtaining a copy
 ////of this software and associated documentation files (the "Software"), to deal
@@ -22,26 +22,27 @@
 
 import UIKit
 
-/**
- Struct Configure a Text for buble infos
- */
-public struct MLTextConfig {
-    
-    public let value: String
-    public var color: UIColor?
-    public var font: UIFont?
-    public init(value: String, color: UIColor? = .gray, font: UIFont? = UIFont.systemFont(ofSize: 14)) {
-        self.value = value
-        self.color = color
-        self.font = font
+struct MLAnimateLayer {
+    private let mlStrokeAnimationKey = "StrokeAnimationKey"
+    private let mlFadeAnimationKey = "FadeAnimationKey"
+    func animateLine<T: CALayer>(layer: T) {
+        let growAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        growAnimation.toValue = 1
+        growAnimation.beginTime = CACurrentMediaTime() + 0.5
+        growAnimation.duration = 1.5
+        growAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+        growAnimation.fillMode = CAMediaTimingFillMode.forwards
+        growAnimation.isRemovedOnCompletion = false
+        layer.add(growAnimation, forKey: mlStrokeAnimationKey)
     }
 
-    mutating func createFont() -> (ctfont: CFTypeRef, size: CGFloat){
-        if let unwrappedFont = font {
-            return (ctfont: CTFontCreateWithName(unwrappedFont.fontName as CFString, 0, nil), size: unwrappedFont.pointSize)
-        } else {
-            self.font = UIFont.systemFont(ofSize: 14)
-            return (ctfont: CTFontCreateWithName(self.font!.fontName as CFString, 0, nil), size: self.font!.pointSize)
-        }
+    static func animateDots(dotLayer: CALayer) {
+        let anim = CABasicAnimation(keyPath: "opacity")
+        anim.duration = 1.0
+        anim.fromValue = 0
+        anim.toValue = 1
+        dotLayer.add(anim, forKey: "opacity")
     }
 }
+
+
