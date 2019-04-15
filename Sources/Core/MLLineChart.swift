@@ -331,7 +331,7 @@ extension MLLineChart {
 
             let view = MLBubbleView(bubbleConfig: bubbleConfig, dataPoint: dataPoints[index])
             view.addMLTapGestureRecognizer { (action) in
-                let bubbleIndex = self.bubblesVisible.index(of: index)
+                let bubbleIndex = self.bubblesVisible.firstIndex(of: index)
                 view.removeFromSuperview()
                 self.bubblesVisible.remove(at: bubbleIndex!)
             }

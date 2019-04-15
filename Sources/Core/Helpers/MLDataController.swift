@@ -43,7 +43,9 @@ public struct MLDataController {
         var points = [CGPoint]()
         let heightConst: CGFloat = height / 10
         for i in 0..<entries.count {
-            let x = (width / CGFloat(entries.count - 1)) * CGFloat(i)
+            var xEntry: CGFloat = 1
+            if entries.count > 1 { xEntry = CGFloat(entries.count - 1) }
+            let x = (width / xEntry) * CGFloat(i)
             let y = height - (entries[i].value * heightConst)
 
             let point = CGPoint(x: x, y: y)

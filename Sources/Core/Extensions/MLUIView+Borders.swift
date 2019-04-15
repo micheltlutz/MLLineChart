@@ -23,14 +23,14 @@
 import UIKit
 
 public extension UIView {
-    public enum MLViewSide {
+    enum MLViewSide {
         case top
         case right
         case bottom
         case left
     }
 
-    public func createBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) -> CALayer {
+    func createBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) -> CALayer {
 
         switch side {
         case .top:
@@ -67,7 +67,7 @@ public extension UIView {
         }
     }
 
-    public func createViewBackedBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) -> UIView {
+    func createViewBackedBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) -> UIView {
 
         switch side {
         case .top:
@@ -103,7 +103,7 @@ public extension UIView {
         }
     }
 
-    public func addBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) {
+    func addBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) {
 
         switch side {
         case .top:
@@ -142,7 +142,7 @@ public extension UIView {
         }
     }
 
-    public func addViewBackedBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) {
+    func addViewBackedBorder(side: MLViewSide, thickness: CGFloat, color: UIColor, leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) {
 
         switch side {
         case .top:
