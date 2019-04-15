@@ -8,6 +8,12 @@
 
 ---
 
+## [2.0.0 - Swift 4.2](https://github.com/micheltlutz/MLLineChart/releases/tag/v2.0.0) (2018-12-27)
+
+* Version 2.0 - New Core
+
+---
+
 ## [1.2.0 - Swift 4.2](https://github.com/micheltlutz/MLLineChart/releases/tag/v1.2.0) (2018-12-27)
 
 * Suport gradient curved charts
