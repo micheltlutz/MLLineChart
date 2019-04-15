@@ -145,8 +145,10 @@ $ git submodule update --init --recursive
 import MLLineChart
 
 class ViewController: UIViewController {
-    private var lineLinearChart: MLLineChart!
+	 private var lineChart: MLLineChart!
     private var dataEntries: [MLPointEntry] = []
+    var widthChart = CGFloat(320)
+    var heightChart = CGFloat(275)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,32 +157,26 @@ class ViewController: UIViewController {
     }
 
     private func makeData() {
-        dataEntries.append(MLPointEntry(value: 0, label: "1", color: UIColor.init(hex: "f0f0f0"), bubbleConfig: nil))
-        dataEntries.append(MLPointEntry(value: 6, label: "2", color: UIColor.init(hex: "70A886"), bubbleConfig: nil))
-        dataEntries.append(MLPointEntry(value: 6, label: "3", color: UIColor.init(hex: "70A886"), bubbleConfig: nil))
-        dataEntries.append(MLPointEntry(value: 5, label: "4", color: UIColor.init(hex: "F3A634"), bubbleConfig: nil))
-        dataEntries.append(MLPointEntry(value: 5, label: "5", color: UIColor.init(hex: "F3A634"), bubbleConfig: nil))
-        dataEntries.append(MLPointEntry(value: 3, label: "6", color: UIColor.init(hex: "EB7F33"), bubbleConfig: nil))
-        dataEntries.append(MLPointEntry(value: 5, label: "7", color: UIColor.init(hex: "F3A634"), bubbleConfig: nil))
-        dataEntries.append(MLPointEntry(value: 4, label: "8", color: UIColor.init(hex: "F29D53"), bubbleConfig: nil))
-        dataEntries.append(MLPointEntry(value: 5, label: "9", color: UIColor.init(hex: "F3A634"), bubbleConfig: nil))
-        dataEntries.append(MLPointEntry(value: 3, label: "10", color: UIColor.init(hex: "EB7F33"), bubbleConfig: nil))
+        dataEntries.append(MLPointEntry(value: 5, label: "1", color: .gray))
+        dataEntries.append(MLPointEntry(value: 6, label: "2", color: .green))
+        dataEntries.append(MLPointEntry(value: 4, label: "3", color: .blue))
     }
 
     private func setupChart() {
-        lineLinearChart = MLLineChart(frame: CGRect(x: 0, y: 0, width: 320, height: heightChart))
-        lineLinearChart.translatesAutoresizingMaskIntoConstraints = false
-        lineLinearChart.dataEntries = dataEntries
-        lineLinearChart.lineColor = .gray
-        lineLinearChart.lineWidth = 2
-        lineLinearChart.showShadows = true
-        lineLinearChart.configLabelsBottom = MLLabelConfig(color: .white,
-                                                          backgroundColor: .gray,
-                                                          rounded: true,
-                                                          font: UIFont.systemFont(ofSize: 11),
-                                                          width: 16, height: 16, fontSize: 11)
-    }
-    
+        lineChart = MLLineChart(frame: CGRect(x: 0, y: 0, width: widthChart, height: heightChart))
+        lineChart.translatesAutoresizingMaskIntoConstraints = false
+        lineChart.dataEntries = dataEntries
+        lineChart.lineColor = .gray
+        lineChart.lineWidth = 2
+        lineChart.showShadows = true
+        lineChart.showAxisLine = true
+        lineChart.gradienLinesColors = [UIColor.gray.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor]
+        lineChart.configLabelsBottom = MLLabelConfig(color: .white,
+                                                           backgroundColor: .gray,
+                                                           rounded: true,
+                                                           font: UIFont.systemFont(ofSize: 11),
+                                                           width: 16, height: 16, fontSize: 11)
+    }    
     /// Cntinue your code
     
 }
@@ -197,9 +193,7 @@ MLLineChart Docs (- documented)
 
 ## Demo App
 
-
-
-Clone: [MLLineChartDemo](https://github.com/micheltlutz/MLLineChartDemo)
+Using MLLineChartDemo Target on this project
 
 
 <p align="center">

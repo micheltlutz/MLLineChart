@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
  s.name = 'MLLineChart'
- s.version = '2.0.2'
+ s.version = '2.0.3'
  s.license = { :type => "MIT", :file => "LICENSE" }
  s.summary = 'A Simple customizable line chart'
  s.homepage = 'http://micheltlutz.me'
