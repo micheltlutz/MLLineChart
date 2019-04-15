@@ -49,7 +49,9 @@ class MLLabelView: UIView {
     }
 
     private func getLabel(text: String, index: Int) -> UILabel {
-        let xPos = ((width / CGFloat(dataEntries.count - 1)) * CGFloat(index)) - (labelConfig.width! / 2)
+        var xEntry: CGFloat = 1
+        if dataEntries.count > 1 { xEntry = CGFloat(dataEntries.count - 1) }
+        let xPos = ((width / xEntry) * CGFloat(index)) - (labelConfig.width! / 2)
         let label = UILabel(frame: CGRect(x: xPos,
                                           y: 0, width: labelConfig.width!,
                                           height: labelConfig.height!))

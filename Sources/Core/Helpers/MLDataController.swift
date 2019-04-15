@@ -44,7 +44,10 @@ public struct MLDataController {
         let heightConst: CGFloat = height / 10
         for i in 0..<entries.count {
             var xEntry: CGFloat = 1
-            if entries.count > 1 { xEntry = CGFloat(entries.count - 1) }
+            if entries.count > 1 {
+                xEntry = CGFloat(entries.count - 1)
+                if xEntry <= 0 { xEntry = 1 }
+            }
             let x = (width / xEntry) * CGFloat(i)
             let y = height - (entries[i].value * heightConst)
 
