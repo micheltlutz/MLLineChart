@@ -1,6 +1,14 @@
 # Change Log
 -----
+## [2.0.3 - Swift 5](https://github.com/micheltlutz/MLLineChart/releases/tag/v2.0.3) (2019-04-15)
 
+#### Add
+* Demo target added
+
+#### Fix
+* Fix for bug in Label with 1 dataEntry
+
+---
 ## [2.0.2 - Swift 5](https://github.com/micheltlutz/MLLineChart/releases/tag/v2.0.2) (2019-04-14)
 
 #### Add
