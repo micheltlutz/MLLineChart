@@ -5,7 +5,7 @@
 </p>
 
 
-[![Swift 4.2](https://img.shields.io/badge/swift-4.2-brightgreen.svg)](https://swift.org)
+[![Swift 5.0](https://img.shields.io/badge/swift-5.0-brightgreen.svg)](https://swift.org)
 [![Platforms](https://img.shields.io/cocoapods/p/MLLineChart.svg)](https://cocoapods.org/pods/MLLineChart)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/micheltlutz/MLLineChart/master/LICENSE)
 [![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
@@ -23,7 +23,7 @@ A Simple Line Chart Library
 ## Requirements
 
 - iOS 10.0+ / tvOS 9.0+ 
-- Xcode 9.0+
+- Xcode 10.2.1+
 
 ## Installation
 
@@ -53,7 +53,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
 
-pod 'MLLineChart', '~> 2.0.0'
+pod 'MLLineChart', '~> 2.0.4'
 ```
 
 Then, run the following command:
@@ -79,7 +79,7 @@ $ brew install carthage
 To integrate MLLineChart into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "micheltlutz/MLLineChart" ~> 2.0.0
+github "micheltlutz/MLLineChart" ~> 2.0.4
 ```
 
 </details>
