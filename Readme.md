@@ -53,7 +53,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
 
-pod 'MLLineChart', '~> 2.0.4'
+pod 'MLLineChart', '~> 2.0.5'
 ```
 
 Then, run the following command:
@@ -79,7 +79,7 @@ $ brew install carthage
 To integrate MLLineChart into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "micheltlutz/MLLineChart" ~> 2.0.4
+github "micheltlutz/MLLineChart" ~> 2.0.5
 ```
 
 </details>
