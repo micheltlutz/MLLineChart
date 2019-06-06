@@ -370,10 +370,10 @@ extension MLLineChart {
                 var flagBreakX = false
                 var flagBreakY = false
 
-                let dotLayerXErrPlus = dotLayer.position.x + 16
-                let dotLayerXErrMin = dotLayer.position.x - 16
-                let dotLayerYErrPlus = dotLayer.position.y + 16
-                let dotLayerYErrMin = dotLayer.position.y - 16
+                let dotLayerXErrPlus = dotLayer.position.x + 20
+                let dotLayerXErrMin = dotLayer.position.x - 20
+                let dotLayerYErrPlus = dotLayer.position.y + 20
+                let dotLayerYErrMin = dotLayer.position.y - 20
 
                 if dotLayer.position.x...dotLayerXErrPlus ~= xValue || dotLayerXErrMin...dotLayer.position.x ~= xValue {
                     flagBreakX = true

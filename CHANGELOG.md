@@ -1,5 +1,11 @@
 # Change Log
 -----
+## [2.0.4 - Swift 5](https://github.com/micheltlutz/MLLineChart/releases/tag/v2.0.4) (2019-06-06)
+
+#### Fix
+* Up touch area for dots
+
+-----
 ## [2.0.3 - Swift 5](https://github.com/micheltlutz/MLLineChart/releases/tag/v2.0.3) (2019-04-15)
 
 #### Add
